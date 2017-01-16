@@ -15,6 +15,7 @@ public class TimeKeep : MonoBehaviour {
 	void Start () {
         Application.runInBackground = true;
         Time.timeScale = timeScale;
+        Time.fixedDeltaTime = timeScale * 0.02f;
         text = GetComponent<GUIText>();
         time =  0f;
 
@@ -40,10 +41,16 @@ public class TimeKeep : MonoBehaviour {
         text.text = "Time: " + time.ToString("F2") +" "+ restart;
 
         if (Input.GetKeyDown("space"))
+        {
             Time.timeScale = 1f;
+            Time.fixedDeltaTime = 1f * 0.02f;
+        }
         if (Input.GetKeyUp("space"))
-            Time.timeScale = timeScale;
+        {
 
+            Time.timeScale = timeScale;
+            Time.fixedDeltaTime = timeScale * 0.02f;
+        }
         if (time >= timeOut)
         {
             agent.LevelEnd();

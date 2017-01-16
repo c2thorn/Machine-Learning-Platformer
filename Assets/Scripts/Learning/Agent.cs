@@ -112,7 +112,7 @@ public class Agent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        getAction();
+
         grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
 
         if (actions[2] && grounded && rb2d.velocity.y == 0)
@@ -252,7 +252,7 @@ public class Agent : MonoBehaviour
 
     void FixedUpdate()
     {
-
+        getAction();
         float h = getHorizontal();
 
         anim.SetFloat("Speed", Mathf.Abs(h));

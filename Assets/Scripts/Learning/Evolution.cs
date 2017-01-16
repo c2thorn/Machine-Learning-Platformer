@@ -23,7 +23,8 @@ public class Evolution {
         population = new NeuralNet[popSize];
         for (int i = 0; i < population.Length; i++)
         {
-            population[i] = new NeuralNet();
+            population[i] = new NeuralNet("200 Score");
+            //population[i] = new NeuralNet();
         }
 
         fitness = new float[popSize];
@@ -41,6 +42,7 @@ public class Evolution {
         {
             bestFit = score;
             best = population[popIndex].copy();
+            population[popIndex].writeNet(score + " Score");
         }
         fitness[popIndex] += score;
         evalIndex++;
@@ -78,6 +80,7 @@ public class Evolution {
         {
             fitness[i] = 0;
         }
+
     }
 
     private void evaluate(int which)

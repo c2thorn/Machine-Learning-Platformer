@@ -14,7 +14,7 @@ public class NeuralNet {
     private double[] outputs = new double[numberOfOutputs];
     private double[] inputs = new double[numberOfInputs];
     //private double[] targetOutputs;
-    public double mutationMagnitude = 2;
+    public double mutationMagnitude = 5;
     public static System.Random random = new System.Random();
 
     public static double mean = 0.0f;        // initialization mean
@@ -48,6 +48,36 @@ public class NeuralNet {
         inputs = new double[numberOfInputs];
         initializeLayer(firstConnectionLayer);
         initializeLayer(secondConnectionLayer);
+    }
+
+    public NeuralNet(String fileName)
+    {
+        string[] lines = System.IO.File.ReadAllLines(@"C:\Users\c2tho_000\Documents\platformer3\NeuralNets\" + fileName + ".txt");
+        for (int i = 0; i < numberOfInputs; i++)
+        {
+            firstConnectionLayer[i] = new double[numberOfHidden];
+        }
+        secondConnectionLayer = new double[numberOfHidden][];
+        for (int i = 0; i < numberOfHidden; i++)
+        {
+            secondConnectionLayer[i] = new double[numberOfOutputs];
+        }
+
+        for (int i = 0; i < numberOfInputs; i++)
+        {
+            String[] vals = lines[i].Split(' ');
+            for (int j = 0; j < numberOfHidden; j++)
+                firstConnectionLayer[i][j] = Double.Parse(vals[j]);
+        }
+        for (int i = 0; i < numberOfHidden; i++)
+        {
+            String[] vals = lines[i + numberOfInputs].Split(' ');
+            for (int j = 0; j < numberOfOutputs; j++)
+                secondConnectionLayer[i][j] = Double.Parse(vals[j]);
+        }
+        inputs = new double[firstConnectionLayer.Length];
+        hiddenNeurons = new double[numberOfHidden];
+        outputs = new double[numberOfOutputs];
     }
 
     protected void initializeLayer(double[][] layer)
@@ -166,5 +196,23 @@ public class NeuralNet {
     {
         NeuralNet second = new NeuralNet(copy(firstConnectionLayer), copy(secondConnectionLayer));
         return second;
+    }
+
+    public void writeNet(String name)
+    {
+        string[] lines = new String[numberOfInputs + numberOfHidden];
+        for (int i = 0; i < numberOfInputs; i++)
+        {
+            for (int j = 0; j < numberOfHidden; j++)
+                lines[i] += firstConnectionLayer[i][j]+" ";
+        }
+        for (int i = 0; i < numberOfHidden; i++)
+        {
+            for (int j = 0; j < numberOfOutputs; j++)
+                lines[i+numberOfInputs] += secondConnectionLayer[i][j] + " ";
+        }
+        // WriteAllLines creates a file, writes a collection of strings to the file,
+        // and then closes the file.  You do NOT need to call Flush() or Close().
+        System.IO.File.WriteAllLines(@"C:\Users\c2tho_000\Documents\platformer3\NeuralNets\" + name+".txt", lines);
     }
 }

@@ -462,7 +462,7 @@ Prefab:
     - target: {fileID: 114141726085044160, guid: d920f10756856c140b26a868bfc216d7,
         type: 2}
       propertyPath: timeScale
-      value: 100
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114141726085044160, guid: d920f10756856c140b26a868bfc216d7,
         type: 2}
