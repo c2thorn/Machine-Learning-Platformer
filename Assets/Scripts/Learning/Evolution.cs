@@ -23,7 +23,7 @@ public class Evolution {
         population = new NeuralNet[popSize];
         for (int i = 0; i < population.Length; i++)
         {
-            population[i] = new NeuralNet("200 Score");
+            population[i] = new NeuralNet("1073 Score");
             //population[i] = new NeuralNet();
         }
 
@@ -55,8 +55,8 @@ public class Evolution {
                 cullWeak();
            else if (popIndex >= population.Length)
             {
-                nextGeneration();
-                popIndex = 0;
+                //nextGeneration();
+                nextGenerationEliteExclude();
             }
         }      
     }
@@ -74,13 +74,22 @@ public class Evolution {
     {
         shuffle();
         sortPopulationByFitness();
-        //Debug.Log("Next Generation!");
-        //Debug.Log("Highest fitness is: " + fitness[0]);
         for (int i = 0; i < population.Length; i++)
         {
             fitness[i] = 0;
         }
+        popIndex = 0;
+    }
 
+    public void nextGenerationEliteExclude()
+    {
+        sortPopulationByFitness();
+        for (int i = elite; i < population.Length; i++)
+        {
+            fitness[i] = 0;
+        }
+        popIndex = elite;
+        cullWeak();
     }
 
     private void evaluate(int which)

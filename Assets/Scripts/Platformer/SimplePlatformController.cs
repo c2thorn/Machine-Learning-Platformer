@@ -22,6 +22,8 @@ public class SimplePlatformController : MonoBehaviour
     public GUIText upText;
     public GUIText rightText;
 
+    public float raycastDistance = 0.05f;
+
     // Use this for initialization
     void Awake()
     {
@@ -98,24 +100,24 @@ public class SimplePlatformController : MonoBehaviour
         //  Debug.Log(i + " " + LayerMask.LayerToName(i));
         //}
 
-        if (Physics2D.Raycast(topRight, Vector2.right, 0.01f, 1 << LayerMask.NameToLayer("Ground")) && Physics2D.Raycast(bottomRight, Vector2.right, 0.01f, 1 << LayerMask.NameToLayer("Ground")) && h > 0)
+        if ((Physics2D.Raycast(topRight, Vector2.right, raycastDistance, 1 << LayerMask.NameToLayer("Ground")) || Physics2D.Raycast(bottomRight, Vector2.right, raycastDistance, 1 << LayerMask.NameToLayer("Ground"))) && h > 0)
         {
             rb2d.velocity = new Vector2(0, rb2d.velocity.y);
             //Debug.Log("There's a thing right");
         }
-        else if (Physics2D.Raycast(topLeft, Vector2.left, .01f, 1 << LayerMask.NameToLayer("Ground")) && Physics2D.Raycast(bottomLeft, Vector2.right, 0.01f, 1 << LayerMask.NameToLayer("Ground")) && h < 0)
+        else if ((Physics2D.Raycast(topLeft, Vector2.left, raycastDistance, 1 << LayerMask.NameToLayer("Ground")) || Physics2D.Raycast(bottomLeft, Vector2.right, raycastDistance, 1 << LayerMask.NameToLayer("Ground"))) && h < 0)
         {
             rb2d.velocity = new Vector2(0, rb2d.velocity.y);
             //Debug.Log("There's a thing left");
         }
         else if (h != 0)
         {
-            if (h * rb2d.velocity.x < maxSpeed)
-                rb2d.AddForce(Vector2.right * h * moveForce);
+            //if (h * rb2d.velocity.x < maxSpeed)
+              //  rb2d.AddForce(Vector2.right * h * moveForce);
 
-            if (Mathf.Abs(rb2d.velocity.x) > maxSpeed)
-                rb2d.velocity = new Vector2(Mathf.Sign(rb2d.velocity.x) * maxSpeed, rb2d.velocity.y);
-            //rb2d.velocity = new Vector2(h * maxSpeed, rb2d.velocity.y);
+            //if (Mathf.Abs(rb2d.velocity.x) > maxSpeed)
+              //  rb2d.velocity = new Vector2(Mathf.Sign(rb2d.velocity.x) * maxSpeed, rb2d.velocity.y);
+            rb2d.velocity = new Vector2(h * maxSpeed, rb2d.velocity.y);
         }
         else
         {
@@ -123,7 +125,7 @@ public class SimplePlatformController : MonoBehaviour
             //   rb2d.AddForce(Vector2.right * h * moveForce);
 
             //if (Mathf.Abs(rb2d.velocity.x) > maxSpeed)
-            //rb2d.velocity = new Vector2(0, rb2d.velocity.y);
+            rb2d.velocity = new Vector2(0, rb2d.velocity.y);
         }
 
         if (h > 0 && !facingRight)

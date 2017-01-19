@@ -10,12 +10,12 @@ public class TimeKeep : MonoBehaviour {
     public int viewNumber = 20;
 
     public static float restart = 0;
-    public Agent agent;
+    public Agent2 agent;
 	// Use this for initialization
 	void Start () {
         Application.runInBackground = true;
         Time.timeScale = timeScale;
-        Time.fixedDeltaTime = timeScale * 0.02f;
+        //Time.fixedDeltaTime = timeScale * 0.02f;
         text = GetComponent<GUIText>();
         time =  0f;
 
@@ -40,20 +40,22 @@ public class TimeKeep : MonoBehaviour {
         time += Time.deltaTime;
         text.text = "Time: " + time.ToString("F2") +" "+ restart;
 
-        if (Input.GetKeyDown("space"))
+        /*if (Input.GetKeyDown("space"))
         {
             Time.timeScale = 1f;
-            Time.fixedDeltaTime = 1f * 0.02f;
+            //Time.fixedDeltaTime = 1f * 0.02f;
         }
         if (Input.GetKeyUp("space"))
         {
 
             Time.timeScale = timeScale;
-            Time.fixedDeltaTime = timeScale * 0.02f;
-        }
+
+            //Time.fixedDeltaTime = timeScale * 0.02f;
+        }*/
         if (time >= timeOut)
         {
             agent.LevelEnd();
         }
+
     }
 }

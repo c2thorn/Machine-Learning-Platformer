@@ -3,20 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Agent : MonoBehaviour
+public class Agent2 : MonoBehaviour
 {
     [HideInInspector]
     public bool facingRight = true;
     [HideInInspector]
     public bool jump = false;
-    public float moveForce = 365f;
-    public float maxSpeed = 5f;
-    public float jumpForce = 1000f;
     public Transform groundCheck;
 
     private bool grounded = false;
     private Animator anim;
-    private Rigidbody2D rb2d;
+    //private Rigidbody2D rb2d;
     bool[] actions = new bool[3];
 
     public ScoreKeep scoreKeep;
@@ -34,12 +31,21 @@ public class Agent : MonoBehaviour
 
     private bool viewing = false;
 
+    private float velocityX = 0f;
+    private float velocityY = 0f;
+    private float tickCount = 0f;
+
     public float raycastDistance = 0.05f;
+
+    public float horizontalForce = 0.275f;
+    public float jumpForce = 1f;
+    public float gravityForce = 0.0825f;
+
     // Use this for initialization
-    /*void Awake()
+    void Awake()
     {
         anim = GetComponent<Animator>();
-        rb2d = GetComponent<Rigidbody2D>();
+        //rb2d = GetComponent<Rigidbody2D>();
         float restart = timeKeep.getRestart();
         if (restart % timeKeep.viewNumber == 0 && restart > 0)
         {
@@ -57,7 +63,7 @@ public class Agent : MonoBehaviour
     {
         setLearningText();
     }
-    */
+
     void setLearningText()
     {
         float restart = timeKeep.getRestart();
@@ -115,14 +121,28 @@ public class Agent : MonoBehaviour
     void Update()
     {
 
-
     }
 
     void FixedUpdate()
     {
-        grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+        tickCount++;
+        //if (tickCount % 5 == 0)
+        //tick();
 
-        if (actions[2] && grounded && rb2d.velocity.y == 0)
+        //if (Input.GetKey("space"))
+        //if (Input.GetKeyDown("space"))
+            tick();
+        if (Input.GetKey("v"))
+            LevelEnd();
+    }
+
+    public void tick()
+    {
+
+        grounded = Physics2D.Linecast(transform.position + (0.25f * Vector3.left), groundCheck.position + (0.25f * Vector3.left), 1 << LayerMask.NameToLayer("Ground"))
+    || Physics2D.Linecast(transform.position + (0.25f * Vector3.right), groundCheck.position + (0.25f * Vector3.right), 1 << LayerMask.NameToLayer("Ground"));
+
+        if (actions[2] && grounded && velocityY == 0)
         {
             jump = true;
         }
@@ -132,46 +152,13 @@ public class Agent : MonoBehaviour
 
         anim.SetFloat("Speed", Mathf.Abs(h));
 
-
-        BoxCollider2D box = GetComponent<BoxCollider2D>();
-        Vector2 topRight = new Vector2(rb2d.position.x + box.size.x / 2 + .25f, rb2d.position.y + 0.6f);
-        Vector2 topLeft = new Vector2(rb2d.position.x + -box.size.x / 2 - .25f, rb2d.position.y + 0.6f);
-
-        Vector2 bottomRight = new Vector2(rb2d.position.x + box.size.x / 2 + .25f, rb2d.position.y - 0.6f);
-        Vector2 bottomLeft = new Vector2(rb2d.position.x + -box.size.x / 2 - .25f, rb2d.position.y - 0.6f);
-
-        //Debug.DrawLine((Vector3)boxVectorStartLeft, (Vector3)boxVectorStartLeft - (.1f) * Vector3.right);
-        //for (int i = 0; i < 15; i++)
-        //{
-        //  Debug.Log(i + " " + LayerMask.LayerToName(i));
-        //}
-
-        if (Physics2D.Raycast(topRight, Vector2.right, raycastDistance, 1 << LayerMask.NameToLayer("Ground")) && Physics2D.Raycast(bottomRight, Vector2.right, raycastDistance, 1 << LayerMask.NameToLayer("Ground")) && h > 0)
+        if (h != 0)
         {
-            rb2d.velocity = new Vector2(0, rb2d.velocity.y);
-            //Debug.Log("There's a thing right");
-        }
-        else if (Physics2D.Raycast(topLeft, Vector2.left, raycastDistance, 1 << LayerMask.NameToLayer("Ground")) && Physics2D.Raycast(bottomLeft, Vector2.right, raycastDistance, 1 << LayerMask.NameToLayer("Ground")) && h < 0)
-        {
-            rb2d.velocity = new Vector2(0, rb2d.velocity.y);
-            //Debug.Log("There's a thing left");
-        }
-        else if (h != 0)
-        {
-            rb2d.velocity = new Vector2(h * maxSpeed, rb2d.velocity.y);
-            //if (h * rb2d.velocity.x < maxSpeed)
-            //    rb2d.AddForce(Vector2.right * h * moveForce);
-
-            //if (Mathf.Abs(rb2d.velocity.x) > maxSpeed)
-            //    rb2d.velocity = new Vector2(Mathf.Sign(rb2d.velocity.x) * maxSpeed, rb2d.velocity.y);
+            velocityX = h*horizontalForce;
         }
         else
         {
-            // if (h * rb2d.velocity.x < maxSpeed)
-            //   rb2d.AddForce(Vector2.right * h * moveForce);
-
-            //if (Mathf.Abs(rb2d.velocity.x) > maxSpeed)
-            rb2d.velocity = new Vector2(0, rb2d.velocity.y);
+            velocityX = 0f;
         }
 
         if (h > 0 && !facingRight)
@@ -179,11 +166,91 @@ public class Agent : MonoBehaviour
         else if (h < 0 && facingRight)
             Flip();
 
+        gravity();
+
         if (jump)
         {
             anim.SetTrigger("Jump");
-            rb2d.AddForce(new Vector2(0f, jumpForce));
+            velocityY = jumpForce;
             jump = false;
+        }
+
+        move();
+
+    }
+
+    void gravity()
+    {
+        if (!grounded && velocityY > -1f)
+        {
+            velocityY -= gravityForce;
+        }
+        //if (grounded)
+         //   velocityY = 0f;
+    }
+
+    void move()
+    {
+        if (velocityX != 0)
+            checkHorizontal(velocityX > 0 ? true : false);
+        if (velocityY != 0)
+            checkVertical(velocityY > 0 ? true : false);
+        transform.position = new Vector3(transform.position.x + velocityX, transform.position.y + velocityY, transform.position.z);
+    }
+
+    void checkHorizontal (bool right)
+    {
+        float boxSize = 0.6f;
+        Vector2 topRight = new Vector2(transform.position.x + boxSize / 2 + .25f, transform.position.y + .95f);
+        Vector2 topLeft = new Vector2(transform.position.x - boxSize / 2 - .25f, transform.position.y + .95f);
+
+        Vector2 bottomRight = new Vector2(transform.position.x + boxSize / 2 + .25f, transform.position.y - .95f);
+        Vector2 bottomLeft = new Vector2(transform.position.x - boxSize / 2 - .25f, transform.position.y - .95f);
+
+        if (right)
+        {
+            if (Physics2D.Raycast(topRight, Vector2.right, velocityX, 1 << LayerMask.NameToLayer("Ground")) || Physics2D.Raycast(bottomRight, Vector2.right, velocityX, 1 << LayerMask.NameToLayer("Ground")))
+            {
+                velocityX = 0f;
+            }
+        }
+        else
+        {
+            if (Physics2D.Raycast(topLeft, Vector2.left, -velocityX, 1 << LayerMask.NameToLayer("Ground")) || Physics2D.Raycast(bottomLeft, Vector2.left, -velocityX, 1 << LayerMask.NameToLayer("Ground")))
+            {
+                velocityX = 0f;
+            }
+        }
+    }
+
+    void checkVertical(bool up)
+    {
+        float boxSize = 0.6f;
+        Vector2 topRight = new Vector2(transform.position.x + boxSize / 2 + .25f, transform.position.y + 1f);
+        Vector2 topLeft = new Vector2(transform.position.x - boxSize / 2 - .25f, transform.position.y + 1f);
+
+        Vector2 bottomRight = new Vector2(transform.position.x + boxSize / 2 + .25f, transform.position.y - 1f);
+        Vector2 bottomLeft = new Vector2(transform.position.x - boxSize / 2 - .25f, transform.position.y - 1f);
+
+        if (up)
+        {
+            if (Physics2D.Raycast(topRight, Vector2.up, velocityY, 1 << LayerMask.NameToLayer("Ground")) || Physics2D.Raycast(topLeft, Vector2.up, velocityY, 1 << LayerMask.NameToLayer("Ground")))
+            {
+                velocityY = 0f;
+            }
+        }
+        else
+        {
+
+            RaycastHit2D botRight = Physics2D.Raycast(bottomRight, Vector2.down, -velocityY, 1 << LayerMask.NameToLayer("Ground"));
+            RaycastHit2D botLeft = Physics2D.Raycast(bottomLeft, Vector2.down, -velocityY, 1 << LayerMask.NameToLayer("Ground"));
+            if (botRight || botLeft)
+            {
+                if (botRight)
+                    velocityY = -botRight.distance;
+                if (botLeft)
+                    velocityY = -botLeft.distance;
+            }
         }
     }
 
@@ -202,7 +269,7 @@ public class Agent : MonoBehaviour
             }
         }
         inputs[inputs.Length - 3] = grounded ? 1 : 0;
-        inputs[inputs.Length - 2] = grounded && rb2d.velocity.y == 0 ? 1 : 0;
+        inputs[inputs.Length - 2] = grounded && velocityY == 0 ? 1 : 0;
         inputs[inputs.Length - 1] = 1;
 
         double[] outputs = net.propagate(inputs);

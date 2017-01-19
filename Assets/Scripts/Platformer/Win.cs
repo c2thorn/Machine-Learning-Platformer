@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Win : MonoBehaviour {
     private bool won = false;
-    public Agent agent;
+    public Agent2 agent;
+    public TimeKeep timeKeep;
     // Use this for initialization
     void Start()
     {
@@ -23,7 +24,7 @@ public class Win : MonoBehaviour {
         {
             won = true;
             GameObject.Find("Score Text").GetComponent<ScoreKeep>().score += 500;
-            Debug.Log("Won!");
+            Debug.Log("Won! "+timeKeep.getRestart());
             agent.LevelEnd();
         }
     }
