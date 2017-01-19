@@ -18,7 +18,7 @@ public class NeuralNet {
     public static System.Random random = new System.Random();
 
     public static double mean = 0.0f;        // initialization mean
-    public static double deviation = 0.1f;   // initialization deviation
+    public static double deviation = 1f;   // initialization deviation
 
     public double learningRate = 0.01;
 

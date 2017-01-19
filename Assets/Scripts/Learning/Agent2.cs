@@ -349,7 +349,7 @@ public class Agent2 : MonoBehaviour
         return col.gameObject;
     }
 
-    /* void OnDrawGizmos()
+     void OnDrawGizmos()
      {
          float x = (float)GetNearestEven(gameObject.transform.position.x);
          float y = (float)GetNearestEven(gameObject.transform.position.y);
@@ -363,7 +363,7 @@ public class Agent2 : MonoBehaviour
              }
          }
 
-     }*/
+     }
 
     double GetNearestEven(double input)
     {
@@ -400,7 +400,7 @@ public class Agent2 : MonoBehaviour
 
         if (!viewing)
         {
-            float score = scoreKeep.score - time + timeKeep.timeOut;
+            float score = scoreKeep.score + time - timeKeep.timeOut;
             ev.submitScore(score);
         }
         timeKeep.addRestart();

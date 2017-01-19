@@ -9,64 +9,47 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1046433900427928}
+  m_RootGameObject: {fileID: 1660945624690978}
   m_IsPrefabParent: 1
---- !u!1 &1046433900427928
+--- !u!1 &1660945624690978
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4481874313847858}
-  - component: {fileID: 132694118611348806}
-  - component: {fileID: 114844245032111160}
+  - component: {fileID: 4115743449751178}
+  - component: {fileID: 132589106949954342}
   m_Layer: 5
-  m_Name: Time Text
+  m_Name: Right Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4481874313847858
+--- !u!4 &4115743449751178
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1046433900427928}
+  m_GameObject: {fileID: 1660945624690978}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.05, y: 0.975, z: -1}
+  m_LocalPosition: {x: 0.1419, y: 0.875, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114844245032111160
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1046433900427928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ba0ed267698eb14a8dc6e332f3cbf46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 0
-  timeScale: 1
-  timeOut: 30
-  viewNumber: 500
-  agent: {fileID: 114617180804760388, guid: f20ad81d3b8a3af45925069aac8c6aa4, type: 2}
---- !u!132 &132694118611348806
+--- !u!132 &132589106949954342
 GUIText:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1046433900427928}
+  m_GameObject: {fileID: 1660945624690978}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: 'Time: '
-  m_Anchor: 0
+  m_Text: Right
+  m_Anchor: 1
   m_Alignment: 0
   m_PixelOffset: {x: 0, y: 0}
   m_LineSpacing: 1
@@ -74,9 +57,9 @@ GUIText:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Material: {fileID: 0}
   m_FontSize: 16
-  m_FontStyle: 0
+  m_FontStyle: 1
   m_Color:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4278190335
   m_PixelCorrect: 1
   m_RichText: 1

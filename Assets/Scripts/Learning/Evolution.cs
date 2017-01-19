@@ -23,7 +23,7 @@ public class Evolution {
         population = new NeuralNet[popSize];
         for (int i = 0; i < population.Length; i++)
         {
-            population[i] = new NeuralNet("1073 Score");
+            population[i] = new NeuralNet("150 Score");
             //population[i] = new NeuralNet();
         }
 

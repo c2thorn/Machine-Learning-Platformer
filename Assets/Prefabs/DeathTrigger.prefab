@@ -9,18 +9,18 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1302573085188942}
+  m_RootGameObject: {fileID: 1757921134896934}
   m_IsPrefabParent: 1
---- !u!1 &1302573085188942
+--- !u!1 &1757921134896934
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4672820326715960}
-  - component: {fileID: 61731978833457374}
-  - component: {fileID: 114014372631517990}
+  - component: {fileID: 4702181000537222}
+  - component: {fileID: 61545197547702888}
+  - component: {fileID: 114631303954700838}
   m_Layer: 0
   m_Name: DeathTrigger
   m_TagString: Untagged
@@ -28,12 +28,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4672820326715960
+--- !u!4 &4702181000537222
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1302573085188942}
+  m_GameObject: {fileID: 1757921134896934}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 220, y: -30, z: 0}
   m_LocalScale: {x: 499.99997, y: 1, z: 1}
@@ -41,12 +41,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61731978833457374
+--- !u!61 &61545197547702888
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1302573085188942}
+  m_GameObject: {fileID: 1757921134896934}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -55,15 +55,15 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
---- !u!114 &114014372631517990
+--- !u!114 &114631303954700838
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1302573085188942}
+  m_GameObject: {fileID: 1757921134896934}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7af63cdb69f3c954697e8b82f72de5f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 0}
+  agent: {fileID: 114617180804760388, guid: f20ad81d3b8a3af45925069aac8c6aa4, type: 2}
