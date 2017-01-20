@@ -482,34 +482,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3a5715e582ccc0e418e87934212579f3, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &99858793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114617180804760388, guid: f20ad81d3b8a3af45925069aac8c6aa4,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 338745205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d293240bdd3238439ed4b99d64facfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  facingRight: 1
-  jump: 0
-  groundCheck: {fileID: 2094549933}
-  scoreKeep: {fileID: 1666056291}
-  timeKeep: {fileID: 100422594}
-  leftText: {fileID: 1579612}
-  upText: {fileID: 1779528415}
-  rightText: {fileID: 132589106949954342, guid: f9b351d36fc8c3f46bc7bc24b084e0ba,
-    type: 2}
-  learningText: {fileID: 600050820}
-  learningText2: {fileID: 1109524892}
-  learningText3: {fileID: 1086104423}
-  raycastDistance: 0.05
-  horizontalForce: 0.275
-  jumpForce: 1
-  gravityForce: 0.0825
 --- !u!114 &100422594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -526,7 +498,7 @@ MonoBehaviour:
   timeScale: 100
   timeOut: 30
   viewNumber: 5000
-  agent: {fileID: 99858793}
+  agent: {fileID: 338745211}
 --- !u!4 &101911398 stripped
 Transform:
   m_PrefabParentObject: {fileID: 455832, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}
@@ -1259,7 +1231,7 @@ GameObject:
   - component: {fileID: 338745210}
   - component: {fileID: 338745209}
   - component: {fileID: 338745208}
-  - component: {fileID: 99858793}
+  - component: {fileID: 338745211}
   - component: {fileID: 338745207}
   m_Layer: 9
   m_Name: PlayerHero
@@ -1371,6 +1343,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &338745211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 338745205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e14db3e560eddd41b6d6f54bd6fd1fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  facingRight: 1
+  jump: 0
+  groundCheck: {fileID: 2094549933}
+  scoreKeep: {fileID: 1666056291}
+  timeKeep: {fileID: 100422594}
+  leftText: {fileID: 1579612}
+  upText: {fileID: 1779528415}
+  rightText: {fileID: 1412093661}
+  learningText: {fileID: 600050820}
+  learningText2: {fileID: 1109524892}
+  learningText3: {fileID: 1086104423}
+  raycastDistance: 0.05
+  horizontalForce: 0.275
+  jumpForce: 1
+  gravityForce: 0.0825
 --- !u!1001 &342019917
 Prefab:
   m_ObjectHideFlags: 0
@@ -2134,7 +2132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7af63cdb69f3c954697e8b82f72de5f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 99858793}
+  agent: {fileID: 338745211}
 --- !u!61 &437652735
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2195,7 +2193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1295d7c148c1bd1409981aaf6d5d75da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 99858793}
+  agent: {fileID: 338745211}
   timeKeep: {fileID: 100422594}
 --- !u!212 &449533429
 SpriteRenderer:
@@ -4565,7 +4563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7af63cdb69f3c954697e8b82f72de5f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 99858793}
+  agent: {fileID: 338745211}
 --- !u!61 &1184210643
 BoxCollider2D:
   m_ObjectHideFlags: 0

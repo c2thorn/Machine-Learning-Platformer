@@ -10,7 +10,7 @@ public class TimeKeep : MonoBehaviour {
     public int viewNumber = 20;
 
     public static float restart = 0;
-    public Agent2 agent;
+    public Agent agent;
 	// Use this for initialization
 	void Start () {
         Application.runInBackground = true;

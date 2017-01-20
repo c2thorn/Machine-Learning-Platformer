@@ -3,27 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Agent : MonoBehaviour
+public abstract class Agent : Player
 {
     [HideInInspector]
     public bool facingRight = true;
     [HideInInspector]
     public bool jump = false;
-    public float moveForce = 365f;
-    public float maxSpeed = 5f;
-    public float jumpForce = 1000f;
     public Transform groundCheck;
-
-    private bool grounded = false;
-    private Animator anim;
-    private Rigidbody2D rb2d;
-    bool[] actions = new bool[3];
-
-    public ScoreKeep scoreKeep;
     public TimeKeep timeKeep;
 
-    public static Evolution ev = new Evolution();
-    private NeuralNet net;
+    protected bool grounded = false;
+    protected Animator anim;
+    protected bool viewing = false;
 
     public GUIText leftText;
     public GUIText upText;
@@ -32,97 +23,49 @@ public class Agent : MonoBehaviour
     public GUIText learningText2;
     public GUIText learningText3;
 
-    private bool viewing = false;
-
     public float raycastDistance = 0.05f;
+
+    public float horizontalForce = 0.275f;
+    public float jumpForce = 1f;
+    public float gravityForce = 0.0825f;
+    
+    protected bool[] actions = new bool[3];
+    
+    protected float velocityX = 0f;
+    protected float velocityY = 0f;
+    protected float tickCount = 0f;
+
+    protected float restart = 0f;
+    protected float score = 0f;
+
     // Use this for initialization
-    /*void Awake()
+    protected virtual void Awake()
     {
         anim = GetComponent<Animator>();
-        rb2d = GetComponent<Rigidbody2D>();
-        float restart = timeKeep.getRestart();
-        if (restart % timeKeep.viewNumber == 0 && restart > 0)
-        {
-            viewing = true;
-            net = ev.getBestNet();
-        }
-        else
-        {
-            viewing = false;
-            net = ev.getCurrentNet();
-        }
+        restart = timeKeep.getRestart();
     }
 
-    void Start()
-    {
-        setLearningText();
-    }
-    */
-    void setLearningText()
-    {
-        float restart = timeKeep.getRestart();
-        if (restart % timeKeep.viewNumber == 0 && restart > 0)
-        {
-            learningText.text = "Viewing Elite";
-            learningText.fontSize = 16;
-            learningText2.text = "";
-            learningText3.text = "";
-        }
-        else
-        {
-            String text1 = "";
-            String text2 = "";
-            String text3 = "";
-            int j = ev.popSize / 3;
-            int k = j * 2;
-            for (int i = 0; i < j; i++)
-            {
-                String line = "";
-                if (i == ev.popIndex)
-                    line += "<color=#ff0000>[ " + i + " " + ev.fitness[i] + " ]</color>\n";
-                else
-                    line += i + " " + ev.fitness[i] + "\n";
+    protected abstract void Start();
 
-                text1 += line;
-            }
-            for (int i = j; i < k; i++)
-            {
-                String line = "";
-                if (i == ev.popIndex)
-                    line += "<color=#ff0000>[ " + i + " " + ev.fitness[i] + " ]</color>\n";
-                else
-                    line += i + " " + ev.fitness[i] + "\n";
-
-                text2 += line;
-            }
-            for (int i = k; i < ev.popSize; i++)
-            {
-                String line = "";
-                if (i == ev.popIndex)
-                    line += "<color=#ff0000>[ " + i + " " + ev.fitness[i] + " ]</color>\n";
-                else
-                    line += i + " " + ev.fitness[i] + "\n";
-
-                text3 += line;
-            }
-            learningText.text = text1;
-            learningText2.text = text2;
-            learningText3.text = text3;
-        }
-    }
+    protected abstract void setLearningText();
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update() {}
+
+    protected virtual void FixedUpdate()
     {
-
-
+        tick();
+        if (Input.GetKey("v"))
+            LevelEnd();
     }
 
-    void FixedUpdate()
+    public virtual void tick()
     {
-        grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
 
-        if (actions[2] && grounded && rb2d.velocity.y == 0)
+        grounded = Physics2D.Linecast(transform.position + (0.25f * Vector3.left), groundCheck.position + (0.25f * Vector3.left), 1 << LayerMask.NameToLayer("Ground"))
+    || Physics2D.Linecast(transform.position + (0.25f * Vector3.right), groundCheck.position + (0.25f * Vector3.right), 1 << LayerMask.NameToLayer("Ground"));
+
+        if (actions[2] && grounded && velocityY == 0)
         {
             jump = true;
         }
@@ -132,46 +75,13 @@ public class Agent : MonoBehaviour
 
         anim.SetFloat("Speed", Mathf.Abs(h));
 
-
-        BoxCollider2D box = GetComponent<BoxCollider2D>();
-        Vector2 topRight = new Vector2(rb2d.position.x + box.size.x / 2 + .25f, rb2d.position.y + 0.6f);
-        Vector2 topLeft = new Vector2(rb2d.position.x + -box.size.x / 2 - .25f, rb2d.position.y + 0.6f);
-
-        Vector2 bottomRight = new Vector2(rb2d.position.x + box.size.x / 2 + .25f, rb2d.position.y - 0.6f);
-        Vector2 bottomLeft = new Vector2(rb2d.position.x + -box.size.x / 2 - .25f, rb2d.position.y - 0.6f);
-
-        //Debug.DrawLine((Vector3)boxVectorStartLeft, (Vector3)boxVectorStartLeft - (.1f) * Vector3.right);
-        //for (int i = 0; i < 15; i++)
-        //{
-        //  Debug.Log(i + " " + LayerMask.LayerToName(i));
-        //}
-
-        if (Physics2D.Raycast(topRight, Vector2.right, raycastDistance, 1 << LayerMask.NameToLayer("Ground")) && Physics2D.Raycast(bottomRight, Vector2.right, raycastDistance, 1 << LayerMask.NameToLayer("Ground")) && h > 0)
+        if (h != 0)
         {
-            rb2d.velocity = new Vector2(0, rb2d.velocity.y);
-            //Debug.Log("There's a thing right");
-        }
-        else if (Physics2D.Raycast(topLeft, Vector2.left, raycastDistance, 1 << LayerMask.NameToLayer("Ground")) && Physics2D.Raycast(bottomLeft, Vector2.right, raycastDistance, 1 << LayerMask.NameToLayer("Ground")) && h < 0)
-        {
-            rb2d.velocity = new Vector2(0, rb2d.velocity.y);
-            //Debug.Log("There's a thing left");
-        }
-        else if (h != 0)
-        {
-            rb2d.velocity = new Vector2(h * maxSpeed, rb2d.velocity.y);
-            //if (h * rb2d.velocity.x < maxSpeed)
-            //    rb2d.AddForce(Vector2.right * h * moveForce);
-
-            //if (Mathf.Abs(rb2d.velocity.x) > maxSpeed)
-            //    rb2d.velocity = new Vector2(Mathf.Sign(rb2d.velocity.x) * maxSpeed, rb2d.velocity.y);
+            velocityX = h * horizontalForce;
         }
         else
         {
-            // if (h * rb2d.velocity.x < maxSpeed)
-            //   rb2d.AddForce(Vector2.right * h * moveForce);
-
-            //if (Mathf.Abs(rb2d.velocity.x) > maxSpeed)
-            rb2d.velocity = new Vector2(0, rb2d.velocity.y);
+            velocityX = 0f;
         }
 
         if (h > 0 && !facingRight)
@@ -179,41 +89,95 @@ public class Agent : MonoBehaviour
         else if (h < 0 && facingRight)
             Flip();
 
+        gravity();
+
         if (jump)
         {
             anim.SetTrigger("Jump");
-            rb2d.AddForce(new Vector2(0f, jumpForce));
+            velocityY = jumpForce;
             jump = false;
         }
+
+        move();
     }
 
-
-    void getAction()
+    protected virtual void gravity()
     {
-        double[] inputs = new double[28];
-        int which = 0;
-        float x = (float)GetNearestEven(gameObject.transform.position.x);
-        float y = (float)GetNearestEven(gameObject.transform.position.y);
-        for (int i = -2; i < 3; i++)
+        if (!grounded && velocityY > -1f)
         {
-            for (int j = -2; j < 3; j++)
+            velocityY -= gravityForce;
+        }
+    }
+
+    protected virtual void move()
+    {
+        if (velocityX != 0)
+            checkHorizontal(velocityX > 0 ? true : false);
+        if (velocityY != 0)
+            checkVertical(velocityY > 0 ? true : false);
+        transform.position = new Vector3(transform.position.x + velocityX, transform.position.y + velocityY, transform.position.z);
+    }
+
+    protected virtual void checkHorizontal(bool right)
+    {
+        float boxSize = 0.6f;
+        Vector2 topRight = new Vector2(transform.position.x + boxSize / 2 + .25f, transform.position.y + .95f);
+        Vector2 topLeft = new Vector2(transform.position.x - boxSize / 2 - .25f, transform.position.y + .95f);
+
+        Vector2 bottomRight = new Vector2(transform.position.x + boxSize / 2 + .25f, transform.position.y - .95f);
+        Vector2 bottomLeft = new Vector2(transform.position.x - boxSize / 2 - .25f, transform.position.y - .95f);
+
+        if (right)
+        {
+            if (Physics2D.Raycast(topRight, Vector2.right, velocityX, 1 << LayerMask.NameToLayer("Ground")) || Physics2D.Raycast(bottomRight, Vector2.right, velocityX, 1 << LayerMask.NameToLayer("Ground")))
             {
-                inputs[which++] = probe(x, y, i, j);
+                velocityX = 0f;
             }
         }
-        inputs[inputs.Length - 3] = grounded ? 1 : 0;
-        inputs[inputs.Length - 2] = grounded && rb2d.velocity.y == 0 ? 1 : 0;
-        inputs[inputs.Length - 1] = 1;
-
-        double[] outputs = net.propagate(inputs);
-
-        for (int i = 0; i < 3; i++)
-            actions[i] = outputs[i] > 0;
-        //Debug.Log(actions[0] + " " + actions[1] + " " + actions[2]);
-        highlightActions();
+        else
+        {
+            if (Physics2D.Raycast(topLeft, Vector2.left, -velocityX, 1 << LayerMask.NameToLayer("Ground")) || Physics2D.Raycast(bottomLeft, Vector2.left, -velocityX, 1 << LayerMask.NameToLayer("Ground")))
+            {
+                velocityX = 0f;
+            }
+        }
     }
 
-    void highlightActions()
+    protected virtual void checkVertical(bool up)
+    {
+        float boxSize = 0.6f;
+        Vector2 topRight = new Vector2(transform.position.x + boxSize / 2 + .25f, transform.position.y + 1f);
+        Vector2 topLeft = new Vector2(transform.position.x - boxSize / 2 - .25f, transform.position.y + 1f);
+
+        Vector2 bottomRight = new Vector2(transform.position.x + boxSize / 2 + .25f, transform.position.y - 1f);
+        Vector2 bottomLeft = new Vector2(transform.position.x - boxSize / 2 - .25f, transform.position.y - 1f);
+
+        if (up)
+        {
+            if (Physics2D.Raycast(topRight, Vector2.up, velocityY, 1 << LayerMask.NameToLayer("Ground")) || Physics2D.Raycast(topLeft, Vector2.up, velocityY, 1 << LayerMask.NameToLayer("Ground")))
+            {
+                velocityY = 0f;
+            }
+        }
+        else
+        {
+
+            RaycastHit2D botRight = Physics2D.Raycast(bottomRight, Vector2.down, -velocityY, 1 << LayerMask.NameToLayer("Ground"));
+            RaycastHit2D botLeft = Physics2D.Raycast(bottomLeft, Vector2.down, -velocityY, 1 << LayerMask.NameToLayer("Ground"));
+            if (botRight || botLeft)
+            {
+                if (botRight)
+                    velocityY = -botRight.distance;
+                if (botLeft)
+                    velocityY = -botLeft.distance;
+            }
+        }
+    }
+
+
+    protected abstract void getAction();
+
+    protected virtual void highlightActions()
     {
         if (actions[1])
         {
@@ -247,25 +211,13 @@ public class Agent : MonoBehaviour
         }
     }
 
-    byte[][] getScene()
-    {
-        byte[][] scene = new byte[22][];
-        for (int i = 0; i < 22; i++)
-        {
-            scene[i] = new byte[22];
-        }
-        return scene;
-    }
-
-    private double probe(float x, float y, int i, int j)
+    protected virtual double probe(float x, float y, int i, int j)
     {
         float x2 = x + (2 * i);
         float y2 = y + (2 * j);
         GameObject obj = FindAt(new Vector2(x2, y2));
         if (obj == null)
             return 0;
-        //if (obj.name != "PlayerHero")
-        //  obj.GetComponent<Renderer>().material.color = Color.red;
         if (obj.tag == "Coin")
             return 2;
         if (obj.tag == "Finish")
@@ -273,7 +225,7 @@ public class Agent : MonoBehaviour
         return 1;
     }
 
-    private GameObject FindAt(Vector2 pos)
+    protected virtual GameObject FindAt(Vector2 pos)
     {
         // get all colliders that intersect pos:
         Collider2D col = Physics2D.OverlapCircle(pos, .5f);
@@ -282,23 +234,23 @@ public class Agent : MonoBehaviour
         return col.gameObject;
     }
 
-    /* void OnDrawGizmos()
-     {
-         float x = (float)GetNearestEven(gameObject.transform.position.x);
-         float y = (float)GetNearestEven(gameObject.transform.position.y);
-         for (int i = -2; i < 3; i++)
-         {
-             for (int j = -2; j < 3; j++)
-             {
-                 float x2 = x + (2 * i);
-                 float y2 = y + (2 * j);
-                 Gizmos.DrawWireSphere(new Vector3(x2,y2,-1f), .5f);
-             }
-         }
+    protected virtual void OnDrawGizmos()
+    {
+        float x = (float)GetNearestEven(gameObject.transform.position.x);
+        float y = (float)GetNearestEven(gameObject.transform.position.y);
+        for (int i = -2; i < 3; i++)
+        {
+            for (int j = -2; j < 3; j++)
+            {
+                float x2 = x + (2 * i);
+                float y2 = y + (2 * j);
+                Gizmos.DrawWireSphere(new Vector3(x2, y2, -1f), .5f);
+            }
+        }
 
-     }*/
+    }
 
-    double GetNearestEven(double input)
+    protected virtual double GetNearestEven(double input)
     {
         double output = Math.Round(input / 2);
         if (output == 0 && input > 0) output += 1;
@@ -307,7 +259,7 @@ public class Agent : MonoBehaviour
         return output;
     }
 
-    float getHorizontal()
+    protected virtual float getHorizontal()
     {
         float h = 0;
         if (actions[0])
@@ -316,10 +268,8 @@ public class Agent : MonoBehaviour
             h--;
         return h;
     }
-
-
-
-    void Flip()
+    
+    protected virtual void Flip()
     {
         facingRight = !facingRight;
         Vector3 theScale = transform.localScale;
@@ -327,16 +277,18 @@ public class Agent : MonoBehaviour
         transform.localScale = theScale;
     }
 
-    public void LevelEnd()
+    public override void LevelEnd()
     {
         float time = Mathf.Round(timeKeep.time) > timeKeep.timeOut ? timeKeep.timeOut : Mathf.Round(timeKeep.time);
 
         if (!viewing)
         {
-            float score = scoreKeep.score - time + timeKeep.timeOut;
-            ev.submitScore(score);
+            score = scoreKeep.score + time - timeKeep.timeOut;
+            submitScore();
         }
         timeKeep.addRestart();
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
     }
+
+    protected abstract void submitScore();
 }

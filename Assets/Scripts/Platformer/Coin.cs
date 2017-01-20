@@ -17,7 +17,7 @@ public class Coin : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            GameObject.Find("Score Text").GetComponent<ScoreKeep>().score += 50;
+            GameObject.Find("Score Text").GetComponent<Agent>().grabCoin();
             Destroy(gameObject); 
         }
     }

@@ -18,15 +18,25 @@ public class Evolution {
     private NeuralNet best;
     private float bestFit = 0f;
 
+    public string fileName = "";
+
     public Evolution()
     {
         population = new NeuralNet[popSize];
-        for (int i = 0; i < population.Length; i++)
+        if (fileName.Trim().Length > 0)
         {
-            population[i] = new NeuralNet("150 Score");
-            //population[i] = new NeuralNet();
+            for (int i = 0; i < population.Length; i++)
+            {
+                population[i] = new NeuralNet(fileName);
+            }
         }
-
+        else
+        {
+            for (int i = 0; i < population.Length; i++)
+            {
+                population[i] = new NeuralNet();
+            }
+        }
         fitness = new float[popSize];
         elite = popSize / 2;
     }
@@ -133,18 +143,17 @@ public class Evolution {
 
     public NeuralNet getBestNet()
     {
-        /*float best = 0f;
-        int index = 0;
-        for (int i = 0; i < fitness.Length; i++)
-        {
-            if (fitness[i] > best)
-            {
-                best = fitness[i];
-                index = i;
-            }
-        }
-        return population[index];
-        */
         return best;
+    }
+
+    public void cullPopulation()
+    {
+        for (int i = 0; i < popSize; i++)
+        {
+            population[i] = new NeuralNet();
+            fitness[i] = 0;
+            evalIndex = 0;
+            popIndex = 0;
+        }
     }
 }

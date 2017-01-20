@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Win : MonoBehaviour {
     private bool won = false;
-    public Agent2 agent;
+    public Agent agent;
     public TimeKeep timeKeep;
     // Use this for initialization
     void Start()

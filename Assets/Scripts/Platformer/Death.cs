@@ -4,7 +4,7 @@ using System.Collections;
 public class Death : MonoBehaviour
 {
     private bool dead = false;
-    public Agent2 agent;
+    public Agent agent;
     // Use this for initialization
     void Start()
     {

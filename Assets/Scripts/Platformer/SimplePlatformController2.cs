@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public class SimplePlatformController2 : MonoBehaviour
+public class SimplePlatformController2 : Player
 {
 
     [HideInInspector]
@@ -211,5 +212,10 @@ public class SimplePlatformController2 : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    public override void LevelEnd()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
     }
 }
