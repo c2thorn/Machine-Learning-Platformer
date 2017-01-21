@@ -1949,6 +1949,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 132589106949954342, guid: f9b351d36fc8c3f46bc7bc24b084e0ba,
+        type: 2}
+      propertyPath: m_Color.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 132589106949954342, guid: f9b351d36fc8c3f46bc7bc24b084e0ba,
+        type: 2}
+      propertyPath: m_FontStyle
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9b351d36fc8c3f46bc7bc24b084e0ba, type: 2}
   m_IsPrefabParent: 0
@@ -5751,12 +5761,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e14db3e560eddd41b6d6f54bd6fd1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreKeep: {fileID: 1742870531}
   facingRight: 1
   jump: 0
   groundCheck: {fileID: 1451080304}
-  scoreKeep: {fileID: 1742870531}
   timeKeep: {fileID: 1689869234}
-  fileName: 50 Score
   leftText: {fileID: 230460602}
   upText: {fileID: 1505510262}
   rightText: {fileID: 1214223940}
