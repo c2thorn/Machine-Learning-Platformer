@@ -21,7 +21,8 @@ public class TimeKeep : MonoBehaviour {
 
         if (restart % viewNumber == 0 && restart > 0)
         {
-            Time.timeScale = 5f;
+            Time.timeScale = 1f;
+            timeOut = 30f;
         }
     }
 

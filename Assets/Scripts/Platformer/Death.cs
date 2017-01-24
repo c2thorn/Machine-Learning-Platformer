@@ -22,7 +22,7 @@ public class Death : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && !dead)
         {
             dead = true;
-            GameObject.Find("Score Text").GetComponent<ScoreKeep>().score -= 48;
+            //GameObject.Find("Score Text").GetComponent<ScoreKeep>().score -= 48;
             agent.LevelEnd();
         }
     }

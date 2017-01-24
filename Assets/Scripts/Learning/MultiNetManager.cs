@@ -7,6 +7,7 @@ public class MultiNetManager {
     public ArrayList netList = new ArrayList();
     public ArrayList coinList = new ArrayList();
     public ArrayList fitList = new ArrayList();
+    public ArrayList scenarioList = new ArrayList();
 
     public MultiNetAgent agent;
 
@@ -18,11 +19,20 @@ public class MultiNetManager {
         this.agent = agent;
     }
 
+    public void destroyCoins()
+    {
+        foreach (string coinName in coinList)
+        {
+            GameObject coin = GameObject.Find(coinName);
+            Object.Destroy(coin);
+        }
+    }
+
     public Vector3 getPreviousCoinPosition()
     {
         GameObject coin = GameObject.Find((string)coinList[netIndex - 1]);
         Vector3 returnPos = coin.transform.position;
-        Object.Destroy(coin);
+        destroyCoins();
         return returnPos;
     }
 
@@ -37,13 +47,24 @@ public class MultiNetManager {
 
         }*/
     }
-    
 
-    public void addNewCoin(float score, NeuralNet net, string coinName)
+    public void replaceCoin(float score, NeuralNet net, string coinName, ArrayList scenario)
     {
-        fitList.Add(score);
-        netList.Add(net);
-        coinList.Add(coinName);
+        int index = coinList.IndexOf(coinName);
+        fitList[index] = score;
+        netList[index] = net;
+        coinList[index] = coinName;
+        scenarioList[index] = scenario;
+        //netsOptimized++;
+        netIndex++;
+    }
+
+    public void addNewCoin(float score, NeuralNet net, string coinName, ArrayList scenario)
+    {
+        fitList.Insert(netIndex, score);
+        netList.Insert(netIndex, net);
+        coinList.Insert(netIndex, coinName);
+        scenarioList.Insert(netIndex, scenario);
         netsOptimized++;
         netIndex++;
     }

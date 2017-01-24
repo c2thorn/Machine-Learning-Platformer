@@ -17,6 +17,7 @@ public class MultiNetAgent : NEAgent
         manager.setAgent(this);
         if (restart % timeKeep.viewNumber == 0 && restart > 0)
         {
+            Debug.Log("Viewing!");
             viewingIndex = 0;
             viewing = true;
             if (manager.netList.Count > 0)
@@ -30,9 +31,22 @@ public class MultiNetAgent : NEAgent
             net = ev.getCurrentNet();
             if (manager.netIndex > 0)
             {
-                transform.position = manager.getPreviousCoinPosition();
+                setScenario();
             }
         }
+    }
+
+    public void setScenario()
+    {
+        //Debug.Log("not viewing!");
+        ArrayList scenario = (ArrayList)manager.scenarioList[manager.netIndex - 1];
+        transform.position = (Vector3)scenario[0];
+        velocityX = (float)scenario[1];
+        velocityY = (float)scenario[2];
+        facingRight = (bool)scenario[3];
+        jump = (bool)scenario[4];
+        grounded = (bool)scenario[5];
+        manager.destroyCoins();
     }
 
     public override void grabCoin(string coinName)
@@ -41,22 +55,48 @@ public class MultiNetAgent : NEAgent
         this.coinName = coinName;
         if (!viewing)
         {
-            manager.gotCoin(coinName);
+            //manager.gotCoin(coinName);
+
             LevelEnd();
         }
         else
         {
-            if (viewingIndex < manager.netList.Count)
-                net = (NeuralNet)manager.netList[viewingIndex++];
+            if (viewingIndex < (manager.netList.Count-1))
+            {
+                net = (NeuralNet)manager.netList[++viewingIndex];
+                Debug.Log("Changing!! " + viewingIndex);
+            }
         }
     }
 
     protected override void submitScore()
     {
-        if (manager.fitList.Count == 0 && coinName.Length > 0)
+        if (coinName.Length > 0)
         {
-            manager.addNewCoin(score, ev.getCurrentNet(), coinName);
-            ev.cullPopulation();
+            ArrayList scenario = new ArrayList();
+            scenario.Add(transform.position);
+            scenario.Add(velocityX);
+            scenario.Add(velocityY);
+            scenario.Add(facingRight);
+            scenario.Add(jump);
+            scenario.Add(grounded);
+            if (!manager.coinList.Contains(coinName))
+            {
+                manager.addNewCoin(score, ev.getCurrentNet(), coinName, scenario);
+                ev.cullPopulation();
+            }
+            else if (coinName.Equals(manager.coinList[manager.netIndex - 1]))
+            {
+                if ((float)manager.fitList[manager.netIndex-1] < score)
+                {
+                    manager.replaceCoin(score, ev.getCurrentNet(), coinName, scenario);
+                    ev.cullPopulation();
+                }
+            }
+            else
+            {
+                ev.submitScore(score);
+            }
         }
         else
         {
