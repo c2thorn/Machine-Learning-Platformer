@@ -6,7 +6,7 @@ public abstract class Player : MonoBehaviour {
     public ScoreKeep scoreKeep;
 
 
-    public virtual void grabCoin()
+    public virtual void grabCoin(string coinName)
     {
         scoreKeep.score += 50;
     }
