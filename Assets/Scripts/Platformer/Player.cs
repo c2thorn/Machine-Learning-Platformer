@@ -11,5 +11,10 @@ public abstract class Player : MonoBehaviour {
         scoreKeep.score += 50;
     }
 
+    public virtual void grabWin()
+    {
+        scoreKeep.score += 500;
+    }
+
     public abstract void LevelEnd();
 }

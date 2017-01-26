@@ -23,7 +23,7 @@ public class Win : MonoBehaviour {
         if (other.gameObject.CompareTag("Player") && !won)
         {
             won = true;
-            GameObject.Find("Score Text").GetComponent<ScoreKeep>().score += 500;
+            other.GetComponent<Agent>().grabWin();
             Debug.Log("Won! "+timeKeep.getRestart());
             agent.LevelEnd();
         }

@@ -17,7 +17,7 @@ public class Coin : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            GameObject.Find("PlayerHero").GetComponent<Agent>().grabCoin(gameObject.name);
+            other.GetComponent<Agent>().grabCoin(gameObject.name);
             Destroy(gameObject); 
         }
     }

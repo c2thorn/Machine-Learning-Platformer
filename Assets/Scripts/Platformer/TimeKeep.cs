@@ -53,6 +53,13 @@ public class TimeKeep : MonoBehaviour {
 
             //Time.fixedDeltaTime = timeScale * 0.02f;
         }*/
+
+        if (Input.GetKeyDown("f"))
+        {
+            int remainder = (int)restart % viewNumber;
+            if (remainder != 0)
+                restart =  restart + viewNumber - remainder - 1;
+        }
         if (time >= timeOut)
         {
             agent.LevelEnd();

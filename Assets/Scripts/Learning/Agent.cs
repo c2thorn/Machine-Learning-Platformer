@@ -283,7 +283,7 @@ public abstract class Agent : Player
 
         if (!viewing)
         {
-            score = scoreKeep.score + time - timeKeep.timeOut;
+            score = scoreKeep.score - time + timeKeep.timeOut;
             submitScore();
         }
         timeKeep.addRestart();

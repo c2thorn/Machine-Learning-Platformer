@@ -14,16 +14,31 @@ public class MultiNetManager {
     public int netIndex = 0;
     public int netsOptimized = 0;
 
+    public int evaluations = 0;
+    public int maxEvaluations = 500;
+
+    public bool won = false;
+
     public void setAgent(MultiNetAgent agent)
     {
         this.agent = agent;
+        if (won)
+        {
+            if (evaluations >= maxEvaluations)
+            {
+                netIndex++;
+                evaluations = 0;
+            }
+            else
+                evaluations++;
+        }
     }
 
     public void destroyCoins()
     {
-        foreach (string coinName in coinList)
+        for (int i = 0; i < netIndex; i++)
         {
-            GameObject coin = GameObject.Find(coinName);
+            GameObject coin = GameObject.Find((string)coinList[i]);
             Object.Destroy(coin);
         }
     }
