@@ -279,8 +279,8 @@ public abstract class Agent : Player
 
     public override void LevelEnd()
     {
-        float time = Mathf.Round(timeKeep.time) > timeKeep.timeOut ? timeKeep.timeOut : Mathf.Round(timeKeep.time);
-
+        //float time = Mathf.Round(timeKeep.time) > timeKeep.timeOut ? timeKeep.timeOut : Mathf.Round(timeKeep.time);
+        float time = timeKeep.time > timeKeep.timeOut ? timeKeep.timeOut : timeKeep.time;
         if (!viewing)
         {
             score = scoreKeep.score - time + timeKeep.timeOut;

@@ -8,7 +8,7 @@ public class NeuralNet {
     public static int numberOfHidden = 10;
     public static int numberOfOutputs = 3;
 
-    private double[][] firstConnectionLayer = new double[numberOfInputs][];
+    public double[][] firstConnectionLayer = new double[numberOfInputs][];
     private double[][] secondConnectionLayer = new double[numberOfHidden][];
     private double[] hiddenNeurons = new double[numberOfHidden];
     private double[] outputs = new double[numberOfOutputs];
