@@ -28,6 +28,11 @@ public class MultiNetManager {
 
     public bool optimizing = false;
 
+    private int lastOptimalIndex = -1;
+
+    private int optimizingLoopCounter = 0;
+    private int maxOptimizingAttempts = 5;
+
     public void setAgent(MultiNetAgent agent)
     {
         this.agent = agent;
@@ -49,6 +54,8 @@ public class MultiNetManager {
                 //scenarioList = (ArrayList)bestList.Clone();
                 netIndex = 0;
                 evaluations = 0;
+                lastOptimalIndex = -1;
+                optimizingLoopCounter = 0;
             }
             else
                 evaluations++;
@@ -78,12 +85,32 @@ public class MultiNetManager {
 
         newList.Add(scenario);
 
+        if (optimizing)
+            lastOptimalIndex = netIndex;
+
         if (((string)scenario[1]).Equals("WinTrigger"))
         {
-            netIndex = 0;
-            if (compareScore(bestList,newList))
+
+            if (compareScore(bestList, newList))
+            {
                 bestList = deepCopy(newList);
-            scenarioList = deepCopy(bestList);
+                lastOptimalIndex = -1;
+            }
+            if (lastOptimalIndex >= 0 && optimizingLoopCounter < maxOptimizingAttempts)
+            {
+                ArrayList optimalList = new ArrayList();
+                for (int i = 0; i <= lastOptimalIndex; i++)
+                    optimalList.Add(scenarioCopy((ArrayList)scenarioList[i]));
+                scenarioList = deepCopy(optimalList);
+                netIndex = lastOptimalIndex+1;
+                optimizingLoopCounter++;
+            }
+            else
+            {
+                netIndex = 0;
+                scenarioList = deepCopy(bestList);
+                optimizingLoopCounter = 0;
+            }
             optimizing = true;
         }
         else

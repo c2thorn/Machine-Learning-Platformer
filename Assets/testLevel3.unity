@@ -376,7 +376,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 145020, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}
       propertyPath: m_Name
-      value: Coin (9)
+      value: Coin 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}
@@ -496,9 +496,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 0
   timeScale: 100
-  timeOut: 30
+  timeOut: 10
   viewNumber: 5000
-  agent: {fileID: 338745211}
+  agent: {fileID: 338745207}
 --- !u!4 &101911398 stripped
 Transform:
   m_PrefabParentObject: {fileID: 455832, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}
@@ -600,7 +600,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 145020, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}
       propertyPath: m_Name
-      value: Coin (5)
+      value: Coin 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}
@@ -785,7 +785,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 145020, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}
       propertyPath: m_Name
-      value: Coin (10)
+      value: Coin 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}
@@ -1231,7 +1231,6 @@ GameObject:
   - component: {fileID: 338745210}
   - component: {fileID: 338745209}
   - component: {fileID: 338745208}
-  - component: {fileID: 338745211}
   - component: {fileID: 338745207}
   m_Layer: 9
   m_Name: PlayerHero
@@ -1269,22 +1268,25 @@ Transform:
 --- !u!114 &338745207
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114087530518786290, guid: f20ad81d3b8a3af45925069aac8c6aa4,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 338745205}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04507ad323c92054ea40b83a55b37bda, type: 3}
+  m_Script: {fileID: 11500000, guid: d37ed73e432a17a4090984f2b4bb4514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreKeep: {fileID: 1666056291}
   facingRight: 1
   jump: 0
   groundCheck: {fileID: 2094549933}
-  leftText: {fileID: 132383260317703480, guid: 74f99f225c6943f498192a682621887a, type: 2}
-  upText: {fileID: 132226858781830946, guid: 4d484a3466471ec4aaaa872b4fcc9f67, type: 2}
-  rightText: {fileID: 132589106949954342, guid: f9b351d36fc8c3f46bc7bc24b084e0ba,
-    type: 2}
+  timeKeep: {fileID: 100422594}
+  leftText: {fileID: 1579612}
+  upText: {fileID: 1779528415}
+  rightText: {fileID: 1412093661}
+  learningText: {fileID: 600050820}
+  learningText2: {fileID: 1109524892}
+  learningText3: {fileID: 1086104423}
   raycastDistance: 0.05
   horizontalForce: 0.275
   jumpForce: 1
@@ -1343,32 +1345,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &338745211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 338745205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e14db3e560eddd41b6d6f54bd6fd1fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  facingRight: 1
-  jump: 0
-  groundCheck: {fileID: 2094549933}
-  scoreKeep: {fileID: 1666056291}
-  timeKeep: {fileID: 100422594}
-  leftText: {fileID: 1579612}
-  upText: {fileID: 1779528415}
-  rightText: {fileID: 1412093661}
-  learningText: {fileID: 600050820}
-  learningText2: {fileID: 1109524892}
-  learningText3: {fileID: 1086104423}
-  raycastDistance: 0.05
-  horizontalForce: 0.275
-  jumpForce: 1
-  gravityForce: 0.0825
 --- !u!1001 &342019917
 Prefab:
   m_ObjectHideFlags: 0
@@ -1456,7 +1432,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 145020, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}
       propertyPath: m_Name
-      value: Coin (3)
+      value: Coin 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}
@@ -1697,7 +1673,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 145020, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}
       propertyPath: m_Name
-      value: Coin (1)
+      value: Coin 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}
@@ -2132,7 +2108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7af63cdb69f3c954697e8b82f72de5f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 338745211}
+  agent: {fileID: 338745207}
 --- !u!61 &437652735
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2193,7 +2169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1295d7c148c1bd1409981aaf6d5d75da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 338745211}
+  agent: {fileID: 338745207}
   timeKeep: {fileID: 100422594}
 --- !u!212 &449533429
 SpriteRenderer:
@@ -2436,7 +2412,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 145020, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}
       propertyPath: m_Name
-      value: Coin (11)
+      value: Coin 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}
@@ -3282,7 +3258,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 145020, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}
       propertyPath: m_Name
-      value: Coin (6)
+      value: Coin 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}
@@ -3330,6 +3306,10 @@ Prefab:
     - target: {fileID: 455832, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}
       propertyPath: m_RootOrder
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 145020, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}
+      propertyPath: m_Name
+      value: Coin 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}
@@ -4380,7 +4360,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 145020, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}
       propertyPath: m_Name
-      value: Coin (12)
+      value: Coin 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}
@@ -4563,7 +4543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7af63cdb69f3c954697e8b82f72de5f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 338745211}
+  agent: {fileID: 338745207}
 --- !u!61 &1184210643
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4634,7 +4614,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 145020, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}
       propertyPath: m_Name
-      value: Coin (2)
+      value: Coin 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}
@@ -4680,7 +4660,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 145020, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}
       propertyPath: m_Name
-      value: Coin (8)
+      value: Coin 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}
@@ -6819,7 +6799,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 145020, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}
       propertyPath: m_Name
-      value: Coin (7)
+      value: Coin 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}
@@ -7245,7 +7225,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 145020, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}
       propertyPath: m_Name
-      value: Coin (4)
+      value: Coin 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}

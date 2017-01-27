@@ -38,6 +38,8 @@ public abstract class Agent : Player
     protected float restart = 0f;
     protected float score = 0f;
 
+    protected bool stopTick = false;
+
     // Use this for initialization
     protected virtual void Awake()
     {
@@ -54,7 +56,8 @@ public abstract class Agent : Player
 
     protected virtual void FixedUpdate()
     {
-        tick();
+        if (!stopTick)
+            tick();
         if (Input.GetKey("v"))
             LevelEnd();
     }
@@ -115,7 +118,7 @@ public abstract class Agent : Player
             checkHorizontal(velocityX > 0 ? true : false);
         if (velocityY != 0)
             checkVertical(velocityY > 0 ? true : false);
-        checkDeath(velocityY > 0 ? true : false);
+        checkCollisions();
         transform.position = new Vector3(transform.position.x + velocityX, transform.position.y + velocityY, transform.position.z);
     }
 
@@ -175,31 +178,20 @@ public abstract class Agent : Player
         }
     }
 
-    protected virtual void checkDeath(bool up)
+    protected virtual void checkCollisions()
     {
-        float boxSize = 0.6f;
-        Vector2 topRight = new Vector2(transform.position.x + boxSize / 2 + .25f, transform.position.y + 1f);
-        Vector2 topLeft = new Vector2(transform.position.x - boxSize / 2 - .25f, transform.position.y + 1f);
-
-        Vector2 bottomRight = new Vector2(transform.position.x + boxSize / 2 + .25f, transform.position.y - 1f);
-        Vector2 bottomLeft = new Vector2(transform.position.x - boxSize / 2 - .25f, transform.position.y - 1f);
-
-        if (up)
+        Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, .3f);
+        if (collider.Length > 1)
         {
-            if (Physics2D.Raycast(topRight, Vector2.up, velocityY, 1 << LayerMask.NameToLayer("Death")) || Physics2D.Raycast(topLeft, Vector2.up, velocityY, 1 << LayerMask.NameToLayer("Death")))
+            foreach (Collider2D col in collider)
             {
-                LevelEnd();
+                if (col.tag.Equals("Death"))
+                {
+                    LevelEnd();
+                    stopTick = true;
+                }
             }
-        }
-        else
-        {
 
-            RaycastHit2D botRight = Physics2D.Raycast(bottomRight, Vector2.down, -velocityY, 1 << LayerMask.NameToLayer("Death"));
-            RaycastHit2D botLeft = Physics2D.Raycast(bottomLeft, Vector2.down, -velocityY, 1 << LayerMask.NameToLayer("Death"));
-            if (botRight || botLeft)
-            {
-                LevelEnd();
-            }
         }
     }
 

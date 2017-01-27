@@ -10,7 +10,6 @@ public class MultiNetAgent : NEAgent
     private int viewingIndex = -1;
     private string coinName = "";
     private bool doNotTickOnce = false;
-    private bool stopTick = false;
 
     protected override void Awake()
     {

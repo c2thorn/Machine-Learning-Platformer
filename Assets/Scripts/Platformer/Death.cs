@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Death : MonoBehaviour
 {
-    private bool dead = false;
     public Agent agent;
     // Use this for initialization
     void Start()
@@ -19,11 +18,11 @@ public class Death : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player") && !dead)
+        /*if (other.gameObject.CompareTag("Player") && !dead)
         {
             dead = true;
             //GameObject.Find("Score Text").GetComponent<ScoreKeep>().score -= 48;
             agent.LevelEnd();
-        }
+        }*/
     }
 }
