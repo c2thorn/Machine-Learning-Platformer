@@ -174,6 +174,34 @@ public abstract class Agent : Player
         }
     }
 
+    protected virtual void checkDeath(bool up)
+    {
+        float boxSize = 0.6f;
+        Vector2 topRight = new Vector2(transform.position.x + boxSize / 2 + .25f, transform.position.y + 1f);
+        Vector2 topLeft = new Vector2(transform.position.x - boxSize / 2 - .25f, transform.position.y + 1f);
+
+        Vector2 bottomRight = new Vector2(transform.position.x + boxSize / 2 + .25f, transform.position.y - 1f);
+        Vector2 bottomLeft = new Vector2(transform.position.x - boxSize / 2 - .25f, transform.position.y - 1f);
+
+        if (up)
+        {
+            if (Physics2D.Raycast(topRight, Vector2.up, velocityY, 1 << LayerMask.NameToLayer("Death")) || Physics2D.Raycast(topLeft, Vector2.up, velocityY, 1 << LayerMask.NameToLayer("Death")))
+            {
+                LevelEnd();
+            }
+        }
+        else
+        {
+
+            RaycastHit2D botRight = Physics2D.Raycast(bottomRight, Vector2.down, -velocityY, 1 << LayerMask.NameToLayer("Death"));
+            RaycastHit2D botLeft = Physics2D.Raycast(bottomLeft, Vector2.down, -velocityY, 1 << LayerMask.NameToLayer("Death"));
+            if (botRight || botLeft)
+            {
+                LevelEnd();
+            }
+        }
+    }
+
 
     protected abstract void getAction();
 
