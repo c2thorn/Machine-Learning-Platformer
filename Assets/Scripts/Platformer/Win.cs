@@ -24,7 +24,7 @@ public class Win : MonoBehaviour {
         {
             won = true;
             other.GetComponent<Agent>().grabWin();
-            Debug.Log("Won! "+timeKeep.getRestart());
+            //Debug.Log("Won! "+timeKeep.getRestart());
             agent.LevelEnd();
         }
     }

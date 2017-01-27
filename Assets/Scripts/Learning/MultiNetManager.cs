@@ -46,6 +46,7 @@ public class MultiNetManager {
             if (evaluations >= maxDiscoveringEvaluations)
             {
                 scenarioList = deepCopy(bestList);
+                //scenarioList = (ArrayList)bestList.Clone();
                 netIndex = 0;
                 evaluations = 0;
             }
@@ -68,23 +69,26 @@ public class MultiNetManager {
     * Otherwise, replace the current entry with the new scenario and delete the rest.
     */
     public void updateList(ArrayList scenario)
-    { 
+    {
         ArrayList newList = new ArrayList();
         for (int i = 0; i < netIndex; i++)
-            newList.Add(((ArrayList)scenarioList[i]).Clone());
+        {
+            newList.Add(scenarioCopy((ArrayList)scenarioList[i]));
+        }
 
         newList.Add(scenario);
-
-        scenarioList = deepCopy(newList);
 
         if (((string)scenario[1]).Equals("WinTrigger"))
         {
             netIndex = 0;
-            bestList = deepCopy(newList);
+            if (compareScore(bestList,newList))
+                bestList = deepCopy(newList);
+            scenarioList = deepCopy(bestList);
             optimizing = true;
         }
         else
         {
+            scenarioList = deepCopy(newList);
             optimizing = false;
             netIndex++;
         }
@@ -158,7 +162,7 @@ public class MultiNetManager {
 
     public NeuralNet getBestNet(int index)
     {
-        Debug.Log(index + " " + (bestList.Count > 0 ? ((NeuralNet)((ArrayList)bestList[index])[0]).firstConnectionLayer[0][0] : ((NeuralNet)((ArrayList)scenarioList[index])[0]).firstConnectionLayer[0][0]));
+        //Debug.Log(index + " " + (bestList.Count > 0) + " " + (bestList.Count > 0 ? ((NeuralNet)((ArrayList)bestList[index])[0]).firstConnectionLayer[0][0] : ((NeuralNet)((ArrayList)scenarioList[index])[0]).firstConnectionLayer[0][0]));
         return bestList.Count > 0 ? (NeuralNet)((ArrayList)bestList[index])[0] : (NeuralNet)((ArrayList)scenarioList[index])[0];
     }
 
@@ -186,26 +190,58 @@ public class MultiNetManager {
         return optimizing ? maxOptimizingEvaluations : maxDiscoveringEvaluations;
     }
 
+    private ArrayList scenarioCopy(ArrayList entry)
+    {
+        
+        ArrayList scenario = new ArrayList();
+        scenario.Add(((NeuralNet)entry[0]).copy());
+        scenario.Add(((string)entry[1]).Clone());
+        scenario.Add(((float)entry[2]));
+        scenario.Add(((Vector3)entry[3]));
+        scenario.Add(((float)entry[4]));
+        scenario.Add(((float)entry[5]));
+        scenario.Add(((bool)entry[6]));
+        scenario.Add(((bool)entry[7]));
+        scenario.Add(((bool)entry[8]));
+
+        return scenario;
+    }
+
     private ArrayList deepCopy(ArrayList original)
     {
         ArrayList copy = new ArrayList();
 
         for (int i = 0; i < original.Count; i++)
         {
-            ArrayList entry = ((ArrayList)original[i]);
-            ArrayList scenario = new ArrayList();
-            scenario.Add(((NeuralNet)entry[0]).copy());
-            scenario.Add(((string)entry[1]).Clone());
-            scenario.Add(((float)entry[2]));
-            scenario.Add(((Vector3)entry[3]));
-            scenario.Add(((float)entry[4]));
-            scenario.Add(((float)entry[5]));
-            scenario.Add(((bool)entry[6]));
-            scenario.Add(((bool)entry[7]));
-            scenario.Add(((bool)entry[8]));
-            copy.Add(scenario);
+            copy.Add(scenarioCopy((ArrayList)original[i]));
         }
 
         return copy;
+    }
+
+    private bool compareScore(ArrayList incumbent, ArrayList challenger)
+    {
+        float iScore = 0f;
+        float cScore = 0f;
+
+        foreach (ArrayList entry in incumbent)
+        {
+            iScore += (float)entry[2];
+        }
+
+        foreach (ArrayList entry in challenger)
+        {
+            cScore += (float)entry[2];
+        }
+        if (cScore > iScore)
+        {
+            Debug.Log("New score " + cScore + " has beaten previous score " + iScore);
+            return true;
+        }
+        else
+        {
+            Debug.Log("Old score " + iScore + " remains higher than new score " + cScore);
+            return false;
+        }
     }
 }

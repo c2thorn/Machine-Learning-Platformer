@@ -20,10 +20,10 @@ public class MultiNetAgent : NEAgent
         coinName = "";
         if (restart % timeKeep.viewNumber == 0 && restart > 0)
         {
-            Debug.Log("Viewing!");
+            //Debug.Log("Viewing!");
             viewingIndex = 0;
             viewing = true;
-            if (manager.count() > 0)
+            if (manager.bestCount() > 0)
                 net = manager.getBestNet(0);
             else
                 net = new NeuralNet();
@@ -125,12 +125,12 @@ public class MultiNetAgent : NEAgent
         }
         else
         {
-            if (viewingIndex < (manager.count()-1))
+            if (viewingIndex < (manager.bestCount()-1))
             {
                 net = manager.getBestNet(++viewingIndex);
                 doNotTickOnce = true;
                 setLearningText();
-                Debug.Log("Changing!! " + viewingIndex);
+                //Debug.Log("Changing!! " + viewingIndex);
             }
         }
     }
@@ -153,7 +153,7 @@ public class MultiNetAgent : NEAgent
             stopTick = true;
             if (manager.getFitness(manager.netIndex) < score)
             {
-                Debug.Log("Submitting " + coinName + " " + transform.position.x + " " + transform.position.y);
+                //Debug.Log("Submitting " + coinName + " " + transform.position.x + " " + transform.position.y);
                 manager.updateList(scenario);
             }
         }
