@@ -115,6 +115,7 @@ public abstract class Agent : Player
             checkHorizontal(velocityX > 0 ? true : false);
         if (velocityY != 0)
             checkVertical(velocityY > 0 ? true : false);
+        checkDeath(velocityY > 0 ? true : false);
         transform.position = new Vector3(transform.position.x + velocityX, transform.position.y + velocityY, transform.position.z);
     }
 
