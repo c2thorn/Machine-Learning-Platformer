@@ -63,11 +63,14 @@ public class MultiNetManager {
             {
                 Debug.Log("Max Discovering Evals on net index: " + netIndex + ". Restarting from bestList.");
                 scenarioList = deepCopy(bestList);
-                //scenarioList = (ArrayList)bestList.Clone();
                 netIndex = 0;
                 evaluations = 0;
                 lastOptimalIndex = -1;
                 optimizingLoopCounter = 0;
+
+                //The case where this wouldn't be true is when the agent has failed to discover a new coin on its first run.
+                if (bestList.Count > 0)
+                    optimizing = true;
             }
             else
                 evaluations++;
