@@ -40,8 +40,19 @@ public class MultiNetManager {
         {
             if (evaluations >= maxOptimizingEvaluations)
             {
-                netIndex++;
+                if (netIndex >= (bestList.Count - 1))
+                {
+                    Debug.Log("Optimization complete with max optimizing evaluations at " + maxOptimizingEvaluations + ". Restarting with netIndex = 0.");
+                    netIndex = 0;
+                }
+                else
+                {
+                    Debug.Log("Max Optimizing Evals on net index: " + netIndex + " with score " + getFitness(netIndex) + ". Continuing to next.");
+                    netIndex++;
+                }
+
                 evaluations = 0;
+
             }
             else
                 evaluations++;
@@ -50,6 +61,7 @@ public class MultiNetManager {
         {
             if (evaluations >= maxDiscoveringEvaluations)
             {
+                Debug.Log("Max Discovering Evals on net index: " + netIndex + ". Restarting from bestList.");
                 scenarioList = deepCopy(bestList);
                 //scenarioList = (ArrayList)bestList.Clone();
                 netIndex = 0;
@@ -99,19 +111,24 @@ public class MultiNetManager {
             if (lastOptimalIndex >= 0 && optimizingLoopCounter < maxOptimizingAttempts)
             {
                 ArrayList optimalList = new ArrayList();
+
                 for (int i = 0; i <= lastOptimalIndex; i++)
                     optimalList.Add(scenarioCopy((ArrayList)scenarioList[i]));
                 scenarioList = deepCopy(optimalList);
                 netIndex = lastOptimalIndex+1;
+                Debug.Log("Retrying from: " + lastOptimalIndex + ". Attempt: " + optimizingLoopCounter);
+                //netIndex = lastOptimalIndex;
                 optimizingLoopCounter++;
+                optimizing = false;
             }
             else
             {
                 netIndex = 0;
                 scenarioList = deepCopy(bestList);
                 optimizingLoopCounter = 0;
+                optimizing = true;
             }
-            optimizing = true;
+
         }
         else
         {
