@@ -21,8 +21,9 @@ public class AgentOld : Agent
         jumpForce = 1000f;
     }
 
-    protected override void Start()
+    protected override void BeginLevel()
     {
+        base.BeginLevel();
         setLearningText();
     }
 

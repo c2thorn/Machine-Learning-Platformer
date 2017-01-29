@@ -40,15 +40,41 @@ public abstract class Agent : Player
 
     protected bool stopTick = false;
 
+    protected Vector3 beginningPosition;
+
+    GameObject[] coinObjects;
+
     // Use this for initialization
     protected virtual void Awake()
     {
         anim = GetComponent<Animator>();
-        restart = timeKeep.getRestart();
+        beginningPosition = transform.position;
+        coinObjects = GameObject.FindGameObjectsWithTag("Coin");
+
+        BeginLevel();
     }
 
-    protected abstract void Start();
+    protected virtual void BeginLevel()
+    {
+        InitialSettings();
+        viewing = false;
+    }
 
+    protected virtual void InitialSettings()
+    {
+        transform.position = beginningPosition;
+        facingRight = true;
+        jump = false;
+        grounded = false;
+        restart = timeKeep.getRestart();
+        actions = new bool[3];
+        velocityX = 0f;
+        velocityY = 0f;
+        tickCount = 0f;
+        score = 0f;
+        stopTick = false;
+    }   
+    
     protected abstract void setLearningText();
 
     // Update is called once per frame
@@ -58,8 +84,6 @@ public abstract class Agent : Player
     {
         if (!stopTick)
             tick();
-        if (Input.GetKey("v"))
-            LevelEnd();
     }
 
     public virtual void tick()
@@ -191,8 +215,14 @@ public abstract class Agent : Player
             {
                 if (col.tag.Equals("Death"))
                 {
-                    LevelEnd();
                     stopTick = true;
+                    LevelEnd();
+                }
+                if (col.tag.Equals("Finish"))
+                {
+                    stopTick = true;
+                    grabWin();
+                    LevelEnd();
                 }
             }
 
@@ -310,8 +340,24 @@ public abstract class Agent : Player
             score = scoreKeep.score - time + timeKeep.timeOut;
             submitScore();
         }
+        //UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+        LevelRestart();
+    }
+
+    public virtual void RestoreCoins()
+    {
+        foreach (GameObject coin in coinObjects)
+        {
+            coin.SetActive(true);
+        }
+    }
+
+    public virtual void LevelRestart()
+    {
         timeKeep.addRestart();
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+        RestoreCoins();
+        timeKeep.BeginLevel();
+        BeginLevel();
     }
 
     protected abstract void submitScore();

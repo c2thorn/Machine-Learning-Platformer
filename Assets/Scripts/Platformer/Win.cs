@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Win : MonoBehaviour {
-    private bool won = false;
+    public bool won = false;
     public Agent agent;
     public TimeKeep timeKeep;
     // Use this for initialization
@@ -20,12 +20,12 @@ public class Win : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player") && !won)
+        /*if (other.gameObject.CompareTag("Player") && !won)
         {
             won = true;
             other.GetComponent<Agent>().grabWin();
             //Debug.Log("Won! "+timeKeep.getRestart());
             agent.LevelEnd();
-        }
+        }*/
     }
 }

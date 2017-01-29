@@ -35,7 +35,11 @@ public class MultiNetManager {
 
     public void setAgent(MultiNetAgent agent)
     {
-        this.agent = agent;
+        this.agent = agent; 
+    }
+
+    public void BeginLevel()
+    {
         if (optimizing)
         {
             if (evaluations >= maxOptimizingEvaluations)
@@ -82,7 +86,8 @@ public class MultiNetManager {
         for (int i = 0; i < netIndex; i++)
         {
             GameObject coin = GameObject.Find(getCoinName(i));
-            Object.Destroy(coin);
+            coin.SetActive(false);
+            //Object.Destroy(coin);
         }
     }
 

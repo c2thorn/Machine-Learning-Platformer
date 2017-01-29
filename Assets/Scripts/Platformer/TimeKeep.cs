@@ -14,10 +14,16 @@ public class TimeKeep : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Application.runInBackground = true;
+        text = GetComponent<GUIText>();
+        BeginLevel();
+    }
+
+    public void BeginLevel()
+    {
         Time.timeScale = timeScale;
         //Time.fixedDeltaTime = timeScale * 0.02f;
-        text = GetComponent<GUIText>();
-        time =  0f;
+
+        time = 0f;
 
         if (restart % viewNumber == 0 && restart > 0)
         {
@@ -59,7 +65,11 @@ public class TimeKeep : MonoBehaviour {
             int remainder = (int)restart % viewNumber;
             if (remainder != 0)
                 restart =  restart + viewNumber - remainder - 1;
+            agent.LevelRestart();
         }
+
+        if (Input.GetKeyDown("v"))
+            agent.LevelRestart();
         if (time >= timeOut)
         {
             agent.LevelEnd();

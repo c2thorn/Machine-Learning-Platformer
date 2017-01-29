@@ -11,6 +11,11 @@ public class NEAgent : Agent
     protected override void Awake()
     {
         base.Awake();
+    }
+
+    protected override void BeginLevel()
+    {
+        InitialSettings();
         if (restart % timeKeep.viewNumber == 0 && restart > 0)
         {
             viewing = true;
@@ -21,10 +26,6 @@ public class NEAgent : Agent
             viewing = false;
             net = ev.getCurrentNet();
         }
-    }
-
-    protected override void Start()
-    {
         setLearningText();
     }
 

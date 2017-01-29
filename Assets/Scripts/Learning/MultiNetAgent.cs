@@ -13,10 +13,19 @@ public class MultiNetAgent : NEAgent
 
     protected override void Awake()
     {
-        anim = GetComponent<Animator>();
-        restart = timeKeep.getRestart();
+        base.Awake();
         manager.setAgent(this);
+    }
+
+    protected override void BeginLevel()
+    {
+        manager.BeginLevel();
+        InitialSettings();
+        viewingIndex = -1;
+        //restart = timeKeep.getRestart();
         coinName = "";
+        doNotTickOnce = false;
+        setLearningText();
         if (restart % timeKeep.viewNumber == 0 && restart > 0)
         {
             //Debug.Log("Viewing!");
@@ -44,9 +53,6 @@ public class MultiNetAgent : NEAgent
             tick();
         else
             doNotTickOnce = false;
-
-        if (Input.GetKey("v"))
-            LevelEnd();
     }
 
     protected override void setLearningText()
