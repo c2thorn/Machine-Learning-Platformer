@@ -8494,6 +8494,10 @@ Prefab:
       propertyPath: agent
       value: 
       objectReference: {fileID: 1451080312}
+    - target: {fileID: 1757921134896934, guid: a43a11c9d1e63264ab9c7e6acb8f06a0, type: 2}
+      propertyPath: m_TagString
+      value: Death
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a43a11c9d1e63264ab9c7e6acb8f06a0, type: 2}
   m_IsPrefabParent: 0

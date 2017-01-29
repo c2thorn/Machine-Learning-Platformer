@@ -180,7 +180,11 @@ public abstract class Agent : Player
 
     protected virtual void checkCollisions()
     {
-        Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, .3f);
+        float boxSize = 0.6f;
+        Vector2 topLeft = new Vector2(transform.position.x - boxSize / 2 - .25f, transform.position.y + 1f);
+        Vector2 bottomRight = new Vector2(transform.position.x + boxSize / 2 + .25f, transform.position.y - 1f);
+
+        Collider2D[] collider = Physics2D.OverlapAreaAll(topLeft, bottomRight);
         if (collider.Length > 1)
         {
             foreach (Collider2D col in collider)
@@ -268,7 +272,6 @@ public abstract class Agent : Player
                 Gizmos.DrawWireSphere(new Vector3(x2, y2, -1f), .5f);
             }
         }
-
     }
 
     protected virtual double GetNearestEven(double input)
