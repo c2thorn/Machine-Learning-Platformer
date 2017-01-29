@@ -57,13 +57,19 @@ public abstract class Agent : Player
     protected virtual void BeginLevel()
     {
         InitialSettings();
+        DetermineViewing();
+        setLearningText();
+    }
+
+    protected virtual void DetermineViewing()
+    {
         viewing = false;
     }
 
     protected virtual void InitialSettings()
     {
         transform.position = beginningPosition;
-        facingRight = true;
+        FlipRight();
         jump = false;
         grounded = false;
         restart = timeKeep.getRestart();
@@ -72,6 +78,7 @@ public abstract class Agent : Player
         velocityY = 0f;
         tickCount = 0f;
         score = 0f;
+        scoreKeep.score = 0f;
         stopTick = false;
     }   
     
@@ -328,6 +335,15 @@ public abstract class Agent : Player
         facingRight = !facingRight;
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
+        transform.localScale = theScale;
+    }
+
+    protected virtual void FlipRight()
+    {
+        facingRight = true;
+        Vector3 theScale = transform.localScale;
+        if (theScale.x < 0)
+            theScale.x *= -1;
         transform.localScale = theScale;
     }
 

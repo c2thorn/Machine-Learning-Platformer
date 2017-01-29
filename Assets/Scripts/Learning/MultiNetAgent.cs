@@ -20,12 +20,17 @@ public class MultiNetAgent : NEAgent
     protected override void BeginLevel()
     {
         manager.BeginLevel();
-        InitialSettings();
         viewingIndex = -1;
-        //restart = timeKeep.getRestart();
         coinName = "";
         doNotTickOnce = false;
+
+        InitialSettings();
+        DetermineViewing();
         setLearningText();
+    }
+
+    protected override void DetermineViewing()
+    {
         if (restart % timeKeep.viewNumber == 0 && restart > 0)
         {
             //Debug.Log("Viewing!");

@@ -6,8 +6,13 @@ public class TimeKeep : MonoBehaviour {
     private GUIText text;
     public float time;
     public float timeScale = 30f;
-    public float timeOut = 20f;
+
+    public float timeOutView = 30f;
+    public float timeOutEval = 10f;
     public int viewNumber = 20;
+    
+    [HideInInspector]
+    public float timeOut = 10f;
 
     public static float restart = 0;
     public Agent agent;
@@ -20,15 +25,17 @@ public class TimeKeep : MonoBehaviour {
 
     public void BeginLevel()
     {
-        Time.timeScale = timeScale;
-        //Time.fixedDeltaTime = timeScale * 0.02f;
-
         time = 0f;
-
         if (restart % viewNumber == 0 && restart > 0)
         {
             Time.timeScale = 1f;
-            timeOut = 30f;
+            timeOut = timeOutView;
+        }
+        else
+        {
+
+            Time.timeScale = timeScale;
+            timeOut = timeOutEval;
         }
     }
 

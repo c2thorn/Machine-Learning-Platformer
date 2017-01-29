@@ -8,14 +8,8 @@ public class NEAgent : Agent
     public static Evolution ev = new Evolution();
     protected NeuralNet net;
 
-    protected override void Awake()
+    protected override void DetermineViewing()
     {
-        base.Awake();
-    }
-
-    protected override void BeginLevel()
-    {
-        InitialSettings();
         if (restart % timeKeep.viewNumber == 0 && restart > 0)
         {
             viewing = true;
@@ -26,7 +20,6 @@ public class NEAgent : Agent
             viewing = false;
             net = ev.getCurrentNet();
         }
-        setLearningText();
     }
 
     protected override void getAction()
