@@ -216,9 +216,10 @@ public class LinearMultiNetManager
                 {
                     if (compareListScore(bestList, scenarioList))
                         bestList = deepCopy(scenarioList);
+                    else
+                        maxEvaluations = maxEvaluations + 500;
 
                     scenarioList = new ArrayList();
-                    maxEvaluations = maxEvaluations * 2;
                     netIndex = 0;
                     won = false;
                 }
@@ -234,6 +235,7 @@ public class LinearMultiNetManager
                 scenarioList = new ArrayList();
                 netIndex = 0;
                 won = false;
+                maxEvaluations = maxEvaluations + 500;
             }
             foundSomething = false;
             evaluations = 0;
