@@ -5,7 +5,8 @@ using System;
 
 public class MultiNetAgent : NEAgent
 {
-    private static MultiNetManager manager = new MultiNetManager();
+    //private static MultiNetManager manager = new MultiNetManager();
+    private static LinearMultiNetManager manager = new LinearMultiNetManager();
 
     private int viewingIndex = -1;
     private string coinName = "";
@@ -159,13 +160,9 @@ public class MultiNetAgent : NEAgent
             scenario.Add(facingRight);
             scenario.Add(jump);
             scenario.Add(grounded);
-            //Debug.Log("Checking fitness: " + manager.getFitness(manager.netIndex) + " < " + score);
+
             stopTick = true;
-            if (manager.getFitness(manager.netIndex) < score)
-            {
-                //Debug.Log("Submitting " + coinName + " " + transform.position.x + " " + transform.position.y);
-                manager.updateList(scenario);
-            }
+            manager.submitNetScore(score, scenario);
         }
     }
 

@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MultiNetManager {
+public class LinearMultiNetManager
+{
 
     /**
      * 0 Neural Net
@@ -23,62 +24,19 @@ public class MultiNetManager {
     public int netIndex = 0;
 
     public int evaluations = 0;
-    public int maxDiscoveringEvaluations = 1500;
-    public int maxOptimizingEvaluations = 500;
+    public int maxEvaluations = 500;
 
-    public bool optimizing = false;
-
-    private int lastOptimalIndex = -1;
-
-    private int optimizingLoopCounter = 0;
-    private int maxOptimizingAttempts = 5;
+    private bool won = false;
+    private bool foundSomething = false;
 
     public void setAgent(MultiNetAgent agent)
     {
-        this.agent = agent; 
+        this.agent = agent;
     }
 
     public void BeginLevel()
     {
-        if (optimizing)
-        {
-            if (evaluations >= maxOptimizingEvaluations)
-            {
-                if (netIndex >= (bestList.Count - 1))
-                {
-                    Debug.Log("Optimization complete with max optimizing evaluations at " + maxOptimizingEvaluations + ". Restarting with netIndex = 0.");
-                    netIndex = 0;
-                }
-                else
-                {
-                    Debug.Log("Max Optimizing Evals on net index: " + netIndex + " with score " + getFitness(netIndex) + ". Continuing to next.");
-                    netIndex++;
-                }
-
-                evaluations = 0;
-
-            }
-            else
-                evaluations++;
-        }
-        else
-        {
-            if (evaluations >= maxDiscoveringEvaluations)
-            {
-                Debug.Log("Max Discovering Evals on net index: " + netIndex + ". Restarting from bestList.");
-                scenarioList = deepCopy(bestList);
-                netIndex = 0;
-                evaluations = 0;
-                lastOptimalIndex = -1;
-                optimizingLoopCounter = 0;
-
-                //The case where this wouldn't be true is when the agent has failed to discover a new coin on its first run.
-                if (bestList.Count > 0)
-                    optimizing = true;
-            }
-            else
-                evaluations++;
-        }
+        IncrementEvaluations();
     }
 
     public void destroyCoins()
@@ -87,7 +45,6 @@ public class MultiNetManager {
         {
             GameObject coin = GameObject.Find(getCoinName(i));
             coin.SetActive(false);
-            //Object.Destroy(coin);
         }
     }
 
@@ -104,53 +61,21 @@ public class MultiNetManager {
         }
 
         newList.Add(scenario);
-
-        if (optimizing)
-            lastOptimalIndex = netIndex;
+        scenarioList = newList;
 
         if (((string)scenario[1]).Equals("WinTrigger"))
-        {
-
-            if (compareListScore(bestList, newList))
-            {
-                bestList = deepCopy(newList);
-                lastOptimalIndex = -1;
-            }
-            if (lastOptimalIndex >= 0 && optimizingLoopCounter < maxOptimizingAttempts)
-            {
-                ArrayList optimalList = new ArrayList();
-
-                for (int i = 0; i <= lastOptimalIndex; i++)
-                    optimalList.Add(scenarioCopy((ArrayList)scenarioList[i]));
-                scenarioList = deepCopy(optimalList);
-                netIndex = lastOptimalIndex+1;
-                Debug.Log("Retrying from: " + lastOptimalIndex + ". Attempt: " + optimizingLoopCounter);
-                //netIndex = lastOptimalIndex;
-                optimizingLoopCounter++;
-                optimizing = false;
-            }
-            else
-            {
-                netIndex = 0;
-                scenarioList = deepCopy(bestList);
-                optimizingLoopCounter = 0;
-                optimizing = true;
-            }
-
-        }
+            won = true;
         else
-        {
-            scenarioList = deepCopy(newList);
-            optimizing = false;
-            netIndex++;
-        }
-        evaluations = 0;
+            won = false;
+
+        if (bestList.Count == 0)
+            evaluations = maxEvaluations;
     }
-    
+
     public bool containsCoin(string coinName)
     {
         bool found = false;
-        foreach(ArrayList entry in scenarioList)
+        foreach (ArrayList entry in scenarioList)
         {
             if (((string)entry[1]).Equals(coinName))
                 found = true;
@@ -239,12 +164,12 @@ public class MultiNetManager {
 
     public float getMaxEvaluations()
     {
-        return optimizing ? maxOptimizingEvaluations : maxDiscoveringEvaluations;
+        return maxEvaluations;
     }
 
     private ArrayList scenarioCopy(ArrayList entry)
     {
-        
+
         ArrayList scenario = new ArrayList();
         scenario.Add(((NeuralNet)entry[0]).copy());
         scenario.Add(((string)entry[1]).Clone());
@@ -276,6 +201,46 @@ public class MultiNetManager {
         if (score > getFitness(netIndex))
         {
             updateList(scenario);
+        }
+
+        foundSomething = true;
+    }
+
+    private void IncrementEvaluations()
+    {
+        if (evaluations >= maxEvaluations)
+        {
+            if (foundSomething)
+            {
+                if (won)
+                {
+                    if (compareListScore(bestList, scenarioList))
+                        bestList = deepCopy(scenarioList);
+
+                    scenarioList = new ArrayList();
+                    maxEvaluations = maxEvaluations * 2;
+                    netIndex = 0;
+                    won = false;
+                }
+                else
+                {
+                    Debug.Log("Continuing to net index: " + netIndex + ".");
+                    netIndex++;
+                }
+            }
+            else
+            {
+                Debug.Log("Max Evals on net index: " + netIndex + ". Restarting completely.");
+                scenarioList = new ArrayList();
+                netIndex = 0;
+                won = false;
+            }
+            foundSomething = false;
+            evaluations = 0;
+        }
+        else
+        {
+            evaluations++;
         }
     }
 
