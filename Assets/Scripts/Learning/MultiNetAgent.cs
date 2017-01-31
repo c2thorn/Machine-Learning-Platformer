@@ -133,17 +133,24 @@ public class MultiNetAgent : NEAgent
         this.coinName = coinName;
         if (!viewing)
         {
+            //OutputScenario();
             LevelEnd();
         }
         else
         {
             if (viewingIndex < (manager.bestCount()-1))
             {
+                //OutputScenario();
                 net = manager.getBestNet(++viewingIndex);
                 doNotTickOnce = true;
                 setLearningText();
             }
         }
+    }
+
+    private void OutputScenario()
+    {
+        Debug.Log(coinName+ ",  " + transform.position + ", " + velocityX + ", " + velocityY + ", " + facingRight + ", " + jump + ", " + grounded);
     }
 
     protected override void submitScore()

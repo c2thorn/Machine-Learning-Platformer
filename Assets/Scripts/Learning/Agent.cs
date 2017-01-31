@@ -149,8 +149,8 @@ public abstract class Agent : Player
             checkHorizontal(velocityX > 0 ? true : false);
         if (velocityY != 0)
             checkVertical(velocityY > 0 ? true : false);
-        checkCollisions();
         transform.position = new Vector3(transform.position.x + velocityX, transform.position.y + velocityY, transform.position.z);
+        checkCollisions();
     }
 
     protected virtual void checkHorizontal(bool right)

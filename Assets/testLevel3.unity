@@ -505,7 +505,7 @@ MonoBehaviour:
   time: 0
   timeScale: 100
   timeOutView: 30
-  timeOutEval: 30
+  timeOutEval: 10
   viewNumber: 5000
   timeOut: 10
   agent: {fileID: 338745207}
@@ -1340,7 +1340,7 @@ BoxCollider2D:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 338745205}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
