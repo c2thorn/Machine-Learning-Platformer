@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Death : MonoBehaviour
 {
-    public Agent agent;
     // Use this for initialization
     void Start()
     {

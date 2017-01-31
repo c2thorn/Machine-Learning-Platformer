@@ -5,8 +5,8 @@ using System;
 
 public class MultiNetAgent : NEAgent
 {
-    //private static MultiNetManager manager = new MultiNetManager();
-    private static LinearMultiNetManager manager = new LinearMultiNetManager();
+    private MultiNetManager manager;
+
 
     private int viewingIndex = -1;
     private string coinName = "";
@@ -14,8 +14,10 @@ public class MultiNetAgent : NEAgent
 
     protected override void Awake()
     {
+        //manager = new MultiNetManager(this);
+        //manager = new OptimizingMultiNetManager(this);
+        manager = new LinearMultiNetManager(this);
         base.Awake();
-        manager.setAgent(this);
     }
 
     protected override void BeginLevel()
@@ -126,7 +128,6 @@ public class MultiNetAgent : NEAgent
 
     public override void grabCoin(string coinName)
     {
-        //Debug.Log("Grabbing Coin!");
         if (viewing)
             base.grabCoin(coinName);
         this.coinName = coinName;
@@ -141,7 +142,6 @@ public class MultiNetAgent : NEAgent
                 net = manager.getBestNet(++viewingIndex);
                 doNotTickOnce = true;
                 setLearningText();
-                //Debug.Log("Changing!! " + viewingIndex);
             }
         }
     }

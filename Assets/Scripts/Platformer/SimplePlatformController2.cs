@@ -31,17 +31,42 @@ public class SimplePlatformController2 : Player
     public float jumpForce = 1f;
     public float gravityForce = 0.0825f;
 
+    protected bool stopTick = false;
+
+    protected Vector3 beginningPosition;
+
+    GameObject[] coinObjects;
+
     // Use this for initialization
-    void Awake()
+    protected virtual void Awake()
     {
         anim = GetComponent<Animator>();
-        //transform = GetComponent<Rigidbody2D>();
+        beginningPosition = transform.position;
+        coinObjects = GameObject.FindGameObjectsWithTag("Coin");
+
+        BeginLevel();
+    }
+
+    protected virtual void BeginLevel()
+    {
+        InitialSettings();
+    }
+
+    protected virtual void InitialSettings()
+    {
+        transform.position = beginningPosition;
+        FlipRight();
+        jump = false;
+        grounded = false;
+        velocityX = 0f;
+        velocityY = 0f;
+        tickCount = 0f;
+        stopTick = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-
         highlightActions();
     }
 
@@ -146,6 +171,7 @@ public class SimplePlatformController2 : Player
             checkHorizontal(velocityX > 0 ? true : false);
         if (velocityY != 0)
             checkVertical(velocityY > 0 ? true : false);
+        checkCollisions();
         transform.position = new Vector3(transform.position.x + velocityX, transform.position.y + velocityY, transform.position.z);
     }
 
@@ -214,8 +240,64 @@ public class SimplePlatformController2 : Player
         transform.localScale = theScale;
     }
 
+    protected virtual void checkCollisions()
+    {
+        float boxSize = 0.6f;
+        Vector2 topLeft = new Vector2(transform.position.x - boxSize / 2 - .25f, transform.position.y + 1f);
+        Vector2 bottomRight = new Vector2(transform.position.x + boxSize / 2 + .25f, transform.position.y - 1f);
+
+        Collider2D[] colliderArray = Physics2D.OverlapAreaAll(topLeft, bottomRight);
+
+        if (colliderArray.Length > 1)
+        {
+            foreach (Collider2D col in colliderArray)
+            {
+                if (col.tag.Equals("Death"))
+                {
+                    stopTick = true;
+                    LevelEnd();
+                }
+                if (col.tag.Equals("Finish"))
+                {
+                    stopTick = true;
+                    grabWin();
+                    LevelEnd();
+                }
+                if (col.tag.Equals("Coin"))
+                {
+                    stopTick = true;
+                    grabCoin(col.gameObject.name);
+                    col.gameObject.SetActive(false);
+                }
+            }
+
+        }
+    }
+    protected virtual void FlipRight()
+    {
+        facingRight = true;
+        Vector3 theScale = transform.localScale;
+        if (theScale.x < 0)
+            theScale.x *= -1;
+        transform.localScale = theScale;
+    }
+
     public override void LevelEnd()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+        LevelRestart();
+    }
+
+    public virtual void RestoreCoins()
+    {
+        foreach (GameObject coin in coinObjects)
+        {
+            coin.SetActive(true);
+        }
+    }
+
+    public virtual void LevelRestart()
+    {
+        RestoreCoins();
+        BeginLevel();
     }
 }

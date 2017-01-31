@@ -231,6 +231,13 @@ public abstract class Agent : Player
                     grabWin();
                     LevelEnd();
                 }
+                if (col.tag.Equals("Coin"))
+                {
+                    if (!viewing)
+                        stopTick = true;
+                    grabCoin(col.gameObject.name);
+                    col.gameObject.SetActive(false);
+                }
             }
 
         }

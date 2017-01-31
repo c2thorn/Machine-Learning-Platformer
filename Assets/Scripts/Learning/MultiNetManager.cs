@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MultiNetManager {
-
     /**
+     * Scenario ArrayList
      * 0 Neural Net
      * 1 Coin
      * 2 Fitness
@@ -15,70 +15,31 @@ public class MultiNetManager {
      * 7 Jump
      * 8 Grounded
      */
-    private ArrayList scenarioList = new ArrayList();
-    private ArrayList bestList = new ArrayList();
-
-    public MultiNetAgent agent;
+    protected ArrayList scenarioList = new ArrayList();
+    protected ArrayList bestList = new ArrayList();
+    protected MultiNetAgent agent;
 
     public int netIndex = 0;
-
     public int evaluations = 0;
-    public int maxDiscoveringEvaluations = 1500;
-    public int maxOptimizingEvaluations = 500;
 
-    public bool optimizing = false;
+    protected int maxEvaluations = 1000;
 
-    private int lastOptimalIndex = -1;
-
-    private int optimizingLoopCounter = 0;
-    private int maxOptimizingAttempts = 5;
-
-    public void setAgent(MultiNetAgent agent)
+    public MultiNetManager(MultiNetAgent agent)
     {
         this.agent = agent; 
     }
 
-    public void BeginLevel()
+    public virtual void BeginLevel()
     {
-        if (optimizing)
+        if (evaluations >= maxEvaluations)
         {
-            if (evaluations >= maxOptimizingEvaluations)
-            {
-                if (netIndex >= (bestList.Count - 1))
-                {
-                    Debug.Log("Optimization complete with max optimizing evaluations at " + maxOptimizingEvaluations + ". Restarting with netIndex = 0.");
-                    netIndex = 0;
-                }
-                else
-                {
-                    Debug.Log("Max Optimizing Evals on net index: " + netIndex + " with score " + getFitness(netIndex) + ". Continuing to next.");
-                    netIndex++;
-                }
-
-                evaluations = 0;
-
-            }
-            else
-                evaluations++;
+            Debug.Log("Max evaluations on net index: " + netIndex + ". Restarting from bestList.");
+            scenarioList = deepCopy(bestList);
+            netIndex = 0;
+            evaluations = 0;
         }
         else
-        {
-            if (evaluations >= maxDiscoveringEvaluations)
-            {
-                Debug.Log("Max Discovering Evals on net index: " + netIndex + ". Restarting from bestList.");
-                scenarioList = deepCopy(bestList);
-                netIndex = 0;
-                evaluations = 0;
-                lastOptimalIndex = -1;
-                optimizingLoopCounter = 0;
-
-                //The case where this wouldn't be true is when the agent has failed to discover a new coin on its first run.
-                if (bestList.Count > 0)
-                    optimizing = true;
-            }
-            else
-                evaluations++;
-        }
+            evaluations++;
     }
 
     public void destroyCoins()
@@ -87,7 +48,6 @@ public class MultiNetManager {
         {
             GameObject coin = GameObject.Find(getCoinName(i));
             coin.SetActive(false);
-            //Object.Destroy(coin);
         }
     }
 
@@ -95,7 +55,7 @@ public class MultiNetManager {
     * If there are no entries, add the new scenario.
     * Otherwise, replace the current entry with the new scenario and delete the rest.
     */
-    public void updateList(ArrayList scenario)
+    public virtual void updateList(ArrayList scenario)
     {
         ArrayList newList = new ArrayList();
         for (int i = 0; i < netIndex; i++)
@@ -105,43 +65,18 @@ public class MultiNetManager {
 
         newList.Add(scenario);
 
-        if (optimizing)
-            lastOptimalIndex = netIndex;
-
         if (((string)scenario[1]).Equals("WinTrigger"))
         {
-
             if (compareListScore(bestList, newList))
             {
                 bestList = deepCopy(newList);
-                lastOptimalIndex = -1;
             }
-            if (lastOptimalIndex >= 0 && optimizingLoopCounter < maxOptimizingAttempts)
-            {
-                ArrayList optimalList = new ArrayList();
-
-                for (int i = 0; i <= lastOptimalIndex; i++)
-                    optimalList.Add(scenarioCopy((ArrayList)scenarioList[i]));
-                scenarioList = deepCopy(optimalList);
-                netIndex = lastOptimalIndex+1;
-                Debug.Log("Retrying from: " + lastOptimalIndex + ". Attempt: " + optimizingLoopCounter);
-                //netIndex = lastOptimalIndex;
-                optimizingLoopCounter++;
-                optimizing = false;
-            }
-            else
-            {
-                netIndex = 0;
-                scenarioList = deepCopy(bestList);
-                optimizingLoopCounter = 0;
-                optimizing = true;
-            }
-
+            netIndex = 0;
+            scenarioList = deepCopy(bestList);
         }
         else
         {
             scenarioList = deepCopy(newList);
-            optimizing = false;
             netIndex++;
         }
         evaluations = 0;
@@ -214,7 +149,6 @@ public class MultiNetManager {
 
     public NeuralNet getBestNet(int index)
     {
-        //Debug.Log(index + " " + (bestList.Count > 0) + " " + (bestList.Count > 0 ? ((NeuralNet)((ArrayList)bestList[index])[0]).firstConnectionLayer[0][0] : ((NeuralNet)((ArrayList)scenarioList[index])[0]).firstConnectionLayer[0][0]));
         return bestList.Count > 0 ? (NeuralNet)((ArrayList)bestList[index])[0] : (NeuralNet)((ArrayList)scenarioList[index])[0];
     }
 
@@ -237,12 +171,12 @@ public class MultiNetManager {
         return bestList.Count > 0 ? bestList.Count : scenarioList.Count;
     }
 
-    public float getMaxEvaluations()
+    public virtual float getMaxEvaluations()
     {
-        return optimizing ? maxOptimizingEvaluations : maxDiscoveringEvaluations;
+        return maxEvaluations;
     }
 
-    private ArrayList scenarioCopy(ArrayList entry)
+    protected ArrayList scenarioCopy(ArrayList entry)
     {
         
         ArrayList scenario = new ArrayList();
@@ -259,7 +193,7 @@ public class MultiNetManager {
         return scenario;
     }
 
-    private ArrayList deepCopy(ArrayList original)
+    protected ArrayList deepCopy(ArrayList original)
     {
         ArrayList copy = new ArrayList();
 
@@ -271,7 +205,7 @@ public class MultiNetManager {
         return copy;
     }
 
-    public void submitNetScore(float score, ArrayList scenario)
+    public virtual void submitNetScore(float score, ArrayList scenario)
     {
         if (score > getFitness(netIndex))
         {
@@ -279,7 +213,7 @@ public class MultiNetManager {
         }
     }
 
-    private bool compareListScore(ArrayList incumbent, ArrayList challenger)
+    protected bool compareListScore(ArrayList incumbent, ArrayList challenger)
     {
         float iScore = 0f;
         float cScore = 0f;
