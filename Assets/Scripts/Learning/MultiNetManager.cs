@@ -19,6 +19,8 @@ public class MultiNetManager {
     protected ArrayList bestList = new ArrayList();
     protected MultiNetAgent agent;
 
+    protected ArrayList log = new ArrayList();
+
     public int netIndex = 0;
     public int evaluations = 0;
 
@@ -191,6 +193,28 @@ public class MultiNetManager {
         scenario.Add(((bool)entry[8]));
 
         return scenario;
+    }
+
+    public void LogScenario(string input, int index)
+    {
+        ArrayList scenario = bestList.Count > 0 ? (ArrayList)bestList[index] : (ArrayList)scenarioList[index];
+
+        string input2 = ((string)scenario[1] + ",  " + (Vector3)scenario[3] + ", " + (float)scenario[4] + ", " + (float)scenario[5] + ", " + (bool)scenario[6] + ", " +
+             (bool)scenario[7] + ", " + (bool)scenario[8]);
+
+        log.Add(input);
+        log.Add(input2);
+    }
+
+    public void OutputLog()
+    {
+        foreach (string entry in log)
+            Debug.Log(entry);
+    }
+
+    public void ClearLog()
+    {
+        log = new ArrayList();
     }
 
     protected ArrayList deepCopy(ArrayList original)

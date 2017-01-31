@@ -140,7 +140,7 @@ public class MultiNetAgent : NEAgent
         {
             if (viewingIndex < (manager.bestCount()-1))
             {
-                //OutputScenario();
+                manager.LogScenario(OutputCurrentScenario(), viewingIndex);
                 net = manager.getBestNet(++viewingIndex);
                 doNotTickOnce = true;
                 setLearningText();
@@ -148,9 +148,9 @@ public class MultiNetAgent : NEAgent
         }
     }
 
-    private void OutputScenario()
+    protected string OutputCurrentScenario()
     {
-        Debug.Log(coinName+ ",  " + transform.position + ", " + velocityX + ", " + velocityY + ", " + facingRight + ", " + jump + ", " + grounded);
+        return coinName+ ",  " + transform.position + ", " + velocityX + ", " + velocityY + ", " + facingRight + ", " + jump + ", " + grounded;
     }
 
     protected override void submitScore()
@@ -178,5 +178,16 @@ public class MultiNetAgent : NEAgent
         base.grabWin();
         if (!viewing)
             coinName = "WinTrigger";
+    }
+
+    public override void LevelEnd()
+    {
+        if (viewing)
+        {
+            if (viewingIndex != (manager.bestCount() - 1))
+                manager.OutputLog();
+            manager.ClearLog();
+        }
+        base.LevelEnd();
     }
 }
