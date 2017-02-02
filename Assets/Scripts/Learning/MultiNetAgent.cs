@@ -6,8 +6,6 @@ using System;
 public class MultiNetAgent : NEAgent
 {
     private MultiNetManager manager;
-
-
     private int viewingIndex = -1;
     private string coinName = "";
     private bool doNotTickOnce = false;
@@ -55,9 +53,12 @@ public class MultiNetAgent : NEAgent
         }
     }
 
-    protected override void FixedUpdate()
+    //protected override void FixedUpdate()
+    protected override void Update()
     {
-        if (!doNotTickOnce && !stopTick)
+        base.Update();
+
+        if (!doNotTickOnce && !stopTick && tickDone)
             tick();
         else
             doNotTickOnce = false;
@@ -84,7 +85,7 @@ public class MultiNetAgent : NEAgent
                 else
                 {
                     line[1] += manager.getBestCoinName(i) + "\t\t";
-                    line[2] +="" + manager.getBestFitness(i).ToString("F4") + "\t\t";
+                    line[2] += "" + manager.getBestFitness(i).ToString("F4") + "\t\t";
                 }
             }
         }
@@ -92,7 +93,7 @@ public class MultiNetAgent : NEAgent
         {
             for (int i = 0; i <= manager.count(); i++)
             {
-                if ((i == manager.netIndex) )
+                if ((i == manager.netIndex))
                 {
                     line[1] += "<color=#ff0000>" + manager.getCoinName(i) + "</color>\t\t";
                     line[2] += "<color=#ff0000>" + manager.getFitness(i).ToString("F4") + "</color>\t\t";
@@ -133,12 +134,12 @@ public class MultiNetAgent : NEAgent
         this.coinName = coinName;
         if (!viewing)
         {
-            //OutputScenario();
+            stopTick = true;
             LevelEnd();
         }
         else
         {
-            if (viewingIndex < (manager.bestCount()-1))
+            if (viewingIndex < (manager.bestCount() - 1))
             {
                 manager.LogScenario(OutputCurrentScenario(), viewingIndex);
                 net = manager.getBestNet(++viewingIndex);
@@ -150,7 +151,7 @@ public class MultiNetAgent : NEAgent
 
     protected string OutputCurrentScenario()
     {
-        return coinName+ ",  " + transform.position + ", " + velocityX + ", " + velocityY + ", " + facingRight + ", " + jump + ", " + grounded;
+        return coinName + ",  " + transform.position + ", " + velocityX + ", " + velocityY + ", " + facingRight + ", " + jump + ", " + grounded;
     }
 
     protected override void submitScore()

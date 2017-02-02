@@ -6506,6 +6506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04507ad323c92054ea40b83a55b37bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeKeep: {fileID: 1689869234}
   scoreKeep: {fileID: 1742870531}
   facingRight: 1
   jump: 0
@@ -6561,21 +6562,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37ed73e432a17a4090984f2b4bb4514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeKeep: {fileID: 1689869234}
   scoreKeep: {fileID: 1742870531}
   facingRight: 1
   jump: 0
   groundCheck: {fileID: 1451080304}
-  timeKeep: {fileID: 1689869234}
   leftText: {fileID: 230460602}
   upText: {fileID: 1505510262}
   rightText: {fileID: 1214223940}
-  learningText: {fileID: 1471205648}
-  learningText2: {fileID: 257058433}
-  learningText3: {fileID: 1004182462}
   raycastDistance: 0.05
   horizontalForce: 0.275
   jumpForce: 1
   gravityForce: 0.0825
+  learningText: {fileID: 1471205648}
+  learningText2: {fileID: 257058433}
+  learningText3: {fileID: 1004182462}
 --- !u!1 &1466276094
 GameObject:
   m_ObjectHideFlags: 0

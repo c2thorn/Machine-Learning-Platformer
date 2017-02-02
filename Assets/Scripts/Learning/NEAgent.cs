@@ -22,7 +22,7 @@ public class NEAgent : Agent
         }
     }
 
-    protected override void getAction()
+    protected override void GetActions()
     {
         double[] inputs = new double[28];
         int which = 0;
@@ -46,8 +46,6 @@ public class NEAgent : Agent
 
         highlightActions();
     }
-
-
 
     protected override void setLearningText()
     {
