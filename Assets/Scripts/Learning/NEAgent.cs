@@ -7,17 +7,16 @@ public class NEAgent : Agent
 {
     public static Evolution ev = new Evolution();
     protected NeuralNet net;
+    public string loadPath = "";
 
     protected override void DetermineViewing()
     {
-        if (restart % timeKeep.viewNumber == 0 && restart > 0)
+        if (timeKeep.GetViewing())
         {
-            viewing = true;
             net = ev.getBestNet();
         }
         else
         {
-            viewing = false;
             net = ev.getCurrentNet();
         }
     }
@@ -49,8 +48,7 @@ public class NEAgent : Agent
 
     protected override void setLearningText()
     {
-        float restart = timeKeep.getRestart();
-        if (restart % timeKeep.viewNumber == 0 && restart > 0)
+        if (timeKeep.GetViewing())
         {
             learningText.text = "Viewing Elite";
             learningText.fontSize = 16;

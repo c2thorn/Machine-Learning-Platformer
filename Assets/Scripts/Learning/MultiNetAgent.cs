@@ -14,8 +14,14 @@ public class MultiNetAgent : NEAgent
     {
         //manager = new MultiNetManager(this);
         //manager = new OptimizingMultiNetManager(this);
-        manager = new LinearMultiNetManager(this);
+        manager = new LinearMultiNetManager(this, timeKeep);
+
         base.Awake();
+    }
+
+    protected void Start()
+    {
+
     }
 
     protected override void BeginLevel()
@@ -32,19 +38,26 @@ public class MultiNetAgent : NEAgent
 
     protected override void DetermineViewing()
     {
-        if (restart % timeKeep.viewNumber == 0 && restart > 0)
+        if (loadPath.Length > 0)
         {
-            //Debug.Log("Viewing!");
+            manager.LoadNets(loadPath);
+            timeKeep.forceView = true;
+            timeKeep.BeginLevel();
+            timeKeep.forceView = true;
+        }
+
+        if (timeKeep.GetViewing())
+        {
             viewingIndex = 0;
-            viewing = true;
             if (manager.bestCount() > 0)
+            {
                 net = manager.getBestNet(0);
+            }
             else
                 net = new NeuralNet();
         }
         else
         {
-            viewing = false;
             net = new NeuralNet();
             if (manager.netIndex > 0)
             {
@@ -53,16 +66,22 @@ public class MultiNetAgent : NEAgent
         }
     }
 
-    //protected override void FixedUpdate()
-    protected override void Update()
+    protected override void FixedUpdate()
     {
-        base.Update();
-
         if (!doNotTickOnce && !stopTick && tickDone)
             tick();
         else
             doNotTickOnce = false;
     }
+    
+    /*protected override void Update()
+    {
+        base.Update();
+        if (!doNotTickOnce && !stopTick && tickDone)
+            tick();
+        else
+            doNotTickOnce = false;
+    }*/
 
     protected override void setLearningText()
     {
@@ -72,7 +91,7 @@ public class MultiNetAgent : NEAgent
         learningText3.text = "";
         String[] line = { "", "", "", "" };
 
-        if (viewing)
+        if (timeKeep.GetViewing())
         {
             line[0] = "Viewing Elite Nets";
             for (int i = 0; i < manager.bestCount(); i++)
@@ -80,12 +99,13 @@ public class MultiNetAgent : NEAgent
                 if ((i == viewingIndex))
                 {
                     line[1] += "<color=#ff0000>" + manager.getBestCoinName(i) + "</color>\t\t";
-                    line[2] += "<color=#ff0000>" + manager.getBestFitness(i).ToString("F4") + "</color>\t\t";
+                    line[2] += "<color=#ff0000>" + (manager.getBestFitness(i) > 0 ? "  "  : " ") +
+                        manager.getBestFitness(i).ToString("F2") + "</color>\t\t\t";
                 }
                 else
                 {
                     line[1] += manager.getBestCoinName(i) + "\t\t";
-                    line[2] += "" + manager.getBestFitness(i).ToString("F4") + "\t\t";
+                    line[2] += "  " + manager.getBestFitness(i).ToString("F2") + "\t\t\t";
                 }
             }
         }
@@ -96,13 +116,14 @@ public class MultiNetAgent : NEAgent
                 if ((i == manager.netIndex))
                 {
                     line[1] += "<color=#ff0000>" + manager.getCoinName(i) + "</color>\t\t";
-                    line[2] += "<color=#ff0000>" + manager.getFitness(i).ToString("F4") + "</color>\t\t";
+                    line[2] += "<color=#ff0000>" + (manager.getBestFitness(i) > 0 ? "  " : " ") +
+                        manager.getBestFitness(i).ToString("F2") + "</color>\t\t\t";
                     line[3] += "<color=#ff0000>" + manager.evaluations + "/" + manager.getMaxEvaluations() + "</color>\t\t";
                 }
                 else
                 {
                     line[1] += manager.getCoinName(i) + "\t\t";
-                    line[2] += "" + manager.getFitness(i).ToString("F4") + "\t\t";
+                    line[2] += "  " + manager.getFitness(i).ToString("F2") + "\t\t\t";
                     line[3] += "            \t\t";
                 }
             }
@@ -118,7 +139,6 @@ public class MultiNetAgent : NEAgent
     public void setScenario()
     {
         transform.position = manager.getPosition(manager.netIndex - 1);
-        //Debug.Log("Setting up!" + manager.getPosition(manager.netIndex - 1).x + " " + manager.getPosition(manager.netIndex - 1).y);
         velocityX = manager.getVelocityX(manager.netIndex - 1);
         velocityY = manager.getVelocityY(manager.netIndex - 1);
         facingRight = manager.getFacingRight(manager.netIndex - 1);
@@ -129,10 +149,10 @@ public class MultiNetAgent : NEAgent
 
     public override void grabCoin(string coinName)
     {
-        if (viewing)
+        if (timeKeep.GetViewing())
             base.grabCoin(coinName);
         this.coinName = coinName;
-        if (!viewing)
+        if (!timeKeep.GetViewing())
         {
             stopTick = true;
             LevelEnd();
@@ -141,8 +161,10 @@ public class MultiNetAgent : NEAgent
         {
             if (viewingIndex < (manager.bestCount() - 1))
             {
-                manager.LogScenario(OutputCurrentScenario(), viewingIndex);
-                net = manager.getBestNet(++viewingIndex);
+                if (loadPath.Length == 0)
+                    manager.LogScenario(OutputCurrentScenario(), viewingIndex);
+                viewingIndex += 1;
+                net = manager.getBestNet(viewingIndex);
                 doNotTickOnce = true;
                 setLearningText();
             }
@@ -177,17 +199,25 @@ public class MultiNetAgent : NEAgent
     public override void grabWin()
     {
         base.grabWin();
-        if (!viewing)
+        if (!timeKeep.GetViewing())
             coinName = "WinTrigger";
     }
 
     public override void LevelEnd()
     {
-        if (viewing)
+        if (timeKeep.GetViewing())
         {
             if (viewingIndex != (manager.bestCount() - 1))
-                manager.OutputLog();
-            manager.ClearLog();
+            {
+                if (loadPath.Length == 0)
+                {
+                    manager.OutputLog();
+                    manager.WriteNets("" + manager.GetBestScore());
+                }
+                Debug.Log(timeKeep.getRestart());
+            }
+            if (loadPath.Length == 0)
+                manager.ClearLog();
         }
         base.LevelEnd();
     }

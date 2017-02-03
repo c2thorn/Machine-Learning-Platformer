@@ -7,9 +7,10 @@ public class LinearMultiNetManager : MultiNetManager
     private bool won = false;
     private bool foundSomething = false;
 
-    public LinearMultiNetManager(MultiNetAgent agent) : base(agent)
+    public LinearMultiNetManager(MultiNetAgent agent, TimeKeep timeKeep) : base(agent, timeKeep)
     {
         this.agent = agent;
+        this.timeKeep = timeKeep;
         maxEvaluations = 500;
     }
 
@@ -57,10 +58,13 @@ public class LinearMultiNetManager : MultiNetManager
                 if (won)
                 {
                     if (compareListScore(bestList, scenarioList))
+                    {
                         bestList = deepCopy(scenarioList);
+                        //WriteNets("" + GetBestScore());
+                    }
                     else
                         maxEvaluations = maxEvaluations + 500;
-
+                    timeKeep.forceView = true;
                     scenarioList = new ArrayList();
                     netIndex = 0;
                     won = false;

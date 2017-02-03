@@ -16,6 +16,10 @@ public class TimeKeep : MonoBehaviour {
 
     public static float restart = 0;
     public Agent agent;
+
+    private bool viewing = false;
+    public bool forceView = false;
+
 	// Use this for initialization
 	void Start () {
         Application.runInBackground = true;
@@ -26,17 +30,24 @@ public class TimeKeep : MonoBehaviour {
     public void BeginLevel()
     {
         time = 0f;
-        if (restart % viewNumber == 0 && restart > 0)
+        if ((restart % viewNumber == 0 && restart > 0) || forceView)
         {
             Time.timeScale = 1f;
             timeOut = timeOutView;
+            viewing = true;
+            forceView = false;
         }
         else
         {
-
+            viewing = false;
             Time.timeScale = timeScale;
             timeOut = timeOutEval;
         }
+    }
+
+    public bool GetViewing()
+    {
+        return viewing;
     }
 
     public float getRestart()
@@ -48,35 +59,23 @@ public class TimeKeep : MonoBehaviour {
     {
         restart++;
     }
-
-    // Update is called once per frame
-    void Update () {
-        time += Time.deltaTime;
-        text.text = "Time: " + time.ToString("F2") +" "+ restart;
-
-        /*if (Input.GetKeyDown("space"))
-        {
-            Time.timeScale = 1f;
-            //Time.fixedDeltaTime = 1f * 0.02f;
-        }
-        if (Input.GetKeyUp("space"))
-        {
-
-            Time.timeScale = timeScale;
-
-            //Time.fixedDeltaTime = timeScale * 0.02f;
-        }*/
-
+    
+    void Update()
+    {
         if (Input.GetKeyDown("f"))
         {
-            int remainder = (int)restart % viewNumber;
-            if (remainder != 0)
-                restart =  restart + viewNumber - remainder - 1;
+            forceView = true;
             agent.LevelRestart();
         }
 
         if (Input.GetKeyDown("v"))
             agent.LevelRestart();
+    }
+
+    void FixedUpdate () {
+        time += Time.fixedDeltaTime;
+        text.text = "Time: " + time.ToString("F2") +" "+ restart;
+
         if (time >= timeOut)
         {
             agent.LevelEnd();

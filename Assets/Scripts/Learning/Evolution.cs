@@ -2,10 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/**
- * Evolution Class Where Elite are untouched
- * */
-
 public class Evolution {
     private NeuralNet[] population;
     public float[] fitness;

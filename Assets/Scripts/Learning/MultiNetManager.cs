@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class MultiNetManager {
     /**
@@ -25,10 +26,12 @@ public class MultiNetManager {
     public int evaluations = 0;
 
     protected int maxEvaluations = 1000;
+    protected TimeKeep timeKeep;
 
-    public MultiNetManager(MultiNetAgent agent)
+    public MultiNetManager(MultiNetAgent agent, TimeKeep timeKeep)
     {
-        this.agent = agent; 
+        this.agent = agent;
+        this.timeKeep = timeKeep;
     }
 
     public virtual void BeginLevel()
@@ -253,13 +256,47 @@ public class MultiNetManager {
         }
         if (cScore > iScore)
         {
-            Debug.Log("New score " + cScore + " has beaten previous score " + iScore);
+            Debug.Log("New score " + cScore + " has beaten previous score " + iScore + ". @ " + timeKeep.getRestart());
             return true;
         }
         else
         {
-            Debug.Log("Old score " + iScore + " remains higher than new score " + cScore);
+            Debug.Log("Old score " + iScore + " remains higher than new score " + cScore + ". @ " + timeKeep.getRestart());
             return false;
         }
+    }
+
+    public float GetBestScore()
+    {
+        float bestScore = 0f;
+
+        foreach (ArrayList entry in bestList)
+        {
+            bestScore += (float)entry[2];
+        }
+        return bestScore;
+    }
+
+    public void WriteNets(string directory)
+    {
+        System.IO.Directory.CreateDirectory(@"C:\Users\c2tho_000\Documents\platformer3\NeuralNets\" + directory+"\\");
+        for (int i = 0; i < bestList.Count; i++)
+        {
+            getBestNet(i).writeNet(directory + "\\" + i);
+        }
+    }
+
+    public void LoadNets(string loadPath)
+    {
+        int fCount = Directory.GetFiles(@"C:\Users\c2tho_000\Documents\platformer3\NeuralNets\"+loadPath+"\\", "*", SearchOption.TopDirectoryOnly).Length;
+        bestList = new ArrayList();
+        for (int i = 0; i < fCount; i++) {
+            ArrayList scenario = new ArrayList();
+            scenario.Add(new NeuralNet(loadPath + "\\" + i));
+            scenario.Add("LOADED");
+            scenario.Add(11f);
+            bestList.Add(scenario);
+        }
+        //Debug.Log("LOADING " + bestCount());
     }
 }

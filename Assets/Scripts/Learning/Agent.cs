@@ -8,9 +8,7 @@ public abstract class Agent : Player
     public GUIText learningText;
     public GUIText learningText2;
     public GUIText learningText3;
-
-    protected bool viewing = false;
-    protected float restart = 0f;
+    
     protected float score = 0f;
 
     protected override void BeginLevel()
@@ -22,14 +20,13 @@ public abstract class Agent : Player
     protected override void InitialSettings()
     {
         base.InitialSettings();
-        restart = timeKeep.getRestart();
         score = 0f;
     }
 
     public override void LevelEnd()
     {
         float time = timeKeep.time > timeKeep.timeOut ? timeKeep.timeOut : timeKeep.time;
-        if (!viewing)
+        if (!timeKeep.GetViewing())
         {
             score = scoreKeep.score - time + timeKeep.timeOut;
             submitScore();
@@ -37,10 +34,7 @@ public abstract class Agent : Player
         LevelRestart();
     }
 
-    protected virtual void DetermineViewing()
-    {
-        viewing = false;
-    }
+    protected abstract void DetermineViewing();
 
 
     protected virtual double probe(float x, float y, int i, int j)

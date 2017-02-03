@@ -451,6 +451,7 @@ MonoBehaviour:
   viewNumber: 1000
   timeOut: 10
   agent: {fileID: 338745207}
+  forceView: 0
 --- !u!4 &101911398 stripped
 Transform:
   m_PrefabParentObject: {fileID: 455832, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}
@@ -1067,6 +1068,7 @@ MonoBehaviour:
   learningText: {fileID: 600050820}
   learningText2: {fileID: 1109524892}
   learningText3: {fileID: 1086104423}
+  loadPath: 621.2
 --- !u!61 &338745208
 BoxCollider2D:
   m_ObjectHideFlags: 0

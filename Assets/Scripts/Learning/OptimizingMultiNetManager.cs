@@ -12,9 +12,10 @@ public class OptimizingMultiNetManager : MultiNetManager
     private int optimizingLoopCounter = 0;
     private int maxOptimizingAttempts = 5;
 
-    public OptimizingMultiNetManager(MultiNetAgent agent) : base(agent)
+    public OptimizingMultiNetManager(MultiNetAgent agent, TimeKeep timeKeep) : base(agent, timeKeep)
     {
         this.agent = agent;
+        this.timeKeep = timeKeep;
     }
 
     public override void BeginLevel()
