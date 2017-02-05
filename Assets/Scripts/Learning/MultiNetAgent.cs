@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+/**
+ * Agent that uses one neural net per coin/scenario.
+ * Scenarios are stored and managed in Multinet Manager
+ * 
+ */ 
 public class MultiNetAgent : NEAgent
 {
     private MultiNetManager manager;
@@ -161,8 +166,11 @@ public class MultiNetAgent : NEAgent
         {
             if (viewingIndex < (manager.bestCount() - 1))
             {
+                //If we are in view mode, and we need to transition to the next neural net
+
                 if (loadPath.Length == 0)
                     manager.LogScenario(OutputCurrentScenario(), viewingIndex);
+
                 viewingIndex += 1;
                 net = manager.getBestNet(viewingIndex);
                 doNotTickOnce = true;
@@ -171,6 +179,7 @@ public class MultiNetAgent : NEAgent
         }
     }
 
+    //Log all scenario data for debug purposes
     protected string OutputCurrentScenario()
     {
         return coinName + ",  " + transform.position + ", " + velocityX + ", " + velocityY + ", " + facingRight + ", " + jump + ", " + grounded;
@@ -207,6 +216,8 @@ public class MultiNetAgent : NEAgent
     {
         if (timeKeep.GetViewing())
         {
+            //If the level ended with out getting to the end of the neural net list,
+            //meaning the replay has failed...
             if (viewingIndex != (manager.bestCount() - 1))
             {
                 if (loadPath.Length == 0)

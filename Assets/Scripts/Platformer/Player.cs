@@ -1,43 +1,50 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/**
+ * Player class. Root of human player classes and non-human agents. 
+ * Handles physics and what to do once actions are determined.
+ * How the action gets determined is up to children classes.
+ */
 public abstract class Player : MonoBehaviour
 {
     public TimeKeep timeKeep;
     public ScoreKeep scoreKeep;
+    public GUIText leftText;
+    public GUIText upText;
+    public GUIText rightText;
+    public Transform groundCheck;
+
     [HideInInspector]
     public bool facingRight = true;
     [HideInInspector]
     public bool jump = false;
 
-    public Transform groundCheck;
-    protected bool grounded = false;
     protected Animator anim;
-
-    public GUIText leftText;
-    public GUIText upText;
-    public GUIText rightText;
-
-    public float raycastDistance = 0.05f;
-
-    protected bool[] actions = new bool[3];
-    protected float velocityX = 0f;
-    protected float velocityY = 0f;
-
+    protected bool grounded = false;
+    
     public float horizontalForce = 0.275f;
     public float jumpForce = 1f;
     public float gravityForce = 0.0825f;
+    
+    //Possible actions
+    protected bool[] actions = new bool[3];
 
+    protected float velocityX = 0f;
+    protected float velocityY = 0f;
+
+    //Boolean to control when to freeze physics
     protected bool stopTick = false;
+
+    //Is the current tick finished?
+    protected bool tickDone = true;
 
     protected Vector3 beginningPosition;
 
     protected GameObject[] coinObjects;
 
+    //Horizontal movement
     protected float h;
-
-    protected bool tickDone = true;
 
     //private float halfBox = 0.61f / 2f + 0.25f;
     private float halfBox = 0.61f / 2f;
@@ -69,22 +76,24 @@ public abstract class Player : MonoBehaviour
         actions = new bool[3];
         scoreKeep.score = 0f;
     }
-
-
+    
     // Update is called once per frame
     protected virtual void Update()
     {
         highlightActions();
     }
 
+    // FixedUpdate is called on set intervals
     protected virtual void FixedUpdate()
     {
         if (!stopTick && tickDone)
             tick();
     }
 
+    //Abstract class for child classes to implement
     protected abstract void GetActions();
 
+    //Interpret action booleans
     protected virtual void ApplyActions()
     {
         if (actions[2] && grounded && velocityY == 0)
@@ -95,9 +104,22 @@ public abstract class Player : MonoBehaviour
         h = getHorizontal();
     }
 
+    protected virtual float getHorizontal()
+    {
+        float h = 0;
+        if (actions[0])
+            h++;
+        if (actions[1])
+            h--;
+        return h;
+    }
+
+    //Physics method
     public virtual void tick()
     {
         tickDone = false;
+
+        //check if on ground
         grounded = Physics2D.Linecast(transform.position + (halfBox * Vector3.left), groundCheck.position + (halfBox * Vector3.left), 1 << LayerMask.NameToLayer("Ground"))
     || Physics2D.Linecast(transform.position + (halfBox * Vector3.right), groundCheck.position + (halfBox * Vector3.right), 1 << LayerMask.NameToLayer("Ground"));
 
@@ -204,16 +226,6 @@ public abstract class Player : MonoBehaviour
                     velocityY = -botLeft.distance;
             }
         }
-    }
-
-    protected virtual float getHorizontal()
-    {
-        float h = 0;
-        if (actions[0])
-            h++;
-        if (actions[1])
-            h--;
-        return h;
     }
 
     protected void Flip()

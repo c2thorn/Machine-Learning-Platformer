@@ -36,7 +36,7 @@ public abstract class Agent : Player
 
     protected abstract void DetermineViewing();
 
-
+    //Get objects around teh agent
     protected virtual double probe(float x, float y, int i, int j)
     {
         float x2 = x + (2 * i);
@@ -51,15 +51,16 @@ public abstract class Agent : Player
         return 1;
     }
 
+    // get all colliders that intersect pos
     protected virtual GameObject FindAt(Vector2 pos)
     {
-        // get all colliders that intersect pos:
         Collider2D col = Physics2D.OverlapCircle(pos, .5f);
         if (col == null)
             return null;
         return col.gameObject;
     }
 
+    //Draw grid for editor purposes
     protected virtual void OnDrawGizmos()
     {
         float x = (float)GetNearestEven(gameObject.transform.position.x);
@@ -75,6 +76,7 @@ public abstract class Agent : Player
         }
     }
 
+    //Find nearest even number
     protected virtual double GetNearestEven(double input)
     {
         double output = Math.Round(input / 2);

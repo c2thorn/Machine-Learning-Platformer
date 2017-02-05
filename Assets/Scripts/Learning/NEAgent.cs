@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+/**
+ * NeuroEvolutionary Agent
+ * Currently swapped out for MultiNetAgent, but will do more experimentation with it
+ */ 
 public class NEAgent : Agent
 {
     public static Evolution ev = new Evolution();

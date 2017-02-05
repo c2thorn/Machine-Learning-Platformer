@@ -86,22 +86,6 @@ public class MultiNetManager {
         }
         evaluations = 0;
     }
-    
-    public bool containsCoin(string coinName)
-    {
-        bool found = false;
-        foreach(ArrayList entry in scenarioList)
-        {
-            if (((string)entry[1]).Equals(coinName))
-                found = true;
-        }
-        return found;
-    }
-
-    public NeuralNet getNet(int index)
-    {
-        return (NeuralNet)((ArrayList)scenarioList[index])[0];
-    }
 
     public string getCoinName(int index)
     {
