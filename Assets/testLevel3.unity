@@ -1068,7 +1068,7 @@ MonoBehaviour:
   learningText: {fileID: 600050820}
   learningText2: {fileID: 1109524892}
   learningText3: {fileID: 1086104423}
-  loadPath: 621.2
+  loadPath: 
 --- !u!61 &338745208
 BoxCollider2D:
   m_ObjectHideFlags: 0
