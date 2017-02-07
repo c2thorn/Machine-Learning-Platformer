@@ -17,11 +17,14 @@ public class MultiNetAgent : NEAgent
 
     protected override void Awake()
     {
-        manager = new MultiNetManager(this,timeKeep);
-        //manager = new OptimizingMultiNetManager(this);
-        //manager = new LinearMultiNetManager(this, timeKeep);
-
+        timeKeep = GameObject.Find("Time Text").GetComponent<TimeKeep>();
+        SetManager();
         base.Awake();
+    }
+
+    protected virtual void SetManager()
+    {
+        manager = new MultiNetManager(this, timeKeep);
     }
 
     protected void Start()

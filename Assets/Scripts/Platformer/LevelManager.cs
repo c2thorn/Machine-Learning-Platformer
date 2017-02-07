@@ -35,7 +35,6 @@ public class LevelManager : MonoBehaviour {
             controller.gravityForce = gravityForce;
         } else if (agentType.Equals("Linear")){
             LinearMNAgent controller = hero.AddComponent<LinearMNAgent>();
-            
             controller.horizontalForce = horizontalForce;
             controller.jumpForce = jumpForce;
             controller.gravityForce = gravityForce;
