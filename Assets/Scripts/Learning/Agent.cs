@@ -11,6 +11,14 @@ public abstract class Agent : Player
     
     protected float score = 0f;
 
+    protected override void Awake()
+    {
+        learningText = GameObject.Find("Learning Text").GetComponent<GUIText>();
+        learningText2 = GameObject.Find("Learning Text 2").GetComponent<GUIText>();
+        learningText3 = GameObject.Find("Learning Text 3").GetComponent<GUIText>();
+        base.Awake();
+    }
+
     protected override void BeginLevel()
     {
         InitialSettings();

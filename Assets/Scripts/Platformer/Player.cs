@@ -53,6 +53,13 @@ public abstract class Player : MonoBehaviour
     protected virtual void Awake()
     {
         anim = GetComponent<Animator>();
+        groundCheck = GameObject.Find("groundCheck").transform;
+        scoreKeep = GameObject.Find("Score Text").GetComponent<ScoreKeep>();
+        timeKeep = GameObject.Find("Time Text").GetComponent<TimeKeep>();
+        leftText = GameObject.Find("Left Text").GetComponent<GUIText>();
+        rightText = GameObject.Find("Right Text").GetComponent<GUIText>();
+        upText = GameObject.Find("Up Text").GetComponent<GUIText>();
+
         beginningPosition = transform.position;
         coinObjects = GameObject.FindGameObjectsWithTag("Coin");
 

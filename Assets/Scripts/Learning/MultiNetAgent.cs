@@ -10,16 +10,16 @@ using System;
  */ 
 public class MultiNetAgent : NEAgent
 {
-    private MultiNetManager manager;
+    public MultiNetManager manager;
     private int viewingIndex = -1;
     private string coinName = "";
     private bool doNotTickOnce = false;
 
     protected override void Awake()
     {
-        //manager = new MultiNetManager(this);
+        manager = new MultiNetManager(this,timeKeep);
         //manager = new OptimizingMultiNetManager(this);
-        manager = new LinearMultiNetManager(this, timeKeep);
+        //manager = new LinearMultiNetManager(this, timeKeep);
 
         base.Awake();
     }
