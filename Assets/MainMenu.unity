@@ -665,7 +665,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -300, y: 500}
+  m_SizeDelta: {x: -250, y: 500}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!95 &477256401
 Animator:
@@ -1652,7 +1652,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -800, y: -100}
+  m_SizeDelta: {x: -400, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &928992391
 Prefab:
@@ -2663,7 +2663,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -300, y: 500}
+  m_SizeDelta: {x: -250, y: 500}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!95 &1257328406
 Animator:
@@ -3349,7 +3349,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -800, y: -100}
+  m_SizeDelta: {x: -500, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1588150828
 MonoBehaviour:
@@ -3674,7 +3674,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -300, y: 500}
+  m_SizeDelta: {x: -250, y: 500}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!95 &1711834268
 Animator:
