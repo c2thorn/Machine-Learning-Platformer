@@ -46,6 +46,18 @@ public class TimeKeep : MonoBehaviour {
             timeOut = timeOutEval;
         }
     }
+    
+    public void ChangeTimeScale(float scale)
+    {
+        timeScale = scale;
+        Time.timeScale = scale;
+    }
+
+    public void ChangeTimeOut(float timeOutIn)
+    {
+        timeOutEval = timeOutIn;
+        timeOut = timeOutIn;
+    }
 
     public bool GetViewing()
     {
