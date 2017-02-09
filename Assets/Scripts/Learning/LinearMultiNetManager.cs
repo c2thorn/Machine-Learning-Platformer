@@ -60,7 +60,7 @@ public class LinearMultiNetManager : MultiNetManager
                     if (compareListScore(bestList, scenarioList))
                     {
                         bestList = deepCopy(scenarioList);
-                        //WriteNets("" + GetBestScore());
+                        WriteNets("" + GetBestScore());
                     }
                     else
                         maxEvaluations = maxEvaluations + 500;

@@ -263,7 +263,7 @@ public class MultiNetManager {
 
     public void WriteNets(string directory)
     {
-        System.IO.Directory.CreateDirectory(@"C:\Users\c2tho_000\Documents\platformer3\NeuralNets\" + directory+"\\");
+        System.IO.Directory.CreateDirectory(@"NeuralNets\" + directory+"\\");
         for (int i = 0; i < bestList.Count; i++)
         {
             getBestNet(i).writeNet(directory + "\\" + i);
@@ -272,7 +272,7 @@ public class MultiNetManager {
 
     public void LoadNets(string loadPath)
     {
-        int fCount = Directory.GetFiles(@"C:\Users\c2tho_000\Documents\platformer3\NeuralNets\"+loadPath+"\\", "*", SearchOption.TopDirectoryOnly).Length;
+        int fCount = Directory.GetFiles(@"NeuralNets\" + loadPath + "\\", "*", SearchOption.TopDirectoryOnly).Length;
         bestList = new ArrayList();
         for (int i = 0; i < fCount; i++) {
             ArrayList scenario = new ArrayList();

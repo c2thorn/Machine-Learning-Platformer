@@ -52,7 +52,7 @@ public class NeuralNet {
 
     public NeuralNet(String fileName)
     {
-        string[] lines = System.IO.File.ReadAllLines(@"C:\Users\c2tho_000\Documents\platformer3\NeuralNets\" + fileName + ".txt");
+        string[] lines = System.IO.File.ReadAllLines(@"NeuralNets\" + fileName + ".txt");
         for (int i = 0; i < numberOfInputs; i++)
         {
             firstConnectionLayer[i] = new double[numberOfHidden];
@@ -213,6 +213,6 @@ public class NeuralNet {
         }
         // WriteAllLines creates a file, writes a collection of strings to the file,
         // and then closes the file.  You do NOT need to call Flush() or Close().
-        System.IO.File.WriteAllLines(@"C:\Users\c2tho_000\Documents\platformer3\NeuralNets\" + name+".txt", lines);
+        System.IO.File.WriteAllLines(@"NeuralNets\" + name + ".txt", lines);
     }
 }
