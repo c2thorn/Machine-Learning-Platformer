@@ -45,8 +45,7 @@ public abstract class Player : MonoBehaviour
 
     //Horizontal movement
     protected float h;
-
-    //private float halfBox = 0.61f / 2f + 0.25f;
+    
     private float halfBox = 0.61f / 2f;
 
     // Use this for initialization

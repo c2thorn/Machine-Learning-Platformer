@@ -8,7 +8,7 @@ using System;
  * Scenarios are stored and managed in Multinet Manager
  * 
  */ 
-public class MultiNetAgent : NEAgent
+public class MultiNetAgent : NeuralNetAgent
 {
     public MultiNetManager manager;
     private int viewingIndex = -1;
@@ -25,11 +25,6 @@ public class MultiNetAgent : NEAgent
     protected virtual void SetManager()
     {
         manager = new MultiNetManager(this, timeKeep);
-    }
-
-    protected void Start()
-    {
-
     }
 
     protected override void BeginLevel()
@@ -81,15 +76,6 @@ public class MultiNetAgent : NEAgent
         else
             doNotTickOnce = false;
     }
-    
-    /*protected override void Update()
-    {
-        base.Update();
-        if (!doNotTickOnce && !stopTick && tickDone)
-            tick();
-        else
-            doNotTickOnce = false;
-    }*/
 
     protected override void setLearningText()
     {
