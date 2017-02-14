@@ -31,7 +31,7 @@ public class OptimizingMultiNetManager : MultiNetManager
                 }
                 else
                 {
-                    Debug.Log("Max Optimizing Evals on net index: " + netIndex + " with score " + getFitness(netIndex) + ". Continuing to next.");
+                    Debug.Log("Max Optimizing Evals on net index: " + netIndex + " with score " + GetFitness(netIndex) + ". Continuing to next.");
                     netIndex++;
                 }
 
@@ -46,7 +46,7 @@ public class OptimizingMultiNetManager : MultiNetManager
             if (evaluations >= maxDiscoveringEvaluations)
             {
                 Debug.Log("Max Discovering Evals on net index: " + netIndex + ". Restarting from bestList.");
-                scenarioList = deepCopy(bestList);
+                scenarioList = DeepCopy(bestList);
                 netIndex = 0;
                 evaluations = 0;
                 lastOptimalIndex = -1;
@@ -65,12 +65,12 @@ public class OptimizingMultiNetManager : MultiNetManager
     * If there are no entries, add the new scenario.
     * Otherwise, replace the current entry with the new scenario and delete the rest.
     */
-    public override void updateList(ArrayList scenario)
+    public override void UpdateList(Scenario scenario)
     {
-        ArrayList newList = new ArrayList();
+        List<Scenario> newList = new List<Scenario>();
         for (int i = 0; i < netIndex; i++)
         {
-            newList.Add(scenarioCopy((ArrayList)scenarioList[i]));
+            newList.Add(scenarioList[i].Copy());
         }
 
         newList.Add(scenario);
@@ -78,21 +78,21 @@ public class OptimizingMultiNetManager : MultiNetManager
         if (optimizing)
             lastOptimalIndex = netIndex;
 
-        if (((string)scenario[1]).Equals("WinTrigger"))
+        if (scenario.coinName.Equals("WinTrigger"))
         {
 
-            if (compareListScore(bestList, newList))
+            if (CompareListScore(bestList, newList))
             {
-                bestList = deepCopy(newList);
+                bestList = DeepCopy(newList);
                 lastOptimalIndex = -1;
             }
             if (lastOptimalIndex >= 0 && optimizingLoopCounter < maxOptimizingAttempts)
             {
-                ArrayList optimalList = new ArrayList();
+                List<Scenario> optimalList = new List<Scenario>();
 
                 for (int i = 0; i <= lastOptimalIndex; i++)
-                    optimalList.Add(scenarioCopy((ArrayList)scenarioList[i]));
-                scenarioList = deepCopy(optimalList);
+                    optimalList.Add(scenarioList[i].Copy());
+                scenarioList = DeepCopy(optimalList);
                 netIndex = lastOptimalIndex + 1;
                 Debug.Log("Retrying from: " + lastOptimalIndex + ". Attempt: " + optimizingLoopCounter);
                 optimizingLoopCounter++;
@@ -101,7 +101,7 @@ public class OptimizingMultiNetManager : MultiNetManager
             else
             {
                 netIndex = 0;
-                scenarioList = deepCopy(bestList);
+                scenarioList = DeepCopy(bestList);
                 optimizingLoopCounter = 0;
                 optimizing = true;
             }
@@ -109,14 +109,14 @@ public class OptimizingMultiNetManager : MultiNetManager
         }
         else
         {
-            scenarioList = deepCopy(newList);
+            scenarioList = DeepCopy(newList);
             optimizing = false;
             netIndex++;
         }
         evaluations = 0;
     }
 
-    public override float getMaxEvaluations()
+    public override float GetMaxEvaluations()
     {
         return optimizing ? maxOptimizingEvaluations : maxDiscoveringEvaluations;
     }

@@ -23,18 +23,18 @@ public class LinearMultiNetManager : MultiNetManager
     * If there are no entries, add the new scenario.
     * Otherwise, replace the current entry with the new scenario and delete the rest.
     */
-    public override void updateList(ArrayList scenario)
+    public override void UpdateList(Scenario scenario)
     {
-        ArrayList newList = new ArrayList();
+        List<Scenario> newList = new List<Scenario>();
         for (int i = 0; i < netIndex; i++)
         {
-            newList.Add(scenarioCopy((ArrayList)scenarioList[i]));
+            newList.Add(scenarioList[i].Copy());
         }
 
         newList.Add(scenario);
         scenarioList = newList;
 
-        if (((string)scenario[1]).Equals("WinTrigger"))
+        if (scenario.coinName.Equals("WinTrigger"))
             won = true;
         else
             won = false;
@@ -43,9 +43,9 @@ public class LinearMultiNetManager : MultiNetManager
             evaluations = maxEvaluations;
     }
 
-    public override void submitNetScore(float score, ArrayList scenario)
+    public override void SubmitNetScore(float score, Scenario scenario)
     {
-        base.submitNetScore(score, scenario);
+        base.SubmitNetScore(score, scenario);
         foundSomething = true;
     }
 
@@ -57,15 +57,15 @@ public class LinearMultiNetManager : MultiNetManager
             {
                 if (won)
                 {
-                    if (compareListScore(bestList, scenarioList))
+                    if (CompareListScore(bestList, scenarioList))
                     {
-                        bestList = deepCopy(scenarioList);
+                        bestList = DeepCopy(scenarioList);
                         WriteNets("" + GetBestScore());
                     }
                     else
                         maxEvaluations = maxEvaluations + 500;
                     timeKeep.forceView = true;
-                    scenarioList = new ArrayList();
+                    scenarioList = new List<Scenario>();
                     netIndex = 0;
                     won = false;
                 }
@@ -78,7 +78,7 @@ public class LinearMultiNetManager : MultiNetManager
             else
             {
                 Debug.Log("Max Evals on net index: " + netIndex + ". Restarting completely.");
-                scenarioList = new ArrayList();
+                scenarioList = new List<Scenario>();
                 netIndex = 0;
                 won = false;
                 maxEvaluations = maxEvaluations + 500;

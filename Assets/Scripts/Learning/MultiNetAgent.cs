@@ -52,9 +52,9 @@ public class MultiNetAgent : NeuralNetAgent
         if (timeKeep.GetViewing())
         {
             viewingIndex = 0;
-            if (manager.bestCount() > 0)
+            if (manager.BestCount() > 0)
             {
-                net = manager.getBestNet(0);
+                net = manager.GetBestNet(0);
             }
             else
                 net = new NeuralNet();
@@ -88,36 +88,36 @@ public class MultiNetAgent : NeuralNetAgent
         if (timeKeep.GetViewing())
         {
             line[0] = "Viewing Elite Nets";
-            for (int i = 0; i < manager.bestCount(); i++)
+            for (int i = 0; i < manager.BestCount(); i++)
             {
                 if ((i == viewingIndex))
                 {
-                    line[1] += "<color=#ff0000>" + manager.getBestCoinName(i) + "</color>\t\t";
-                    line[2] += "<color=#ff0000>" + (manager.getBestFitness(i) > 0 ? "  "  : " ") +
-                        manager.getBestFitness(i).ToString("F2") + "</color>\t\t\t";
+                    line[1] += "<color=#ff0000>" + manager.GetBestCoinName(i) + "</color>\t\t";
+                    line[2] += "<color=#ff0000>" + (manager.GetBestFitness(i) > 0 ? "  "  : " ") +
+                        manager.GetBestFitness(i).ToString("F2") + "</color>\t\t\t";
                 }
                 else
                 {
-                    line[1] += manager.getBestCoinName(i) + "\t\t";
-                    line[2] += "  " + manager.getBestFitness(i).ToString("F2") + "\t\t\t";
+                    line[1] += manager.GetBestCoinName(i) + "\t\t";
+                    line[2] += "  " + manager.GetBestFitness(i).ToString("F2") + "\t\t\t";
                 }
             }
         }
         else
         {
-            for (int i = 0; i <= manager.count(); i++)
+            for (int i = 0; i <= manager.Count(); i++)
             {
                 if ((i == manager.netIndex))
                 {
-                    line[1] += "<color=#ff0000>" + manager.getCoinName(i) + "</color>\t\t";
-                    line[2] += "<color=#ff0000>" + (manager.getBestFitness(i) > 0 ? "  " : " ") +
-                        manager.getBestFitness(i).ToString("F2") + "</color>\t\t\t";
-                    line[3] += "<color=#ff0000>" + manager.evaluations + "/" + manager.getMaxEvaluations() + "</color>\t\t";
+                    line[1] += "<color=#ff0000>" + manager.GetCoinName(i) + "</color>\t\t";
+                    line[2] += "<color=#ff0000>" + (manager.GetBestFitness(i) > 0 ? "  " : " ") +
+                        manager.GetBestFitness(i).ToString("F2") + "</color>\t\t\t";
+                    line[3] += "<color=#ff0000>" + manager.evaluations + "/" + manager.GetMaxEvaluations() + "</color>\t\t";
                 }
                 else
                 {
-                    line[1] += manager.getCoinName(i) + "\t\t";
-                    line[2] += "  " + manager.getFitness(i).ToString("F2") + "\t\t\t";
+                    line[1] += manager.GetCoinName(i) + "\t\t";
+                    line[2] += "  " + manager.GetFitness(i).ToString("F2") + "\t\t\t";
                     line[3] += "            \t\t";
                 }
             }
@@ -132,13 +132,14 @@ public class MultiNetAgent : NeuralNetAgent
 
     public void setScenario()
     {
-        transform.position = manager.getPosition(manager.netIndex - 1);
-        velocityX = manager.getVelocityX(manager.netIndex - 1);
-        velocityY = manager.getVelocityY(manager.netIndex - 1);
-        facingRight = manager.getFacingRight(manager.netIndex - 1);
-        jump = manager.getJump(manager.netIndex - 1);
-        grounded = manager.getGrounded(manager.netIndex - 1);
-        manager.destroyCoins();
+        Scenario scenario = manager.GetScenario(manager.netIndex - 1);
+        transform.position = scenario.position;
+        velocityX = scenario.velocityX;
+        velocityY = scenario.velocityY;
+        facingRight = scenario.facingRight;
+        jump = scenario.jump;
+        grounded = scenario.grounded;
+        manager.DestroyCoins();
     }
 
     public override void grabCoin(string coinName)
@@ -153,7 +154,7 @@ public class MultiNetAgent : NeuralNetAgent
         }
         else
         {
-            if (viewingIndex < (manager.bestCount() - 1))
+            if (viewingIndex < (manager.BestCount() - 1))
             {
                 //If we are in view mode, and we need to transition to the next neural net
 
@@ -161,7 +162,7 @@ public class MultiNetAgent : NeuralNetAgent
                     manager.LogScenario(OutputCurrentScenario(), viewingIndex);
 
                 viewingIndex += 1;
-                net = manager.getBestNet(viewingIndex);
+                net = manager.GetBestNet(viewingIndex);
                 doNotTickOnce = true;
                 setLearningText();
             }
@@ -178,19 +179,19 @@ public class MultiNetAgent : NeuralNetAgent
     {
         if (coinName.Length > 0)
         {
-            ArrayList scenario = new ArrayList();
-            scenario.Add(net);
-            scenario.Add(coinName);
-            scenario.Add(score);
-            scenario.Add(transform.position);
-            scenario.Add(velocityX);
-            scenario.Add(velocityY);
-            scenario.Add(facingRight);
-            scenario.Add(jump);
-            scenario.Add(grounded);
+            Scenario scenario = new Scenario();
+            scenario.net = net;
+            scenario.coinName = coinName;
+            scenario.fitness = score;
+            scenario.position = transform.position;
+            scenario.velocityX = velocityX;
+            scenario.velocityY = velocityY;
+            scenario.facingRight = facingRight;
+            scenario.jump = jump;
+            scenario.grounded = grounded;
 
             stopTick = true;
-            manager.submitNetScore(score, scenario);
+            manager.SubmitNetScore(score, scenario);
         }
     }
 
@@ -207,7 +208,7 @@ public class MultiNetAgent : NeuralNetAgent
         {
             //If the level ended with out getting to the end of the neural net list,
             //meaning the replay has failed...
-            if (viewingIndex != (manager.bestCount() - 1))
+            if (viewingIndex != (manager.BestCount() - 1))
             {
                 if (loadPath.Length == 0)
                 {

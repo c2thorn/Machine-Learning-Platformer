@@ -4,20 +4,8 @@ using UnityEngine;
 using System.IO;
 
 public class MultiNetManager {
-    /**
-     * Scenario ArrayList
-     * 0 Neural Net
-     * 1 Coin
-     * 2 Fitness
-     * 3 Position
-     * 4 VelocityX
-     * 5 VelocityY
-     * 6 FacingRight
-     * 7 Jump
-     * 8 Grounded
-     */
-    protected ArrayList scenarioList = new ArrayList();
-    protected ArrayList bestList = new ArrayList();
+    protected List<Scenario> scenarioList = new List<Scenario>();
+    protected List<Scenario> bestList = new List<Scenario>();
     protected MultiNetAgent agent;
 
     protected ArrayList log = new ArrayList();
@@ -39,7 +27,7 @@ public class MultiNetManager {
         if (evaluations >= maxEvaluations)
         {
             Debug.Log("Max evaluations on net index: " + netIndex + ". Restarting from bestList.");
-            scenarioList = deepCopy(bestList);
+            scenarioList = DeepCopy(bestList);
             netIndex = 0;
             evaluations = 0;
         }
@@ -47,11 +35,11 @@ public class MultiNetManager {
             evaluations++;
     }
 
-    public void destroyCoins()
+    public void DestroyCoins()
     {
         for (int i = 0; i < netIndex; i++)
         {
-            GameObject coin = GameObject.Find(getCoinName(i));
+            GameObject coin = GameObject.Find(GetCoinName(i));
             coin.SetActive(false);
         }
     }
@@ -60,134 +48,91 @@ public class MultiNetManager {
     * If there are no entries, add the new scenario.
     * Otherwise, replace the current entry with the new scenario and delete the rest.
     */
-    public virtual void updateList(ArrayList scenario)
+    public virtual void UpdateList(Scenario scenario)
     {
-        ArrayList newList = new ArrayList();
+        List<Scenario> newList = new List<Scenario>();
         for (int i = 0; i < netIndex; i++)
         {
-            newList.Add(scenarioCopy((ArrayList)scenarioList[i]));
+            newList.Add(scenarioList[i].Copy());
         }
 
         newList.Add(scenario);
 
-        if (((string)scenario[1]).Equals("WinTrigger"))
+        if (scenario.coinName.Equals("WinTrigger"))
         {
-            if (compareListScore(bestList, newList))
+            if (CompareListScore(bestList, newList))
             {
-                bestList = deepCopy(newList);
+                bestList = DeepCopy(newList);
             }
             netIndex = 0;
-            scenarioList = deepCopy(bestList);
+            scenarioList = DeepCopy(bestList);
         }
         else
         {
-            scenarioList = deepCopy(newList);
+            scenarioList = DeepCopy(newList);
             netIndex++;
         }
         evaluations = 0;
     }
 
-    public string getCoinName(int index)
+    public Scenario GetScenario(int index)
     {
-        if (index == scenarioList.Count)
+        return index == scenarioList.Count ? new Scenario() : scenarioList[index];
+    }
+
+    public string GetCoinName(int index)
+    {
+        if (index == Count())
             return "None";
-        return (string)((ArrayList)scenarioList[index])[1];
+        return scenarioList[index].coinName;
     }
 
-    public float getFitness(int index)
+    public float GetFitness(int index)
     {
-        if (index == scenarioList.Count)
+        if (index == Count())
             return -1;
-        return (float)((ArrayList)scenarioList[index])[2];
+        return scenarioList[index].fitness;
     }
 
-    public Vector3 getPosition(int index)
-    {
-        return (Vector3)((ArrayList)scenarioList[index])[3];
-    }
-
-    public float getVelocityX(int index)
-    {
-        return (float)((ArrayList)scenarioList[index])[4];
-    }
-
-    public float getVelocityY(int index)
-    {
-        return (float)((ArrayList)scenarioList[index])[5];
-    }
-
-    public bool getFacingRight(int index)
-    {
-        return (bool)((ArrayList)scenarioList[index])[6];
-    }
-
-    public bool getJump(int index)
-    {
-        return (bool)((ArrayList)scenarioList[index])[7];
-    }
-
-    public bool getGrounded(int index)
-    {
-        return (bool)((ArrayList)scenarioList[index])[8];
-    }
-
-    public float count()
+    public float Count()
     {
         return scenarioList.Count;
     }
 
-    public NeuralNet getBestNet(int index)
+    public NeuralNet GetBestNet(int index)
     {
-        return bestList.Count > 0 ? (NeuralNet)((ArrayList)bestList[index])[0] : (NeuralNet)((ArrayList)scenarioList[index])[0];
+        return bestList.Count > 0 ? bestList[index].net : scenarioList[index].net;
     }
-
-    public string getBestCoinName(int index)
+    
+    public string GetBestCoinName(int index)
     {
-        if (index == bestCount())
+        if (index == BestCount())
             return "None";
-        return bestList.Count > 0 ? (string)((ArrayList)bestList[index])[1] : (string)((ArrayList)scenarioList[index])[1];
+        return bestList.Count > 0 ? bestList[index].coinName : scenarioList[index].coinName;
     }
 
-    public float getBestFitness(int index)
+    public float GetBestFitness(int index)
     {
-        if (index == bestCount())
+        if (index == BestCount())
             return -1;
-        return bestList.Count > 0 ? (float)((ArrayList)bestList[index])[2] : (float)((ArrayList)scenarioList[index])[2];
+        return bestList.Count > 0 ? bestList[index].fitness : scenarioList[index].fitness;
     }
 
-    public float bestCount()
+    public float BestCount()
     {
         return bestList.Count > 0 ? bestList.Count : scenarioList.Count;
     }
 
-    public virtual float getMaxEvaluations()
+    public virtual float GetMaxEvaluations()
     {
         return maxEvaluations;
     }
 
-    protected ArrayList scenarioCopy(ArrayList entry)
-    {
-        
-        ArrayList scenario = new ArrayList();
-        scenario.Add(((NeuralNet)entry[0]).copy());
-        scenario.Add(((string)entry[1]).Clone());
-        scenario.Add(((float)entry[2]));
-        scenario.Add(((Vector3)entry[3]));
-        scenario.Add(((float)entry[4]));
-        scenario.Add(((float)entry[5]));
-        scenario.Add(((bool)entry[6]));
-        scenario.Add(((bool)entry[7]));
-        scenario.Add(((bool)entry[8]));
-
-        return scenario;
-    }
-
     public void LogScenario(string input, int index)
     {
-        ArrayList scenario = bestList.Count > 0 ? (ArrayList)bestList[index] : (ArrayList)scenarioList[index];
+        Scenario scenario = bestList.Count > 0 ? bestList[index] : scenarioList[index];
 
-        string input2 = ((string)scenario[1] + ",  " + (Vector3)scenario[3] + ", " + (float)scenario[4] + ", " + (float)scenario[5] + ", " + (bool)scenario[6] + ", " +
-             (bool)scenario[7] + ", " + (bool)scenario[8]);
+        string input2 = scenario.ToString();
 
         log.Add(input);
         log.Add(input2);
@@ -204,40 +149,37 @@ public class MultiNetManager {
         log = new ArrayList();
     }
 
-    protected ArrayList deepCopy(ArrayList original)
+    protected List<Scenario> DeepCopy(List<Scenario> original)
     {
-        ArrayList copy = new ArrayList();
+        List<Scenario> copy = new List<Scenario>();
 
         for (int i = 0; i < original.Count; i++)
         {
-            copy.Add(scenarioCopy((ArrayList)original[i]));
+            copy.Add(original[i].Copy());
         }
 
         return copy;
     }
 
-    public virtual void submitNetScore(float score, ArrayList scenario)
+    public virtual void SubmitNetScore(float score, Scenario scenario)
     {
-        if (score > getFitness(netIndex))
+        if (score > GetFitness(netIndex))
         {
-            updateList(scenario);
+            UpdateList(scenario);
         }
     }
 
-    protected bool compareListScore(ArrayList incumbent, ArrayList challenger)
+    protected bool CompareListScore(List<Scenario> incumbent, List<Scenario> challenger)
     {
         float iScore = 0f;
         float cScore = 0f;
 
-        foreach (ArrayList entry in incumbent)
-        {
-            iScore += (float)entry[2];
-        }
+        foreach (Scenario entry in incumbent)
+            iScore += entry.fitness;
 
-        foreach (ArrayList entry in challenger)
-        {
-            cScore += (float)entry[2];
-        }
+        foreach (Scenario entry in challenger)
+            cScore += entry.fitness;
+
         if (cScore > iScore)
         {
             Debug.Log("New score " + cScore + " has beaten previous score " + iScore + ". @ " + timeKeep.getRestart());
@@ -254,9 +196,9 @@ public class MultiNetManager {
     {
         float bestScore = 0f;
 
-        foreach (ArrayList entry in bestList)
+        foreach (Scenario entry in bestList)
         {
-            bestScore += (float)entry[2];
+            bestScore += entry.fitness;
         }
         return bestScore;
     }
@@ -266,19 +208,19 @@ public class MultiNetManager {
         System.IO.Directory.CreateDirectory(@"NeuralNets\" + directory+"\\");
         for (int i = 0; i < bestList.Count; i++)
         {
-            getBestNet(i).writeNet(directory + "\\" + i);
+            GetBestNet(i).writeNet(directory + "\\" + i);
         }
     }
 
     public void LoadNets(string loadPath)
     {
         int fCount = Directory.GetFiles(@"NeuralNets\" + loadPath + "\\", "*", SearchOption.TopDirectoryOnly).Length;
-        bestList = new ArrayList();
+        bestList = new List<Scenario>();
         for (int i = 0; i < fCount; i++) {
-            ArrayList scenario = new ArrayList();
-            scenario.Add(new NeuralNet(loadPath + "\\" + i));
-            scenario.Add("LOADED");
-            scenario.Add(11f);
+            Scenario scenario = new Scenario();
+            scenario.net = new NeuralNet(loadPath + "\\" + i);
+            scenario.coinName = "LOADED";
+            scenario.fitness = 11f;
             bestList.Add(scenario);
         }
         //Debug.Log("LOADING " + bestCount());
