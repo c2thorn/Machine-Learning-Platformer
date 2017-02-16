@@ -1749,9 +1749,10 @@ MonoBehaviour:
   leftText: {fileID: 1579612}
   upText: {fileID: 1779528415}
   rightText: {fileID: 1412093661}
-  horizontalForce: 0.275
-  jumpForce: 1
-  gravityForce: 0.0825
+  horizontalForce: 0.3
+  jumpForce: 0.05
+  initialJumpForce: 0.9
+  gravityForce: 0.1025
   learningText: {fileID: 600050820}
   learningText2: {fileID: 1109524892}
   learningText3: {fileID: 1086104423}
@@ -4794,7 +4795,7 @@ Camera:
   far clip plane: 1000
   field of view: 150
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 16
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

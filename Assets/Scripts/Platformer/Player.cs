@@ -23,9 +23,10 @@ public abstract class Player : MonoBehaviour
     protected Animator anim;
     protected bool grounded = false;
     
-    public float horizontalForce = 0.275f;
-    public float jumpForce = 1f;
-    public float gravityForce = 0.0825f;
+    public float horizontalForce = 0.3f;
+    public float jumpForce = 0.05f;
+    public float initialJumpForce = 0.9f;
+    public float gravityForce = 0.1025f;
     
     //Possible actions
     protected bool[] actions = new bool[3];
@@ -47,6 +48,8 @@ public abstract class Player : MonoBehaviour
     protected float h;
     
     private float halfBox = 0.61f / 2f;
+
+    private bool firstJump = false;
 
     // Use this for initialization
     protected virtual void Awake()
@@ -104,7 +107,18 @@ public abstract class Player : MonoBehaviour
     {
         if (actions[2] && grounded && velocityY == 0)
         {
+            firstJump = true;
+        }
+        if (actions[2] && !grounded && firstJump && velocityY > 0)
+        {
             jump = true;
+        }
+
+        if ((velocityY <= 0 && jump) || (!actions[2] && (firstJump || jump)) || (grounded && (firstJump || jump) && velocityY != 0))
+        {
+            //Debug.Log("Stop jumping!" + jumpCount);
+            firstJump = false;
+            jump = false;
         }
 
         h = getHorizontal();
@@ -150,11 +164,18 @@ public abstract class Player : MonoBehaviour
 
         gravity();
 
-        if (jump)
+
+        if (firstJump && !jump)
         {
             anim.SetTrigger("Jump");
-            velocityY = jumpForce;
-            jump = false;
+            velocityY = initialJumpForce;
+            //jump = false;
+        }
+
+        if (jump)
+        {
+            velocityY += jumpForce;
+            //jump = false;
         }
 
         move();
