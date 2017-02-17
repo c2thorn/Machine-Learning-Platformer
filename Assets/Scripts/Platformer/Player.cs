@@ -21,7 +21,7 @@ public abstract class Player : MonoBehaviour
     public bool jump = false;
 
     protected Animator anim;
-    protected bool grounded = false;
+    public bool grounded = false;
     
     public float horizontalForce = 0.275f;
     public float jumpForce = 1f;
@@ -47,6 +47,15 @@ public abstract class Player : MonoBehaviour
     protected float h;
     
     private float halfBox = 0.61f / 2f;
+
+    public int wallRiding = 0;
+
+    public int pushedCount = 0;
+    public int pushLength = 14;
+    public float pushedForce = 0.275f;
+
+    public float wallRideTolerance = 0.1f;
+
 
     // Use this for initialization
     protected virtual void Awake()
@@ -102,7 +111,7 @@ public abstract class Player : MonoBehaviour
     //Interpret action booleans
     protected virtual void ApplyActions()
     {
-        if (actions[2] && grounded && velocityY == 0)
+        if (actions[2] && ((grounded && velocityY == 0) || wallRiding > 0))
         {
             jump = true;
         }
@@ -129,24 +138,34 @@ public abstract class Player : MonoBehaviour
         grounded = Physics2D.Linecast(transform.position + (halfBox * Vector3.left), groundCheck.position + (halfBox * Vector3.left), 1 << LayerMask.NameToLayer("Ground"))
     || Physics2D.Linecast(transform.position + (halfBox * Vector3.right), groundCheck.position + (halfBox * Vector3.right), 1 << LayerMask.NameToLayer("Ground"));
 
+        if (grounded)
+            wallRiding = 0;
+
         GetActions();
         ApplyActions();
 
         anim.SetFloat("Speed", Mathf.Abs(h));
 
-        if (h != 0)
+        if (pushedCount > 0)
+            pushedCount++;
+
+        if (pushedCount > pushLength)
         {
-            velocityX = h * horizontalForce;
-        }
-        else
-        {
+            pushedCount = 0;
             velocityX = 0f;
         }
 
-        if (h > 0 && !facingRight)
-            Flip();
-        else if (h < 0 && facingRight)
-            Flip();
+        if (pushedCount == 0)
+        {
+            if (h != 0)
+            {
+                velocityX = h * horizontalForce;
+            }
+            else
+            {
+                velocityX = 0f;
+            }
+        }
 
         gravity();
 
@@ -155,7 +174,27 @@ public abstract class Player : MonoBehaviour
             anim.SetTrigger("Jump");
             velocityY = jumpForce;
             jump = false;
+
+            if (wallRiding > 0)
+            {
+                pushedCount += 1;
+            }
+
+            switch (wallRiding)
+            {
+                case 1:
+                    velocityX = pushedForce;
+                    break;
+                case 2:
+                    velocityX = -pushedForce;
+                    break;
+            }
         }
+
+        if (velocityX > 0 && !facingRight)
+            Flip();
+        else if (velocityX < 0 && facingRight)
+            Flip();
 
         move();
         tickDone = true;
@@ -188,11 +227,14 @@ public abstract class Player : MonoBehaviour
         Vector2 bottomRight = new Vector2(transform.position.x + halfBox, transform.position.y - .95f);
         Vector2 bottomLeft = new Vector2(transform.position.x - halfBox, transform.position.y - .95f);
 
+        bool hitWall = false;
+
         if (right)
         {
             if (Physics2D.Raycast(topRight, Vector2.right, velocityX, 1 << LayerMask.NameToLayer("Ground")) || Physics2D.Raycast(bottomRight, Vector2.right, velocityX, 1 << LayerMask.NameToLayer("Ground")))
             {
                 velocityX = 0f;
+                hitWall = true;
             }
         }
         else
@@ -200,8 +242,17 @@ public abstract class Player : MonoBehaviour
             if (Physics2D.Raycast(topLeft, Vector2.left, -velocityX, 1 << LayerMask.NameToLayer("Ground")) || Physics2D.Raycast(bottomLeft, Vector2.left, -velocityX, 1 << LayerMask.NameToLayer("Ground")))
             {
                 velocityX = 0f;
+                hitWall = true;
             }
         }
+
+        if (hitWall && !grounded && velocityY < wallRideTolerance)
+        {
+            velocityY /= 2;
+            wallRiding = right ? 2 : 1;
+        }
+        else
+            wallRiding = 0;
     }
 
     protected void checkVertical(bool up)
@@ -316,6 +367,25 @@ public abstract class Player : MonoBehaviour
         if (theScale.x < 0)
             theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    //TODO use
+    protected virtual void Flip(bool right)
+    {
+        facingRight = right;
+        Vector3 theScale = transform.localScale;
+        if (right)
+        {
+            if (theScale.x < 0)
+                theScale.x *= -1;
+            transform.localScale = theScale;
+        }
+        else
+        {
+            if (theScale.x > 0)
+                theScale.x *= -1;
+            transform.localScale = -theScale;
+        }
     }
 
     public virtual void grabCoin(string coinName)
