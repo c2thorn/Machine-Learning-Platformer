@@ -1854,7 +1854,7 @@ MonoBehaviour:
   leftText: {fileID: 1579612}
   upText: {fileID: 1779528415}
   rightText: {fileID: 1412093661}
-  horizontalForce: 0.275
+  horizontalForce: 0.29
   jumpForce: 1
   gravityForce: 0.0825
   learningText: {fileID: 600050820}

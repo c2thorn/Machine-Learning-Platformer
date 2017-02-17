@@ -52,7 +52,8 @@ public abstract class Player : MonoBehaviour
 
     public int pushedCount = 0;
     public int pushLength = 14;
-    public float pushedForce = 0.275f;
+    //public float pushedForce = 0.275f;
+    public float pushedForce = 0.225f;
     public float wallRideTolerance = 0.1f;
 
 
@@ -165,6 +166,7 @@ public abstract class Player : MonoBehaviour
                 velocityX = 0f;
             }
         }
+  
 
         gravity();
 
@@ -178,30 +180,34 @@ public abstract class Player : MonoBehaviour
             {
                 pushedCount += 1;
             }
-
             switch (wallRiding)
             {
                 case 1:
                     velocityX = pushedForce;
-                    if (actions[0])
-                        velocityX *= 2;
                     break;
                 case 2:
                     velocityX = -pushedForce;
-                    if (actions[1])
-                        velocityX *= 2;
                     break;
             }
-
-
         }
 
-        if (velocityX > 0 && !facingRight)
-            Flip();
-        else if (velocityX < 0 && facingRight)
-            Flip();
+        if (pushedCount > 0)
+        {
+            if  (velocityX > 0)
+            {
+                velocityX = h > 0 ? pushedForce + horizontalForce : pushedForce;
+            } else
+            {
+                velocityX = -(h < 0 ? pushedForce + horizontalForce : pushedForce);
+            }
+        }
 
         move();
+
+        if (velocityX > 0 && !facingRight && wallRiding == 0)
+            Flip();
+        else if (velocityX < 0 && facingRight && wallRiding == 0)
+            Flip();
         tickDone = true;
     }
 
@@ -211,6 +217,8 @@ public abstract class Player : MonoBehaviour
         {
             velocityY -= gravityForce;
         }
+        if (wallRiding > 0)
+            velocityY /= 2;
     }
 
     protected void move()
@@ -234,7 +242,7 @@ public abstract class Player : MonoBehaviour
 
         bool hitWall = false;
 
-        if (right)
+        if (right || wallRiding == 2)
         {
             if (Physics2D.Raycast(topRight, Vector2.right, velocityX, 1 << LayerMask.NameToLayer("Ground")) || Physics2D.Raycast(bottomRight, Vector2.right, velocityX, 1 << LayerMask.NameToLayer("Ground")))
             {
@@ -242,7 +250,7 @@ public abstract class Player : MonoBehaviour
                 hitWall = true;
             }
         }
-        else
+        if (!right || wallRiding == 1)
         {
             if (Physics2D.Raycast(topLeft, Vector2.left, -velocityX, 1 << LayerMask.NameToLayer("Ground")) || Physics2D.Raycast(bottomLeft, Vector2.left, -velocityX, 1 << LayerMask.NameToLayer("Ground")))
             {
@@ -253,8 +261,8 @@ public abstract class Player : MonoBehaviour
 
         if (hitWall && !grounded && velocityY < wallRideTolerance)
         {
-            velocityY /= 2;
             wallRiding = right ? 2 : 1;
+            WallRideAnimation(right);
         }
         else
             wallRiding = 0;
@@ -374,22 +382,27 @@ public abstract class Player : MonoBehaviour
         transform.localScale = theScale;
     }
 
+    protected virtual void WallRideAnimation(bool right)
+    {
+        Flip(right);
+    }
+
     //TODO use
     protected virtual void Flip(bool right)
     {
-        facingRight = right;
+        facingRight = !right;
         Vector3 theScale = transform.localScale;
         if (right)
         {
-            if (theScale.x < 0)
+            if (theScale.x > 0)
                 theScale.x *= -1;
             transform.localScale = theScale;
         }
         else
         {
-            if (theScale.x > 0)
+            if (theScale.x < 0)
                 theScale.x *= -1;
-            transform.localScale = -theScale;
+            transform.localScale = theScale;
         }
     }
 
