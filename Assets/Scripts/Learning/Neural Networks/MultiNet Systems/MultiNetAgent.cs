@@ -139,6 +139,8 @@ public class MultiNetAgent : NeuralNetAgent
         facingRight = scenario.facingRight;
         jump = scenario.jump;
         grounded = scenario.grounded;
+        wallRiding = scenario.wallRiding;
+        pushedCount = scenario.pushedCount;
         manager.DestroyCoins();
     }
 
@@ -189,6 +191,8 @@ public class MultiNetAgent : NeuralNetAgent
             scenario.facingRight = facingRight;
             scenario.jump = jump;
             scenario.grounded = grounded;
+            scenario.wallRiding = wallRiding;
+            scenario.pushedCount = pushedCount;
 
             stopTick = true;
             manager.SubmitNetScore(score, scenario);

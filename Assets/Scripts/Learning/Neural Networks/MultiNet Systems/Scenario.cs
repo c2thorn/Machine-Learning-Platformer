@@ -12,6 +12,8 @@ public class Scenario  {
     public bool facingRight;
     public bool grounded;
     public bool jump;
+    public int pushedCount;
+    public int wallRiding;
 
     public Scenario() { }
 
@@ -28,6 +30,8 @@ public class Scenario  {
         copy.facingRight = facingRight;
         copy.grounded = grounded;
         copy.jump = jump;
+        copy.pushedCount = pushedCount;
+        copy.wallRiding = wallRiding;
 
         return copy;
     }
@@ -35,6 +39,6 @@ public class Scenario  {
     public override string ToString()
     {
         return "Coin: " + coinName + ",  Pos: " + position + ", VX: " + velocityX + ", VY: " + velocityY + ", FR: " + facingRight + ", GR: " +
-             grounded + ", Jump: " + jump;
+             grounded + ", Jump: " + jump + ", pushedCount: " +pushedCount + ", wallRiding: "+wallRiding;
     }
 }
