@@ -4,7 +4,7 @@ using System;
 using UnityEngine;
 
 public class NeuralNet {
-    public static int numberOfInputs = 28;
+    public static int numberOfInputs = 29;
     public static int numberOfHidden = 10;
     public static int numberOfOutputs = 3;
 

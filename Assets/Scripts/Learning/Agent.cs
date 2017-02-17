@@ -44,7 +44,7 @@ public abstract class Agent : Player
 
     protected abstract void DetermineViewing();
 
-    //Get objects around teh agent
+    //Get objects around the agent
     protected virtual double probe(float x, float y, int i, int j)
     {
         float x2 = x + (2 * i);

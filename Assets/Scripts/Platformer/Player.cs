@@ -21,7 +21,6 @@ public abstract class Player : MonoBehaviour
     public bool jump = false;
 
     protected Animator anim;
-    public bool grounded = false;
     
     public float horizontalForce = 0.275f;
     public float jumpForce = 1f;
@@ -30,8 +29,10 @@ public abstract class Player : MonoBehaviour
     //Possible actions
     protected bool[] actions = new bool[3];
 
+    public bool grounded = false;
     protected float velocityX = 0f;
     protected float velocityY = 0f;
+    public int wallRiding = 0;
 
     //Boolean to control when to freeze physics
     protected bool stopTick = false;
@@ -48,12 +49,10 @@ public abstract class Player : MonoBehaviour
     
     private float halfBox = 0.61f / 2f;
 
-    public int wallRiding = 0;
 
     public int pushedCount = 0;
     public int pushLength = 14;
     public float pushedForce = 0.275f;
-
     public float wallRideTolerance = 0.1f;
 
 
@@ -184,11 +183,17 @@ public abstract class Player : MonoBehaviour
             {
                 case 1:
                     velocityX = pushedForce;
+                    if (actions[0])
+                        velocityX *= 2;
                     break;
                 case 2:
                     velocityX = -pushedForce;
+                    if (actions[1])
+                        velocityX *= 2;
                     break;
             }
+
+
         }
 
         if (velocityX > 0 && !facingRight)

@@ -46,6 +46,14 @@ public class LevelManager : MonoBehaviour {
             controller.jumpForce = jumpForce;
             controller.gravityForce = gravityForce;
             controller.loadPath = loadPath;
+        } else if (agentType.Equals("Evolution"))
+        {
+            NEAgent controller = hero.AddComponent<NEAgent>();
+            controller.horizontalForce = horizontalForce;
+            controller.jumpForce = jumpForce;
+            controller.gravityForce = gravityForce;
+            controller.loadPath = loadPath;
+            timeKeep.timeOutEval = 30;
         }
         GameObject camera = GameObject.Find("Main Camera");
         camera.transform.parent = hero.transform;

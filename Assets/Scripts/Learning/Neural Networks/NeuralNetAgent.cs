@@ -14,7 +14,7 @@ public abstract class NeuralNetAgent : Agent
     
     protected override void GetActions()
     {
-        double[] inputs = new double[28];
+        double[] inputs = new double[29];
         int which = 0;
         float x = (float)GetNearestEven(gameObject.transform.position.x);
         float y = (float)GetNearestEven(gameObject.transform.position.y);
@@ -25,6 +25,7 @@ public abstract class NeuralNetAgent : Agent
                 inputs[which++] = probe(x, y, i, j);
             }
         }
+        inputs[inputs.Length - 4] = wallRiding > 0 ? 1 : 0;
         inputs[inputs.Length - 3] = grounded ? 1 : 0;
         inputs[inputs.Length - 2] = grounded && velocityY == 0 ? 1 : 0;
         inputs[inputs.Length - 1] = 1;

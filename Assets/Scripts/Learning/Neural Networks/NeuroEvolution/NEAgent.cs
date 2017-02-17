@@ -37,6 +37,7 @@ public class NEAgent : NeuralNetAgent
             String text1 = "";
             String text2 = "";
             String text3 = "";
+            learningText.fontSize = 10;
             int j = ev.popSize / 3;
             int k = j * 2;
             for (int i = 0; i < j; i++)
