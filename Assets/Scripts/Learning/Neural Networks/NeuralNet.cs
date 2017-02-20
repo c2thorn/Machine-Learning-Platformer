@@ -14,7 +14,7 @@ public class NeuralNet {
     private double[] outputs = new double[numberOfOutputs];
     private double[] inputs = new double[numberOfInputs];
     //private double[] targetOutputs;
-    public double mutationMagnitude = .1;
+    public double mutationMagnitude = 1;
     public static System.Random random = new System.Random();
 
     public static double mean = 0.0f;        // initialization mean

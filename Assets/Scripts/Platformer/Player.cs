@@ -54,8 +54,7 @@ public abstract class Player : MonoBehaviour
     public int pushLength = 14;
     //public float pushedForce = 0.275f;
     public float pushedForce = 0.225f;
-    public float wallRideTolerance = 0.1f;
-
+    public float wallRideFallTolerance = 0.1f;
 
     // Use this for initialization
     protected virtual void Awake()
@@ -203,7 +202,7 @@ public abstract class Player : MonoBehaviour
         }
 
         move();
-
+        
         if (velocityX > 0 && !facingRight && wallRiding == 0)
             Flip();
         else if (velocityX < 0 && facingRight && wallRiding == 0)
@@ -240,26 +239,39 @@ public abstract class Player : MonoBehaviour
         Vector2 bottomRight = new Vector2(transform.position.x + halfBox, transform.position.y - .95f);
         Vector2 bottomLeft = new Vector2(transform.position.x - halfBox, transform.position.y - .95f);
 
+        Vector2 midRight = new Vector2(transform.position.x + halfBox, transform.position.y);
+        Vector2 midLeft = new Vector2(transform.position.x - halfBox, transform.position.y);
+
         bool hitWall = false;
 
         if (right || wallRiding == 2)
         {
-            if (Physics2D.Raycast(topRight, Vector2.right, velocityX, 1 << LayerMask.NameToLayer("Ground")) || Physics2D.Raycast(bottomRight, Vector2.right, velocityX, 1 << LayerMask.NameToLayer("Ground")))
+            RaycastHit2D topRightRay = Physics2D.Raycast(topRight, Vector2.right, velocityX, 1 << LayerMask.NameToLayer("Ground"));
+            RaycastHit2D botRightRay = Physics2D.Raycast(bottomRight, Vector2.right, velocityX, 1 << LayerMask.NameToLayer("Ground"));
+            RaycastHit2D midRightRay = Physics2D.Raycast(midRight, Vector2.right, velocityX, 1 << LayerMask.NameToLayer("Ground"));
+
+            if (topRightRay || botRightRay)
             {
                 velocityX = 0f;
-                hitWall = true;
+                if (midRightRay)
+                    hitWall = true;
             }
         }
         if (!right || wallRiding == 1)
         {
-            if (Physics2D.Raycast(topLeft, Vector2.left, -velocityX, 1 << LayerMask.NameToLayer("Ground")) || Physics2D.Raycast(bottomLeft, Vector2.left, -velocityX, 1 << LayerMask.NameToLayer("Ground")))
+            RaycastHit2D topLeftRay = Physics2D.Raycast(topLeft, Vector2.left, -velocityX, 1 << LayerMask.NameToLayer("Ground"));
+            RaycastHit2D botLeftRay = Physics2D.Raycast(bottomLeft, Vector2.left, -velocityX, 1 << LayerMask.NameToLayer("Ground"));
+            RaycastHit2D midLeftRay = Physics2D.Raycast(midLeft, Vector2.left, -velocityX, 1 << LayerMask.NameToLayer("Ground"));
+
+            if (topLeftRay || botLeftRay)
             {
                 velocityX = 0f;
-                hitWall = true;
+                if (midLeftRay)
+                    hitWall = true;
             }
         }
 
-        if (hitWall && !grounded && velocityY < wallRideTolerance)
+        if (hitWall && !grounded && velocityY < wallRideFallTolerance)
         {
             wallRiding = right ? 2 : 1;
             WallRideAnimation(right);
@@ -386,8 +398,7 @@ public abstract class Player : MonoBehaviour
     {
         Flip(right);
     }
-
-    //TODO use
+    
     protected virtual void Flip(bool right)
     {
         facingRight = !right;

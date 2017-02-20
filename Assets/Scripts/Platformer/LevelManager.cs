@@ -53,7 +53,7 @@ public class LevelManager : MonoBehaviour {
             controller.jumpForce = jumpForce;
             controller.gravityForce = gravityForce;
             controller.loadPath = loadPath;
-            timeKeep.timeOutEval = 30;
+            timeKeep.timeOutEval = 15;
         }
         GameObject camera = GameObject.Find("Main Camera");
         camera.transform.parent = hero.transform;
