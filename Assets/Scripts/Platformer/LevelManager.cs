@@ -39,6 +39,7 @@ public class LevelManager : MonoBehaviour {
             controller.jumpForce = jumpForce;
             controller.gravityForce = gravityForce;
             controller.loadPath = loadPath;
+            TurnOffParticles();
         } else if (agentType.Equals("Optimizing"))
         {
             OptimizingMNAgent controller = hero.AddComponent<OptimizingMNAgent>();
@@ -46,6 +47,7 @@ public class LevelManager : MonoBehaviour {
             controller.jumpForce = jumpForce;
             controller.gravityForce = gravityForce;
             controller.loadPath = loadPath;
+            TurnOffParticles();
         } else if (agentType.Equals("Evolution"))
         {
             NEAgent controller = hero.AddComponent<NEAgent>();
@@ -54,6 +56,7 @@ public class LevelManager : MonoBehaviour {
             controller.gravityForce = gravityForce;
             controller.loadPath = loadPath;
             timeKeep.timeOutEval = 15;
+            TurnOffParticles();
         }
         GameObject camera = GameObject.Find("Main Camera");
         camera.transform.parent = hero.transform;
@@ -64,5 +67,30 @@ public class LevelManager : MonoBehaviour {
         if (hero.GetComponent("Agent"))
             return hero.GetComponent<Agent>();
         return null;
+    }
+
+    public void TurnOnParticles()
+    {
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Particle"))
+        {
+            obj.GetComponent<ParticleSystem>().Play();
+        }
+        ToggleStaticFlame(false);
+    }
+
+    public void TurnOffParticles()
+    {
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Particle"))
+        {
+            obj.GetComponent<ParticleSystem>().Stop();
+        }
+        ToggleStaticFlame(true);
+    }
+
+    public void ToggleStaticFlame(bool enabled)
+    {
+        GameObject flame = GameObject.Find("FlameDeath");
+        if (flame)
+            flame.GetComponent<SpriteRenderer>().enabled = enabled;
     }
 }
