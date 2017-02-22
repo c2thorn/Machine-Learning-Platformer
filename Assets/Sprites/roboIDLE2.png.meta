@@ -1,0 +1,1476 @@
+fileFormatVersion: 2
+guid: f0ed9f8e86efc6d4e9f1c8239ea73e65
+timeCreated: 1487780944
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: roboIDLE2_0
+    21300002: roboIDLE2_1
+    21300004: roboIDLE2_2
+    21300006: roboIDLE2_3
+    21300008: roboIDLE2_4
+    21300010: roboIDLE2_5
+    21300012: roboIDLE2_6
+    21300014: roboIDLE2_7
+    21300016: roboIDLE2_8
+    21300018: roboIDLE2_9
+    21300020: roboIDLE2_10
+    21300022: roboIDLE2_11
+    21300024: roboIDLE2_12
+    21300026: roboIDLE2_13
+    21300028: roboIDLE2_14
+    21300030: roboIDLE2_15
+    21300032: roboIDLE2_16
+    21300034: roboIDLE2_17
+    21300036: roboIDLE2_18
+    21300038: roboIDLE2_19
+    21300040: roboIDLE2_20
+    21300042: roboIDLE2_21
+    21300044: roboIDLE2_22
+    21300046: roboIDLE2_23
+    21300048: roboIDLE2_24
+    21300050: roboIDLE2_25
+    21300052: roboIDLE2_26
+    21300054: roboIDLE2_27
+    21300056: roboIDLE2_28
+    21300058: roboIDLE2_29
+    21300060: roboIDLE2_30
+    21300062: roboIDLE2_31
+    21300064: roboIDLE2_32
+    21300066: roboIDLE2_33
+    21300068: roboIDLE2_34
+    21300070: roboIDLE2_35
+    21300072: roboIDLE2_36
+    21300074: roboIDLE2_37
+    21300076: roboIDLE2_38
+    21300078: roboIDLE2_39
+    21300080: roboIDLE2_40
+    21300082: roboIDLE2_41
+    21300084: roboIDLE2_42
+    21300086: roboIDLE2_43
+    21300088: roboIDLE2_44
+    21300090: roboIDLE2_45
+    21300092: roboIDLE2_46
+    21300094: roboIDLE2_47
+    21300096: roboIDLE2_48
+    21300098: roboIDLE2_49
+    21300100: roboIDLE2_50
+    21300102: roboIDLE2_51
+    21300104: roboIDLE2_52
+    21300106: roboIDLE2_53
+    21300108: roboIDLE2_54
+    21300110: roboIDLE2_55
+    21300112: roboIDLE2_56
+    21300114: roboIDLE2_57
+    21300116: roboIDLE2_58
+    21300118: roboIDLE2_59
+    21300120: roboIDLE2_60
+    21300122: roboIDLE2_61
+    21300124: roboIDLE2_62
+    21300126: roboIDLE2_63
+    21300128: roboIDLE2_64
+    21300130: roboIDLE2_65
+    21300132: roboIDLE2_66
+    21300134: roboIDLE2_67
+    21300136: roboIDLE2_68
+    21300138: roboIDLE2_69
+    21300140: roboIDLE2_70
+    21300142: roboIDLE2_71
+    21300144: roboIDLE2_72
+    21300146: roboIDLE2_73
+    21300148: roboIDLE2_74
+    21300150: roboIDLE2_75
+    21300152: roboIDLE2_76
+    21300154: roboIDLE2_77
+    21300156: roboIDLE2_78
+    21300158: roboIDLE2_79
+    21300160: roboIDLE2_80
+    21300162: roboIDLE2_81
+    21300164: roboIDLE2_82
+    21300166: roboIDLE2_83
+    21300168: roboIDLE2_84
+    21300170: roboIDLE2_85
+    21300172: roboIDLE2_86
+    21300174: roboIDLE2_87
+    21300176: roboIDLE2_88
+    21300178: roboIDLE2_89
+    21300180: roboIDLE2_90
+    21300182: roboIDLE2_91
+    21300184: roboIDLE2_92
+    21300186: roboIDLE2_93
+    21300188: roboIDLE2_94
+    21300190: roboIDLE2_95
+    21300192: roboIDLE2_96
+    21300194: roboIDLE2_97
+    21300196: roboIDLE2_98
+    21300198: roboIDLE2_99
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: roboIDLE2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3060
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_1
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 3060
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_2
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 3060
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_3
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 3060
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_4
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 3060
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_5
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 3060
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_6
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 3060
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_7
+      rect:
+        serializedVersion: 2
+        x: 1372
+        y: 3060
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_8
+      rect:
+        serializedVersion: 2
+        x: 1568
+        y: 3060
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_9
+      rect:
+        serializedVersion: 2
+        x: 1764
+        y: 3060
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2720
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_11
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 2720
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_12
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 2720
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_13
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 2720
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_14
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 2720
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_15
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 2720
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_16
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 2720
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_17
+      rect:
+        serializedVersion: 2
+        x: 1372
+        y: 2720
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_18
+      rect:
+        serializedVersion: 2
+        x: 1568
+        y: 2720
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_19
+      rect:
+        serializedVersion: 2
+        x: 1764
+        y: 2720
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2380
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_21
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 2380
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_22
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 2380
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_23
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 2380
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_24
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 2380
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_25
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 2380
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_26
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 2380
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_27
+      rect:
+        serializedVersion: 2
+        x: 1372
+        y: 2380
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_28
+      rect:
+        serializedVersion: 2
+        x: 1568
+        y: 2380
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_29
+      rect:
+        serializedVersion: 2
+        x: 1764
+        y: 2380
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2040
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_31
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 2040
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_32
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 2040
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_33
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 2040
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_34
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 2040
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_35
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 2040
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_36
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 2040
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_37
+      rect:
+        serializedVersion: 2
+        x: 1372
+        y: 2040
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_38
+      rect:
+        serializedVersion: 2
+        x: 1568
+        y: 2040
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_39
+      rect:
+        serializedVersion: 2
+        x: 1764
+        y: 2040
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1700
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_41
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 1700
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_42
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 1700
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_43
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 1700
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_44
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 1700
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_45
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 1700
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_46
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 1700
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_47
+      rect:
+        serializedVersion: 2
+        x: 1372
+        y: 1700
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_48
+      rect:
+        serializedVersion: 2
+        x: 1568
+        y: 1700
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_49
+      rect:
+        serializedVersion: 2
+        x: 1764
+        y: 1700
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1360
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_51
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 1360
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_52
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 1360
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_53
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 1360
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_54
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 1360
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_55
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 1360
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_56
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 1360
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_57
+      rect:
+        serializedVersion: 2
+        x: 1372
+        y: 1360
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_58
+      rect:
+        serializedVersion: 2
+        x: 1568
+        y: 1360
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_59
+      rect:
+        serializedVersion: 2
+        x: 1764
+        y: 1360
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1020
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_61
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 1020
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_62
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 1020
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_63
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 1020
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_64
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 1020
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_65
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 1020
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_66
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 1020
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_67
+      rect:
+        serializedVersion: 2
+        x: 1372
+        y: 1020
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_68
+      rect:
+        serializedVersion: 2
+        x: 1568
+        y: 1020
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_69
+      rect:
+        serializedVersion: 2
+        x: 1764
+        y: 1020
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 680
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_71
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 680
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_72
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 680
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_73
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 680
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_74
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 680
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_75
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 680
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_76
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 680
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_77
+      rect:
+        serializedVersion: 2
+        x: 1372
+        y: 680
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_78
+      rect:
+        serializedVersion: 2
+        x: 1568
+        y: 680
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_79
+      rect:
+        serializedVersion: 2
+        x: 1764
+        y: 680
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 340
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_81
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 340
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_82
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 340
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_83
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 340
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_84
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 340
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_85
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 340
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_86
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 340
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_87
+      rect:
+        serializedVersion: 2
+        x: 1372
+        y: 340
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_88
+      rect:
+        serializedVersion: 2
+        x: 1568
+        y: 340
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_89
+      rect:
+        serializedVersion: 2
+        x: 1764
+        y: 340
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_90
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_91
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 0
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_92
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 0
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_93
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 0
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_94
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 0
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_95
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 0
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_96
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 0
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_97
+      rect:
+        serializedVersion: 2
+        x: 1372
+        y: 0
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_98
+      rect:
+        serializedVersion: 2
+        x: 1568
+        y: 0
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboIDLE2_99
+      rect:
+        serializedVersion: 2
+        x: 1764
+        y: 0
+        width: 196
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
