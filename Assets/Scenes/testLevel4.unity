@@ -1849,7 +1849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a0d0a9a14de68c48a6129e2862ed6dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agentType: Linear
+  agentType: Human
   timeKeep: {fileID: 100422594}
   scoreKeep: {fileID: 1666056291}
   leftText: {fileID: 1579612}
@@ -5841,8 +5841,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1016740401}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: -4.1, z: 483.09}
-  m_LocalScale: {x: 22, y: 22, z: 1}
+  m_LocalPosition: {x: 10, y: -20, z: 483.09}
+  m_LocalScale: {x: 23, y: 23, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 15
@@ -7924,7 +7924,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 8
+  field of view: 10
   orthographic: 0
   orthographic size: 10
   m_Depth: -1

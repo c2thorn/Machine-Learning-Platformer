@@ -44,7 +44,8 @@ public class TimeKeep : MonoBehaviour {
         {
             viewing = false;
             Time.timeScale = timeScale;
-            levelManager.TurnOffParticles();
+            if (agent)
+                levelManager.TurnOffParticles();
             timeOut = timeOutEval;
         }
     }
