@@ -60,6 +60,8 @@ public abstract class Player : MonoBehaviour
     protected virtual void Awake()
     {
         anim = GetComponent<Animator>();
+        if (!anim)
+            anim = GetComponentInChildren<Animator>();
         groundCheck = GameObject.Find("groundCheck").transform;
         scoreKeep = GameObject.Find("Score Text").GetComponent<ScoreKeep>();
         timeKeep = GameObject.Find("Time Text").GetComponent<TimeKeep>();

@@ -59,7 +59,7 @@ public class LevelManager : MonoBehaviour {
             TurnOffParticles();
         }
         GameObject camera = GameObject.Find("Main Camera");
-        camera.transform.parent = hero.transform;
+        camera.GetComponent<Camera>().player = hero.transform;
 	}
 
     public Agent GetAgent()
