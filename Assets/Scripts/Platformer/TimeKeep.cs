@@ -15,6 +15,7 @@ public class TimeKeep : MonoBehaviour {
     public float timeOut = 10f;
 
     public static float restart = 0;
+    public LevelManager levelManager;
     public Agent agent;
 
     private bool viewing = false;
@@ -29,11 +30,13 @@ public class TimeKeep : MonoBehaviour {
 
     public void BeginLevel()
     {
+        agent = levelManager.GetAgent();
         time = 0f;
         if ((restart % viewNumber == 0 && restart > 0) || forceView)
         {
             Time.timeScale = 1f;
             timeOut = timeOutView;
+            levelManager.TurnOnParticles();
             viewing = true;
             forceView = false;
         }
@@ -41,8 +44,22 @@ public class TimeKeep : MonoBehaviour {
         {
             viewing = false;
             Time.timeScale = timeScale;
+            if (agent)
+                levelManager.TurnOffParticles();
             timeOut = timeOutEval;
         }
+    }
+    
+    public void ChangeTimeScale(float scale)
+    {
+        timeScale = scale;
+        Time.timeScale = scale;
+    }
+
+    public void ChangeTimeOut(float timeOutIn)
+    {
+        timeOutEval = timeOutIn;
+        timeOut = timeOutIn;
     }
 
     public bool GetViewing()
@@ -65,11 +82,13 @@ public class TimeKeep : MonoBehaviour {
         if (Input.GetKeyDown("f"))
         {
             forceView = true;
-            agent.LevelRestart();
+            if (agent != null)
+                agent.LevelRestart();
         }
 
         if (Input.GetKeyDown("v"))
-            agent.LevelRestart();
+            if (agent != null)
+                agent.LevelRestart();
     }
 
     void FixedUpdate () {
@@ -78,7 +97,8 @@ public class TimeKeep : MonoBehaviour {
 
         if (time >= timeOut)
         {
-            agent.LevelEnd();
+            if (agent != null)
+                agent.LevelEnd();
         }
 
     }

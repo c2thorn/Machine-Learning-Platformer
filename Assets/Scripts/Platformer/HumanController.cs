@@ -6,8 +6,8 @@ public class HumanController : Player
 {
     protected void Start()
     {
-        timeKeep.timeScale = 1f;
-        timeKeep.timeOutEval = 60f;
+        timeKeep.ChangeTimeScale(1f);
+        timeKeep.ChangeTimeOut(60f);
     }
 
     protected override void GetActions()

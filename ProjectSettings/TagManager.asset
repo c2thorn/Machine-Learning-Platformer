@@ -15,6 +15,7 @@ TagManager:
   - HealthBar
   - Coin
   - Death
+  - Particle
   layers:
   - Default
   - TransparentFX
