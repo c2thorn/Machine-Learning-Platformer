@@ -1,0 +1,1476 @@
+fileFormatVersion: 2
+guid: feb0d0c28c96c52478070a751b4b4afd
+timeCreated: 1487812312
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: roboJUMP_0
+    21300002: roboJUMP_1
+    21300004: roboJUMP_2
+    21300006: roboJUMP_3
+    21300008: roboJUMP_4
+    21300010: roboJUMP_5
+    21300012: roboJUMP_6
+    21300014: roboJUMP_7
+    21300016: roboJUMP_8
+    21300018: roboJUMP_9
+    21300020: roboJUMP_10
+    21300022: roboJUMP_11
+    21300024: roboJUMP_12
+    21300026: roboJUMP_13
+    21300028: roboJUMP_14
+    21300030: roboJUMP_15
+    21300032: roboJUMP_16
+    21300034: roboJUMP_17
+    21300036: roboJUMP_18
+    21300038: roboJUMP_19
+    21300040: roboJUMP_20
+    21300042: roboJUMP_21
+    21300044: roboJUMP_22
+    21300046: roboJUMP_23
+    21300048: roboJUMP_24
+    21300050: roboJUMP_25
+    21300052: roboJUMP_26
+    21300054: roboJUMP_27
+    21300056: roboJUMP_28
+    21300058: roboJUMP_29
+    21300060: roboJUMP_30
+    21300062: roboJUMP_31
+    21300064: roboJUMP_32
+    21300066: roboJUMP_33
+    21300068: roboJUMP_34
+    21300070: roboJUMP_35
+    21300072: roboJUMP_36
+    21300074: roboJUMP_37
+    21300076: roboJUMP_38
+    21300078: roboJUMP_39
+    21300080: roboJUMP_40
+    21300082: roboJUMP_41
+    21300084: roboJUMP_42
+    21300086: roboJUMP_43
+    21300088: roboJUMP_44
+    21300090: roboJUMP_45
+    21300092: roboJUMP_46
+    21300094: roboJUMP_47
+    21300096: roboJUMP_48
+    21300098: roboJUMP_49
+    21300100: roboJUMP_50
+    21300102: roboJUMP_51
+    21300104: roboJUMP_52
+    21300106: roboJUMP_53
+    21300108: roboJUMP_54
+    21300110: roboJUMP_55
+    21300112: roboJUMP_56
+    21300114: roboJUMP_57
+    21300116: roboJUMP_58
+    21300118: roboJUMP_59
+    21300120: roboJUMP_60
+    21300122: roboJUMP_61
+    21300124: roboJUMP_62
+    21300126: roboJUMP_63
+    21300128: roboJUMP_64
+    21300130: roboJUMP_65
+    21300132: roboJUMP_66
+    21300134: roboJUMP_67
+    21300136: roboJUMP_68
+    21300138: roboJUMP_69
+    21300140: roboJUMP_70
+    21300142: roboJUMP_71
+    21300144: roboJUMP_72
+    21300146: roboJUMP_73
+    21300148: roboJUMP_74
+    21300150: roboJUMP_75
+    21300152: roboJUMP_76
+    21300154: roboJUMP_77
+    21300156: roboJUMP_78
+    21300158: roboJUMP_79
+    21300160: roboJUMP_80
+    21300162: roboJUMP_81
+    21300164: roboJUMP_82
+    21300166: roboJUMP_83
+    21300168: roboJUMP_84
+    21300170: roboJUMP_85
+    21300172: roboJUMP_86
+    21300174: roboJUMP_87
+    21300176: roboJUMP_88
+    21300178: roboJUMP_89
+    21300180: roboJUMP_90
+    21300182: roboJUMP_91
+    21300184: roboJUMP_92
+    21300186: roboJUMP_93
+    21300188: roboJUMP_94
+    21300190: roboJUMP_95
+    21300192: roboJUMP_96
+    21300194: roboJUMP_97
+    21300196: roboJUMP_98
+    21300198: roboJUMP_99
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: roboJUMP_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3240
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_1
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 3240
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_2
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 3240
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_3
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 3240
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_4
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 3240
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_5
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 3240
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_6
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 3240
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_7
+      rect:
+        serializedVersion: 2
+        x: 1701
+        y: 3240
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_8
+      rect:
+        serializedVersion: 2
+        x: 1944
+        y: 3240
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_9
+      rect:
+        serializedVersion: 2
+        x: 2187
+        y: 3240
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2880
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_11
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 2880
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_12
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 2880
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_13
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 2880
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_14
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 2880
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_15
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 2880
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_16
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 2880
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_17
+      rect:
+        serializedVersion: 2
+        x: 1701
+        y: 2880
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_18
+      rect:
+        serializedVersion: 2
+        x: 1944
+        y: 2880
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_19
+      rect:
+        serializedVersion: 2
+        x: 2187
+        y: 2880
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2520
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_21
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 2520
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_22
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 2520
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_23
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 2520
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_24
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 2520
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_25
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 2520
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_26
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 2520
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_27
+      rect:
+        serializedVersion: 2
+        x: 1701
+        y: 2520
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_28
+      rect:
+        serializedVersion: 2
+        x: 1944
+        y: 2520
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_29
+      rect:
+        serializedVersion: 2
+        x: 2187
+        y: 2520
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2160
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_31
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 2160
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_32
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 2160
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_33
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 2160
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_34
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 2160
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_35
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 2160
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_36
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 2160
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_37
+      rect:
+        serializedVersion: 2
+        x: 1701
+        y: 2160
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_38
+      rect:
+        serializedVersion: 2
+        x: 1944
+        y: 2160
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_39
+      rect:
+        serializedVersion: 2
+        x: 2187
+        y: 2160
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1800
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_41
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 1800
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_42
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 1800
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_43
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 1800
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_44
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 1800
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_45
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 1800
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_46
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 1800
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_47
+      rect:
+        serializedVersion: 2
+        x: 1701
+        y: 1800
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_48
+      rect:
+        serializedVersion: 2
+        x: 1944
+        y: 1800
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_49
+      rect:
+        serializedVersion: 2
+        x: 2187
+        y: 1800
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1440
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_51
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 1440
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_52
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 1440
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_53
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 1440
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_54
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 1440
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_55
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 1440
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_56
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 1440
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_57
+      rect:
+        serializedVersion: 2
+        x: 1701
+        y: 1440
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_58
+      rect:
+        serializedVersion: 2
+        x: 1944
+        y: 1440
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_59
+      rect:
+        serializedVersion: 2
+        x: 2187
+        y: 1440
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1080
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_61
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 1080
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_62
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 1080
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_63
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 1080
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_64
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 1080
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_65
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 1080
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_66
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 1080
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_67
+      rect:
+        serializedVersion: 2
+        x: 1701
+        y: 1080
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_68
+      rect:
+        serializedVersion: 2
+        x: 1944
+        y: 1080
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_69
+      rect:
+        serializedVersion: 2
+        x: 2187
+        y: 1080
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 720
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_71
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 720
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_72
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 720
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_73
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 720
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_74
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 720
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_75
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 720
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_76
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 720
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_77
+      rect:
+        serializedVersion: 2
+        x: 1701
+        y: 720
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_78
+      rect:
+        serializedVersion: 2
+        x: 1944
+        y: 720
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_79
+      rect:
+        serializedVersion: 2
+        x: 2187
+        y: 720
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 360
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_81
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 360
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_82
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 360
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_83
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 360
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_84
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 360
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_85
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 360
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_86
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 360
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_87
+      rect:
+        serializedVersion: 2
+        x: 1701
+        y: 360
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_88
+      rect:
+        serializedVersion: 2
+        x: 1944
+        y: 360
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_89
+      rect:
+        serializedVersion: 2
+        x: 2187
+        y: 360
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_90
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_91
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 0
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_92
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 0
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_93
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 0
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_94
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 0
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_95
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 0
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_96
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 0
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_97
+      rect:
+        serializedVersion: 2
+        x: 1701
+        y: 0
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_98
+      rect:
+        serializedVersion: 2
+        x: 1944
+        y: 0
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboJUMP_99
+      rect:
+        serializedVersion: 2
+        x: 2187
+        y: 0
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

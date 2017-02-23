@@ -140,7 +140,10 @@ public abstract class Player : MonoBehaviour
     || Physics2D.Linecast(transform.position + (halfBox * Vector3.right), groundCheck.position + (halfBox * Vector3.right), 1 << LayerMask.NameToLayer("Ground"));
 
         if (grounded)
+        {
             wallRiding = 0;
+            anim.SetBool("WallRiding", false);
+        }
 
         GetActions();
         ApplyActions();
@@ -220,6 +223,10 @@ public abstract class Player : MonoBehaviour
         }
         if (wallRiding > 0)
             velocityY /= 2;
+        if (velocityY < 0)
+            anim.SetBool("Falling", true);
+        else
+            anim.SetBool("Falling", false);
     }
 
     protected void move()
@@ -279,7 +286,10 @@ public abstract class Player : MonoBehaviour
             WallRideAnimation(right);
         }
         else
+        {
             wallRiding = 0;
+            anim.SetBool("WallRiding", false);
+        }
     }
 
     protected void checkVertical(bool up)
@@ -399,6 +409,7 @@ public abstract class Player : MonoBehaviour
     protected virtual void WallRideAnimation(bool right)
     {
         Flip(right);
+        anim.SetBool("WallRiding", true);
     }
     
     protected virtual void Flip(bool right)

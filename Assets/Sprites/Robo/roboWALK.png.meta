@@ -1,0 +1,1476 @@
+fileFormatVersion: 2
+guid: 88ff418c166c7674197f99063aee5850
+timeCreated: 1487793103
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: roboWALK_0
+    21300002: roboWALK_1
+    21300004: roboWALK_2
+    21300006: roboWALK_3
+    21300008: roboWALK_4
+    21300010: roboWALK_5
+    21300012: roboWALK_6
+    21300014: roboWALK_7
+    21300016: roboWALK_8
+    21300018: roboWALK_9
+    21300020: roboWALK_10
+    21300022: roboWALK_11
+    21300024: roboWALK_12
+    21300026: roboWALK_13
+    21300028: roboWALK_14
+    21300030: roboWALK_15
+    21300032: roboWALK_16
+    21300034: roboWALK_17
+    21300036: roboWALK_18
+    21300038: roboWALK_19
+    21300040: roboWALK_20
+    21300042: roboWALK_21
+    21300044: roboWALK_22
+    21300046: roboWALK_23
+    21300048: roboWALK_24
+    21300050: roboWALK_25
+    21300052: roboWALK_26
+    21300054: roboWALK_27
+    21300056: roboWALK_28
+    21300058: roboWALK_29
+    21300060: roboWALK_30
+    21300062: roboWALK_31
+    21300064: roboWALK_32
+    21300066: roboWALK_33
+    21300068: roboWALK_34
+    21300070: roboWALK_35
+    21300072: roboWALK_36
+    21300074: roboWALK_37
+    21300076: roboWALK_38
+    21300078: roboWALK_39
+    21300080: roboWALK_40
+    21300082: roboWALK_41
+    21300084: roboWALK_42
+    21300086: roboWALK_43
+    21300088: roboWALK_44
+    21300090: roboWALK_45
+    21300092: roboWALK_46
+    21300094: roboWALK_47
+    21300096: roboWALK_48
+    21300098: roboWALK_49
+    21300100: roboWALK_50
+    21300102: roboWALK_51
+    21300104: roboWALK_52
+    21300106: roboWALK_53
+    21300108: roboWALK_54
+    21300110: roboWALK_55
+    21300112: roboWALK_56
+    21300114: roboWALK_57
+    21300116: roboWALK_58
+    21300118: roboWALK_59
+    21300120: roboWALK_60
+    21300122: roboWALK_61
+    21300124: roboWALK_62
+    21300126: roboWALK_63
+    21300128: roboWALK_64
+    21300130: roboWALK_65
+    21300132: roboWALK_66
+    21300134: roboWALK_67
+    21300136: roboWALK_68
+    21300138: roboWALK_69
+    21300140: roboWALK_70
+    21300142: roboWALK_71
+    21300144: roboWALK_72
+    21300146: roboWALK_73
+    21300148: roboWALK_74
+    21300150: roboWALK_75
+    21300152: roboWALK_76
+    21300154: roboWALK_77
+    21300156: roboWALK_78
+    21300158: roboWALK_79
+    21300160: roboWALK_80
+    21300162: roboWALK_81
+    21300164: roboWALK_82
+    21300166: roboWALK_83
+    21300168: roboWALK_84
+    21300170: roboWALK_85
+    21300172: roboWALK_86
+    21300174: roboWALK_87
+    21300176: roboWALK_88
+    21300178: roboWALK_89
+    21300180: roboWALK_90
+    21300182: roboWALK_91
+    21300184: roboWALK_92
+    21300186: roboWALK_93
+    21300188: roboWALK_94
+    21300190: roboWALK_95
+    21300192: roboWALK_96
+    21300194: roboWALK_97
+    21300196: roboWALK_98
+    21300198: roboWALK_99
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: roboWALK_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3087
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_1
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 3087
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_2
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 3087
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_3
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 3087
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_4
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 3087
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_5
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 3087
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_6
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 3087
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_7
+      rect:
+        serializedVersion: 2
+        x: 1316
+        y: 3087
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_8
+      rect:
+        serializedVersion: 2
+        x: 1504
+        y: 3087
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_9
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 3087
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2744
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_11
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 2744
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_12
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 2744
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_13
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 2744
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_14
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 2744
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_15
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 2744
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_16
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 2744
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_17
+      rect:
+        serializedVersion: 2
+        x: 1316
+        y: 2744
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_18
+      rect:
+        serializedVersion: 2
+        x: 1504
+        y: 2744
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_19
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 2744
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2401
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_21
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 2401
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_22
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 2401
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_23
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 2401
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_24
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 2401
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_25
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 2401
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_26
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 2401
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_27
+      rect:
+        serializedVersion: 2
+        x: 1316
+        y: 2401
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_28
+      rect:
+        serializedVersion: 2
+        x: 1504
+        y: 2401
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_29
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 2401
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2058
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_31
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 2058
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_32
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 2058
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_33
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 2058
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_34
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 2058
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_35
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 2058
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_36
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 2058
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_37
+      rect:
+        serializedVersion: 2
+        x: 1316
+        y: 2058
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_38
+      rect:
+        serializedVersion: 2
+        x: 1504
+        y: 2058
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_39
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 2058
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1715
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_41
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 1715
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_42
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 1715
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_43
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 1715
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_44
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 1715
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_45
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 1715
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_46
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 1715
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_47
+      rect:
+        serializedVersion: 2
+        x: 1316
+        y: 1715
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_48
+      rect:
+        serializedVersion: 2
+        x: 1504
+        y: 1715
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_49
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 1715
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1372
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_51
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 1372
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_52
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 1372
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_53
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 1372
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_54
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 1372
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_55
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 1372
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_56
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 1372
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_57
+      rect:
+        serializedVersion: 2
+        x: 1316
+        y: 1372
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_58
+      rect:
+        serializedVersion: 2
+        x: 1504
+        y: 1372
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_59
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 1372
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1029
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_61
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 1029
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_62
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 1029
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_63
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 1029
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_64
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 1029
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_65
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 1029
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_66
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 1029
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_67
+      rect:
+        serializedVersion: 2
+        x: 1316
+        y: 1029
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_68
+      rect:
+        serializedVersion: 2
+        x: 1504
+        y: 1029
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_69
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 1029
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 686
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_71
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 686
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_72
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 686
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_73
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 686
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_74
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 686
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_75
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 686
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_76
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 686
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_77
+      rect:
+        serializedVersion: 2
+        x: 1316
+        y: 686
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_78
+      rect:
+        serializedVersion: 2
+        x: 1504
+        y: 686
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_79
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 686
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 343
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_81
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 343
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_82
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 343
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_83
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 343
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_84
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 343
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_85
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 343
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_86
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 343
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_87
+      rect:
+        serializedVersion: 2
+        x: 1316
+        y: 343
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_88
+      rect:
+        serializedVersion: 2
+        x: 1504
+        y: 343
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_89
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 343
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_90
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_91
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 0
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_92
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 0
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_93
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 0
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_94
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 0
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_95
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 0
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_96
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 0
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_97
+      rect:
+        serializedVersion: 2
+        x: 1316
+        y: 0
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_98
+      rect:
+        serializedVersion: 2
+        x: 1504
+        y: 0
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: roboWALK_99
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 0
+        width: 188
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
