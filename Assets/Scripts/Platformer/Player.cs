@@ -197,6 +197,7 @@ public abstract class Player : MonoBehaviour
 
         if (pushedCount > 0)
         {
+            wallRiding = 0;
             if  (velocityX > 0)
             {
                 velocityX = h > 0 ? pushedForce + horizontalForce : pushedForce;
@@ -234,7 +235,7 @@ public abstract class Player : MonoBehaviour
         if (velocityY != 0)
             checkVertical(velocityY > 0 ? true : false);
         transform.position = new Vector3(transform.position.x, transform.position.y + velocityY, transform.position.z);
-        if (velocityX != 0)
+        if (velocityX != 0 || wallRiding > 0)
             checkHorizontal(velocityX > 0 ? true : false);
         transform.position = new Vector3(transform.position.x + velocityX, transform.position.y, transform.position.z);
         checkCollisions();
@@ -253,25 +254,26 @@ public abstract class Player : MonoBehaviour
 
         bool hitWall = false;
 
+        float distanceToCheck = wallRiding > 0 ? horizontalForce : Mathf.Abs(velocityX);
+        
         if (right || wallRiding == 2)
         {
-            RaycastHit2D topRightRay = Physics2D.Raycast(topRight, Vector2.right, velocityX, 1 << LayerMask.NameToLayer("Ground"));
-            RaycastHit2D botRightRay = Physics2D.Raycast(bottomRight, Vector2.right, velocityX, 1 << LayerMask.NameToLayer("Ground"));
-            RaycastHit2D midRightRay = Physics2D.Raycast(midRight, Vector2.right, velocityX, 1 << LayerMask.NameToLayer("Ground"));
-
+            RaycastHit2D topRightRay = Physics2D.Raycast(topRight, Vector2.right, distanceToCheck, 1 << LayerMask.NameToLayer("Ground"));
+            RaycastHit2D botRightRay = Physics2D.Raycast(bottomRight, Vector2.right, distanceToCheck, 1 << LayerMask.NameToLayer("Ground"));
+            RaycastHit2D midRightRay = Physics2D.Raycast(midRight, Vector2.right, distanceToCheck, 1 << LayerMask.NameToLayer("Ground"));
             if (topRightRay || botRightRay)
             {
                 velocityX = 0f;
                 if (midRightRay)
                     hitWall = true;
+               
             }
         }
         if (!right || wallRiding == 1)
         {
-            RaycastHit2D topLeftRay = Physics2D.Raycast(topLeft, Vector2.left, -velocityX, 1 << LayerMask.NameToLayer("Ground"));
-            RaycastHit2D botLeftRay = Physics2D.Raycast(bottomLeft, Vector2.left, -velocityX, 1 << LayerMask.NameToLayer("Ground"));
-            RaycastHit2D midLeftRay = Physics2D.Raycast(midLeft, Vector2.left, -velocityX, 1 << LayerMask.NameToLayer("Ground"));
-
+            RaycastHit2D topLeftRay = Physics2D.Raycast(topLeft, Vector2.left, distanceToCheck, 1 << LayerMask.NameToLayer("Ground"));
+            RaycastHit2D botLeftRay = Physics2D.Raycast(bottomLeft, Vector2.left, distanceToCheck, 1 << LayerMask.NameToLayer("Ground"));
+            RaycastHit2D midLeftRay = Physics2D.Raycast(midLeft, Vector2.left, distanceToCheck, 1 << LayerMask.NameToLayer("Ground"));
             if (topLeftRay || botLeftRay)
             {
                 velocityX = 0f;
@@ -279,14 +281,18 @@ public abstract class Player : MonoBehaviour
                     hitWall = true;
             }
         }
-
         if (hitWall && !grounded && velocityY < wallRideFallTolerance)
         {
-            wallRiding = right ? 2 : 1;
-            WallRideAnimation(right);
+            //We are wall riding!
+            if (wallRiding == 0)
+            {
+                wallRiding = right ? 2 : 1;
+                WallRideAnimation(right);
+            }
         }
         else
         {
+            //We are not wall riding
             wallRiding = 0;
             anim.SetBool("WallRiding", false);
         }
