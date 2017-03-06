@@ -39,7 +39,7 @@ public class LevelManager : MonoBehaviour {
             controller.jumpForce = jumpForce;
             controller.gravityForce = gravityForce;
             controller.loadPath = loadPath;
-            TurnOffParticles();
+            SetLearningMode();
         } else if (agentType.Equals("Optimizing"))
         {
             OptimizingMNAgent controller = hero.AddComponent<OptimizingMNAgent>();
@@ -47,7 +47,7 @@ public class LevelManager : MonoBehaviour {
             controller.jumpForce = jumpForce;
             controller.gravityForce = gravityForce;
             controller.loadPath = loadPath;
-            TurnOffParticles();
+            SetLearningMode();
         } else if (agentType.Equals("Evolution"))
         {
             NEAgent controller = hero.AddComponent<NEAgent>();
@@ -56,7 +56,7 @@ public class LevelManager : MonoBehaviour {
             controller.gravityForce = gravityForce;
             controller.loadPath = loadPath;
             timeKeep.timeOutEval = 15;
-            TurnOffParticles();
+            SetLearningMode();
         }
         GameObject camera = GameObject.Find("Main Camera");
         camera.GetComponent<Camera>().player = hero.transform;
@@ -69,13 +69,26 @@ public class LevelManager : MonoBehaviour {
         return null;
     }
 
+    public void SetLearningMode()
+    {
+        TurnOffParticles();
+        ToggleStaticFlame(true);
+        ToggleAnimations(false);
+    }
+
+    public void SetViewingMode()
+    {
+        TurnOnParticles();
+        ToggleStaticFlame(false);
+        ToggleAnimations(true);
+    }
+
     public void TurnOnParticles()
     {
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Particle"))
         {
             obj.GetComponent<ParticleSystem>().Play();
         }
-        ToggleStaticFlame(false);
     }
 
     public void TurnOffParticles()
@@ -83,14 +96,24 @@ public class LevelManager : MonoBehaviour {
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Particle"))
         {
             obj.GetComponent<ParticleSystem>().Stop();
+            obj.GetComponent<ParticleSystem>().Clear();
         }
-        ToggleStaticFlame(true);
     }
 
-    public void ToggleStaticFlame(bool enabled)
+    public void ToggleStaticFlame(bool en)
     {
         GameObject flame = GameObject.Find("FlameDeath");
         if (flame)
-            flame.GetComponent<SpriteRenderer>().enabled = enabled;
+            flame.GetComponent<SpriteRenderer>().enabled = en;
+    }
+
+
+    public void ToggleAnimations(bool en)
+    {
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("NPC"))
+        {
+            obj.GetComponent<Animator>().enabled = en;
+        }
+        hero.GetComponentInChildren<Animator>().enabled = en;
     }
 }

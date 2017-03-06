@@ -36,7 +36,7 @@ public class TimeKeep : MonoBehaviour {
         {
             Time.timeScale = 1f;
             timeOut = timeOutView;
-            levelManager.TurnOnParticles();
+            levelManager.SetViewingMode();
             viewing = true;
             forceView = false;
         }
@@ -45,7 +45,7 @@ public class TimeKeep : MonoBehaviour {
             viewing = false;
             Time.timeScale = timeScale;
             if (agent)
-                levelManager.TurnOffParticles();
+                levelManager.SetLearningMode();
             timeOut = timeOutEval;
         }
     }
