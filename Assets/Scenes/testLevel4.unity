@@ -1597,7 +1597,7 @@ GameObject:
   - component: {fileID: 448861793}
   m_Layer: 0
   m_Name: roboIDLE_0
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2359,7 +2359,7 @@ GameObject:
   - component: {fileID: 676662040}
   m_Layer: 0
   m_Name: roboJUMP_0
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2496,7 +2496,7 @@ GameObject:
   - component: {fileID: 698770139}
   m_Layer: 0
   m_Name: roboWALK_0
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5360,7 +5360,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 774641068}
-  m_LocalRotation: {x: -0.6326346, y: -0.37231743, z: 0.6737935, w: -0.0845916}
+  m_LocalRotation: {x: -0.6326345, y: -0.3723174, z: 0.67379344, w: -0.08459159}
   m_LocalPosition: {x: 93.9, y: 35.31, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -10224,7 +10224,7 @@ GameObject:
   - component: {fileID: 1547597773}
   m_Layer: 0
   m_Name: roboFALL_0
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11168,7 +11168,7 @@ GameObject:
   - component: {fileID: 1825370501}
   m_Layer: 0
   m_Name: roboWALLRIDE_0
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11780,7 +11780,7 @@ GameObject:
   - component: {fileID: 1985799540}
   m_Layer: 0
   m_Name: roboIDLE2_0 (1)
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
