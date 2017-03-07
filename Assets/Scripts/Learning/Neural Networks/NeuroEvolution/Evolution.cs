@@ -16,8 +16,9 @@ public class Evolution {
 
     public string fileName = "";
 
-    public Evolution()
+    public Evolution(string loadPath)
     {
+        fileName = loadPath;
         population = new NeuralNet[popSize];
         if (fileName.Trim().Length > 0)
         {

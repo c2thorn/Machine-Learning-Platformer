@@ -9,7 +9,18 @@ using System;
  */ 
 public class NEAgent : NeuralNetAgent
 {
-    public Evolution ev = new Evolution();
+    public Evolution ev = new Evolution("");
+
+    protected void Start()
+    {
+        if (loadPath.Trim().Length > 0)
+        {
+            Debug.Log("LOADING " + loadPath);
+            ev = new Evolution(loadPath);
+            timeKeep.forceView = true;
+            DetermineViewing();
+        }
+    }
 
     protected override void DetermineViewing()
     {
