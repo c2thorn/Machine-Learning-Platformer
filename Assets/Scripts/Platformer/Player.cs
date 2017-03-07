@@ -263,7 +263,8 @@ public abstract class Player : MonoBehaviour
             RaycastHit2D midRightRay = Physics2D.Raycast(midRight, Vector2.right, distanceToCheck, 1 << LayerMask.NameToLayer("Ground"));
             if (topRightRay || botRightRay)
             {
-                velocityX = 0f;
+                if (right)
+                    velocityX = 0f;
                 if (midRightRay)
                     hitWall = true;
                
@@ -276,7 +277,8 @@ public abstract class Player : MonoBehaviour
             RaycastHit2D midLeftRay = Physics2D.Raycast(midLeft, Vector2.left, distanceToCheck, 1 << LayerMask.NameToLayer("Ground"));
             if (topLeftRay || botLeftRay)
             {
-                velocityX = 0f;
+                if (!right)
+                    velocityX = 0f;
                 if (midLeftRay)
                     hitWall = true;
             }
