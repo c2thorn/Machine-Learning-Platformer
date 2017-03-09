@@ -436,6 +436,7 @@ MonoBehaviour:
   levelManager: {fileID: 543554636}
   agent: {fileID: 0}
   forceView: 0
+  canView: 1
 --- !u!4 &101911398 stripped
 Transform:
   m_PrefabParentObject: {fileID: 455832, guid: 41dd67ae66d2ca34e9d2463c5a1dfc61, type: 2}
@@ -1846,8 +1847,11 @@ MonoBehaviour:
   learningText2: {fileID: 1109524892}
   learningText3: {fileID: 1086104423}
   loadPath: 
+  SimPopulationSize: 20
   hero: {fileID: 0}
   heroPrefab: {fileID: 1469833630816668, guid: eb73aa553d1fa3c4e91dd95134bf484c, type: 2}
+  SimRoboPrefab: {fileID: 1600973580438344, guid: ebe99d7a56d06f14390e45573c6e7720,
+    type: 2}
 --- !u!4 &543554637
 Transform:
   m_ObjectHideFlags: 0
@@ -5360,7 +5364,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 774641068}
-  m_LocalRotation: {x: -0.6326345, y: -0.3723174, z: 0.67379344, w: -0.08459159}
+  m_LocalRotation: {x: -0.6326346, y: -0.37231743, z: 0.6737935, w: -0.0845916}
   m_LocalPosition: {x: 93.9, y: 35.31, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -11009,6 +11013,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
+  smooth: 0.5
+  followY: 1
+  simultaneous: 0
 --- !u!1 &1779528414
 GameObject:
   m_ObjectHideFlags: 0

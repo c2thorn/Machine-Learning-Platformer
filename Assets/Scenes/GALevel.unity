@@ -8085,6 +8085,7 @@ MonoBehaviour:
   player: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   smooth: 1
+  followY: 0
   simultaneous: 0
 --- !u!4 &1293011794 stripped
 Transform:

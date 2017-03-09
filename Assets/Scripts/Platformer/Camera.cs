@@ -8,6 +8,7 @@ public class Camera : MonoBehaviour {
     public Vector3 offset;
     Vector3 specificVector;
     public float smooth = .5f;
+    public bool followY = true;
 
     public bool simultaneous = false;
 
@@ -16,7 +17,9 @@ public class Camera : MonoBehaviour {
         if (simultaneous)
             FindFurthestRobot();
 
-        specificVector = new Vector3(player.position.x, transform.position.y, transform.position.z);
+        float newY = followY ? player.position.y : transform.position.y;
+
+        specificVector = new Vector3(player.position.x, newY, transform.position.z);
         transform.position = Vector3.Lerp(transform.position, specificVector, smooth * Time.deltaTime);
         //transform.position = new Vector3(player.position.x + offset.x, player.position.y + offset.y, transform.position.z); // Camera follows the player with specified offset position
     }
