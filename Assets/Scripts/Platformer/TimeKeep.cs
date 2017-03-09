@@ -21,6 +21,8 @@ public class TimeKeep : MonoBehaviour {
     private bool viewing = false;
     public bool forceView = false;
 
+    public bool canView = true;
+
 	// Use this for initialization
 	void Start () {
         Application.runInBackground = true;
@@ -32,7 +34,7 @@ public class TimeKeep : MonoBehaviour {
     {
         agent = levelManager.GetAgent();
         time = 0f;
-        if ((restart % viewNumber == 0 && restart > 0) || forceView)
+        if (canView && ((restart % viewNumber == 0 && restart > 0) || forceView))
         {
             Time.timeScale = 1f;
             timeOut = timeOutView;
@@ -99,6 +101,21 @@ public class TimeKeep : MonoBehaviour {
         {
             if (agent != null)
                 agent.LevelEnd();
+            else
+            {
+                foreach (GameObject hero in GameObject.FindGameObjectsWithTag("Player"))
+                {
+                    SimNEAgent sim = hero.GetComponent<SimNEAgent>();
+                    bool restarted = false;
+                    if (sim)
+                    {
+                        if (!sim.terminated)
+                            restarted = sim.TimeOut();
+                    }
+                    if (restarted)
+                        break;
+                }
+            }
         }
 
     }

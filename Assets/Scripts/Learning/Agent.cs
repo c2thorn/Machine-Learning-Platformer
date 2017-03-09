@@ -56,6 +56,8 @@ public abstract class Agent : Player
             return 2;
         if (obj.tag == "Finish")
             return 3;
+        if (obj.tag == "Player")
+            return 0;
         return 1;
     }
 

@@ -62,7 +62,8 @@ public abstract class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         if (!anim)
             anim = GetComponentInChildren<Animator>();
-        groundCheck = GameObject.Find("groundCheck").transform;
+        groundCheck = transform.FindChild("groundCheck");
+        //groundCheck = GameObject.Find("groundCheck").transform;
         scoreKeep = GameObject.Find("Score Text").GetComponent<ScoreKeep>();
         timeKeep = GameObject.Find("Time Text").GetComponent<TimeKeep>();
         leftText = GameObject.Find("Left Text").GetComponent<GUIText>();
@@ -288,6 +289,7 @@ public abstract class Player : MonoBehaviour
             //We are wall riding!
             if (wallRiding == 0)
             {
+                pushedCount = 0;
                 wallRiding = right ? 2 : 1;
                 WallRideAnimation(right);
             }

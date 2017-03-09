@@ -17,55 +17,86 @@ public class LevelManager : MonoBehaviour {
     public GUIText learningText2;
     public GUIText learningText3;
     public string loadPath = "";
+    public int SimPopulationSize = 20;
 
     [HideInInspector]
     public GameObject hero;
 
     public GameObject heroPrefab;
 
+    public GameObject SimRoboPrefab;
+
+    SimEvolution simEv;
+
     // Use this for initialization
     void Awake ()
     {
-        hero = Instantiate(heroPrefab);
-        if (agentType.Equals("Human")) {
-            HumanController controller = hero.AddComponent<HumanController>();
+        if (agentType.Equals("Sim"))
+        {
+            GameObject[] robos = new GameObject[SimPopulationSize];
+            for (int i = 0; i < SimPopulationSize; i++)
+            {
+                robos[i] = Instantiate(SimRoboPrefab);
+                SimNEAgent controller = robos[i].AddComponent<SimNEAgent>();
+                controller.horizontalForce = horizontalForce;
+                controller.jumpForce = jumpForce;
+                controller.gravityForce = gravityForce;
+            }
 
-            controller.horizontalForce = horizontalForce;
-            controller.jumpForce = jumpForce;
-            controller.gravityForce = gravityForce;
-        } else if (agentType.Equals("Linear")){
-            LinearMNAgent controller = hero.AddComponent<LinearMNAgent>();
-            controller.horizontalForce = horizontalForce;
-            controller.jumpForce = jumpForce;
-            controller.gravityForce = gravityForce;
-            controller.loadPath = loadPath;
-            SetLearningMode();
-        } else if (agentType.Equals("Optimizing"))
-        {
-            OptimizingMNAgent controller = hero.AddComponent<OptimizingMNAgent>();
-            controller.horizontalForce = horizontalForce;
-            controller.jumpForce = jumpForce;
-            controller.gravityForce = gravityForce;
-            controller.loadPath = loadPath;
-            SetLearningMode();
-        } else if (agentType.Equals("Evolution"))
-        {
-            NEAgent controller = hero.AddComponent<NEAgent>();
-            controller.horizontalForce = horizontalForce;
-            controller.jumpForce = jumpForce;
-            controller.gravityForce = gravityForce;
-            controller.loadPath = loadPath;
-            timeKeep.timeOutEval = 15;
-            SetLearningMode();
+            simEv = new SimEvolution(robos, loadPath);
+            //hero = robos[0];
+            Camera camera = GameObject.Find("Main Camera").GetComponent<Camera>();
+            camera.player = robos[0].transform;
+            camera.simultaneous = true;
         }
-        GameObject camera = GameObject.Find("Main Camera");
-        camera.GetComponent<Camera>().player = hero.transform;
+        else
+        {
+            hero = Instantiate(heroPrefab);
+            if (agentType.Equals("Human"))
+            {
+                HumanController controller = hero.AddComponent<HumanController>();
+                controller.horizontalForce = horizontalForce;
+                controller.jumpForce = jumpForce;
+                controller.gravityForce = gravityForce;
+            }
+            else if (agentType.Equals("Linear"))
+            {
+                LinearMNAgent controller = hero.AddComponent<LinearMNAgent>();
+                controller.horizontalForce = horizontalForce;
+                controller.jumpForce = jumpForce;
+                controller.gravityForce = gravityForce;
+                controller.loadPath = loadPath;
+                SetLearningMode();
+            }
+            else if (agentType.Equals("Optimizing"))
+            {
+                OptimizingMNAgent controller = hero.AddComponent<OptimizingMNAgent>();
+                controller.horizontalForce = horizontalForce;
+                controller.jumpForce = jumpForce;
+                controller.gravityForce = gravityForce;
+                controller.loadPath = loadPath;
+                SetLearningMode();
+            }
+            else if (agentType.Equals("Evolution"))
+            {
+                NEAgent controller = hero.AddComponent<NEAgent>();
+                controller.horizontalForce = horizontalForce;
+                controller.jumpForce = jumpForce;
+                controller.gravityForce = gravityForce;
+                controller.loadPath = loadPath;
+                timeKeep.timeOutEval = 15;
+                SetLearningMode();
+            }
+            GameObject camera = GameObject.Find("Main Camera");
+            camera.GetComponent<Camera>().player = hero.transform;
+        }
 	}
 
     public Agent GetAgent()
     {
-        if (hero.GetComponent("Agent"))
-            return hero.GetComponent<Agent>();
+        if (hero)
+            if (hero.GetComponent("Agent"))
+                return hero.GetComponent<Agent>();
         return null;
     }
 
