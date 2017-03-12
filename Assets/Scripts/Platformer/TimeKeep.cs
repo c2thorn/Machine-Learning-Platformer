@@ -95,7 +95,9 @@ public class TimeKeep : MonoBehaviour {
 
     void FixedUpdate () {
         time += Time.fixedDeltaTime;
-        text.text = "Time: " + time.ToString("F2") +" "+ restart;
+        text.text = "Time: " + time.ToString("F2"); 
+        if (canView)
+            text.text +=" "+ restart;
 
         if (time >= timeOut)
         {

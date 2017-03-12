@@ -6,7 +6,7 @@ using System;
 /**
  * NeuroEvolutionary Agent
  * Currently swapped out for MultiNetAgent, but will do more experimentation with it
- */ 
+ */
 public class SimNEAgent : NeuralNetAgent
 {
     public int GenerationID;
@@ -20,7 +20,7 @@ public class SimNEAgent : NeuralNetAgent
     protected override void Awake()
     {
         text = GetComponentInChildren<TextMesh>();
-        text.text = ""+maxTime;
+        text.text = "" + maxTime;
         //text.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z-1);
     }
 
@@ -34,10 +34,15 @@ public class SimNEAgent : NeuralNetAgent
             timeKeep.forceView = true;
             DetermineViewing();
         */
-        base.Awake();
+        anim = GetComponentInChildren<Animator>();
+        groundCheck = transform.FindChild("groundCheck");
+
+        beginningPosition = transform.position;
+        timeKeep = GameObject.Find("Time Text").GetComponent<TimeKeep>();
         timeKeep.ChangeTimeScale(1f);
         timeKeep.ChangeTimeOut(20f);
         timeKeep.canView = false;
+        BeginLevel();
     }
 
     public override void tick()
@@ -68,7 +73,7 @@ public class SimNEAgent : NeuralNetAgent
     }
 
     protected override void setLearningText()
-    {  
+    {
     }
 
     public virtual bool TimeOut()
@@ -103,5 +108,15 @@ public class SimNEAgent : NeuralNetAgent
         else
             newColor = new Color(newColor.r, newColor.g, newColor.b, 1f);
         sprite.color = newColor;
+    }
+
+    protected override void highlightActions()
+    {
+    }
+
+    public override void LevelRestart()
+    {
+        timeKeep.BeginLevel();
+        BeginLevel();
     }
 }

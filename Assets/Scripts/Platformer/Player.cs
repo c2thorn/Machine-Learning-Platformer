@@ -91,7 +91,8 @@ public abstract class Player : MonoBehaviour
         velocityY = 0f;
         stopTick = false;
         actions = new bool[3];
-        scoreKeep.score = 0f;
+        if (scoreKeep)
+            scoreKeep.score = 0f;
     }
     
     // Update is called once per frame

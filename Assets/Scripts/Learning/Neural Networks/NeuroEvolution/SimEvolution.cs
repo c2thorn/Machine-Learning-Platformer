@@ -10,6 +10,7 @@ public class SimEvolution {
     public int popSize = 20;
     public double mutationRate = 0.5;
     public System.Random random = new System.Random();
+    public int generations = 0;
 
 
     public string fileName = "";
@@ -73,6 +74,7 @@ public class SimEvolution {
         MutatePop();
         SetZPositions();
         RestartAgents();
+        generations++;
     }
 
     private void sortPopulationByFitness()
