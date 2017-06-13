@@ -62,7 +62,7 @@ public abstract class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         if (!anim)
             anim = GetComponentInChildren<Animator>();
-        groundCheck = transform.FindChild("groundCheck");
+        groundCheck = transform.Find("groundCheck");
         //groundCheck = GameObject.Find("groundCheck").transform;
         scoreKeep = GameObject.Find("Score Text").GetComponent<ScoreKeep>();
         timeKeep = GameObject.Find("Time Text").GetComponent<TimeKeep>();

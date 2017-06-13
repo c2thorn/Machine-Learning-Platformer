@@ -1,13 +1,17 @@
 fileFormatVersion: 2
 guid: 361e1e5d552ad444fb688b5203c01caa
 TextureImporter:
-  fileIDToRecycleName: {}
-  serializedVersion: 2
+  fileIDToRecycleName:
+    21300000: enemy1-tail
+    21300002: enemy1-body
+    21300004: enemy1-eye
+    21300006: enemy1-eyelid
+  serializedVersion: 4
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
+    sRGBTexture: 1
     linearTexture: 0
-    correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
     mipMapFadeDistanceStart: 1
@@ -15,14 +19,12 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
-  generateCubemap: 0
+  generateCubemap: 6
   cubemapConvolution: 0
-  cubemapConvolutionSteps: 8
-  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
   maxTextureSize: 1024
@@ -33,21 +35,36 @@ TextureImporter:
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
-  rGBM: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
+  alphaUsage: 1
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: enemy1-tail
+    - serializedVersion: 2
+      name: enemy1-tail
       rect:
         serializedVersion: 2
         x: 0
@@ -55,9 +72,12 @@ TextureImporter:
         width: 167
         height: 168
       alignment: 5
-      pivot: {x: 1, y: .5}
+      pivot: {x: 1, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: enemy1-body
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: enemy1-body
       rect:
         serializedVersion: 2
         x: 168
@@ -65,9 +85,12 @@ TextureImporter:
         width: 305
         height: 464
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: enemy1-eye
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: enemy1-eye
       rect:
         serializedVersion: 2
         x: 517
@@ -75,9 +98,12 @@ TextureImporter:
         width: 109
         height: 100
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: enemy1-eyelid
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: enemy1-eyelid
       rect:
         serializedVersion: 2
         x: 682
@@ -85,8 +111,11 @@ TextureImporter:
         width: 137
         height: 136
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    outline: []
   spritePackingTag: characters
   userData: 
   assetBundleName: 

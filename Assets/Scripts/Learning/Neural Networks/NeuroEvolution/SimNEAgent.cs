@@ -35,7 +35,7 @@ public class SimNEAgent : NeuralNetAgent
             DetermineViewing();
         */
         anim = GetComponentInChildren<Animator>();
-        groundCheck = transform.FindChild("groundCheck");
+        groundCheck = transform.Find("groundCheck");
 
         beginningPosition = transform.position;
         timeKeep = GameObject.Find("Time Text").GetComponent<TimeKeep>();

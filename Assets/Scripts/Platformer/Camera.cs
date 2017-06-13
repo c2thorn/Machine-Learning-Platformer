@@ -8,20 +8,27 @@ public class Camera : MonoBehaviour {
     public Vector3 offset;
     Vector3 specificVector;
     public float smooth = .5f;
+
+    public bool smoothFollow = false;
+
     public bool followY = true;
 
     public bool simultaneous = false;
 
     void Update()
     {
-        if (simultaneous)
-            FindFurthestRobot();
+        if (smoothFollow)
+        {
+            if (simultaneous)
+                FindFurthestRobot();
 
-        float newY = followY ? player.position.y : transform.position.y;
+            float newY = followY ? player.position.y : transform.position.y;
 
-        specificVector = new Vector3(player.position.x, newY, transform.position.z);
-        transform.position = Vector3.Lerp(transform.position, specificVector, smooth * Time.deltaTime);
-        //transform.position = new Vector3(player.position.x + offset.x, player.position.y + offset.y, transform.position.z); // Camera follows the player with specified offset position
+            specificVector = new Vector3(player.position.x, newY, transform.position.z);
+            transform.position = Vector3.Lerp(transform.position, specificVector, smooth * Time.deltaTime);
+        }
+        else
+            transform.position = new Vector3(player.position.x + offset.x, player.position.y + offset.y, transform.position.z); // Camera follows the player with specified offset position
     }
 
     private void FindFurthestRobot()
