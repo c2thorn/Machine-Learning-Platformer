@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TimeKeep : MonoBehaviour {
     private GUIText text;
@@ -81,16 +82,21 @@ public class TimeKeep : MonoBehaviour {
     
     void Update()
     {
-        if (Input.GetKeyDown("f"))
+        if (Input.GetKeyDown("v"))
         {
             forceView = true;
             if (agent != null)
                 agent.LevelRestart();
         }
 
-        if (Input.GetKeyDown("v"))
+        if (Input.GetKeyDown("r"))
             if (agent != null)
                 agent.LevelRestart();
+        if (Input.GetKeyDown("q"))
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene("LevelSelect");
+        }
     }
 
     void FixedUpdate () {

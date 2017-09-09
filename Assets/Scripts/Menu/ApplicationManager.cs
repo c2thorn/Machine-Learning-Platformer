@@ -8,7 +8,8 @@ public class ApplicationManager : MonoBehaviour {
     void Start()
     {
         //For demo purposes only
-        GameObject.Find("Story").GetComponent<Selectable>().interactable = false;
+        if (GameObject.Find("Story"))
+            GameObject.Find("Story").GetComponent<Selectable>().interactable = false;
     }
 	
     public void GoToScene(string scene)
